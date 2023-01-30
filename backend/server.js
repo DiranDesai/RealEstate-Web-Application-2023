@@ -1,20 +1,28 @@
 require("dotenv").config();
+const cors = require("cors");
 const connectDB = require("./config/db");
-
+const { errorHandler } = require("./middlewares/errorMiddleware");
+runServer();
 const express = require("express");
 const app = express();
 
-app.use(express.json());
-
 const userRoutes = require("./routes/userRoutes");
 
+let corsOptions = {
+    origin : 'http://localhost:3000',
+ }
+
+app.use(cors(corsOptions));
+app.use(express.json());
+
+
 app.get("/coding", (req, res) => {
-    res.send("Hello World");
+    res.json({msg: true});
 });
 
 app.use("/api/v1", userRoutes);
 
-
+app.use(errorHandler);
 
 async function runServer() {
     try {
@@ -29,4 +37,3 @@ async function runServer() {
 }
 
 
-runServer();

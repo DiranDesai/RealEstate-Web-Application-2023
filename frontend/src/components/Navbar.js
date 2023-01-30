@@ -1,19 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import React, {useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-
-import authContext from "../context/authContext/authContext";
+import useAuthState from "../hooks/useAuthState";
 
 import { getUrlPathname } from "../utils/main"
 
 function Navbar() {
-  const { user } = useContext(authContext);
+  const { token, logout } = useAuthState();
 
   return (
     <div className="navbar">
       <div className="container">
         <div
           className={`inner-bar d-flex align-items-center w-100 ${
-            !user && "justify-content-between"
+            !token && "justify-content-between"
           }`}
         >
           <div className="logo">
@@ -21,7 +20,7 @@ function Navbar() {
               <img src="images/logo3.svg" alt="logo" />
             </Link>
           </div>
-          {user ? (
+          {token ? (
             <>
               <div className="menu-1">
                 <input
@@ -59,8 +58,8 @@ function Navbar() {
                     </a>
                     <div className="dropdown">
                       <div className="dropdown-menu dropdown-menu-end">
-                        <Link to="login" className="dropdown-item">
-                          Login
+                        <Link className="dropdown-item" onClick={logout} >
+                          Logout
                         </Link>
                         <Link to="account" className="dropdown-item">
                           Register

@@ -6,30 +6,32 @@ import {
   Navigate
 } from "react-router-dom";
 
+// PAGES IMPORTS
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import AgentsListing from "./pages/AgentsListing";
 
+// COMPONENTS IMPORTS
 import "./App.css";
 import Navbar from "./components/Navbar";
-import PropertyList from "./components/PropertyList";
 
 import authContext from "./context/authContext/authContext";
 
 function App() {
-  const { user } = useContext(authContext);
-  console.log(user);
+  const { token } = useContext(authContext);
 
   return (
     <>
       <Router>
-        <Navbar />
+        {token && <Navbar />}
         <Routes>
-          <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} exact />
-          <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
-          <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-          <Route path="/account" element={user ? <Navigate to="/" /> : <Register />} />
+          <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} exact />
+          <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
+          <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
+          <Route path="/account" element={token ? <Navigate to="/" /> : <Register />} />
+          <Route path="/agents/listing" element={token ? <AgentsListing /> : <Navigate to="/login" />}/>
         </Routes>
       </Router>
     </>
