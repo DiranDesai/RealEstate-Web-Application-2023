@@ -1,18 +1,18 @@
-const bcrypt = require('bcryptjs');
 const asyncHandler = require("express-async-handler");
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require("../models/userModel");
 
 const authUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body;
-    const user = await User.findOne({email}).select("password");
+    const user = await User.findOne({email});
 
     if (!user) {
         throw new Error("User with that email is not found");
     } 
 
-    if (user && checkPassword(user, password)) {
+    if (user && await (checkPassword(user, password))) {
         return res.status(200).json({
             ...user,
             token: generateToken(user._id)

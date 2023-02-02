@@ -20,11 +20,10 @@ import { getToken } from "../utils";
 
 //console.log(getToken());
 
-
 const AuthState = (props) => {
   useEffect(() => {
     if (getToken() !== null || getToken() !== undefined) {
-        dispatch({type: UPDATE_TOKEN, payload: getToken()});
+      dispatch({ type: UPDATE_TOKEN, payload: getToken() });
     }
   }, []);
 
@@ -59,41 +58,36 @@ const AuthState = (props) => {
     sendRequest();
   };
 
-  const loginUser = (formData) => {
-    const sendRequest = async () => {
-        try {
-          dispatch({ type: USER_LOGIN_REQUEST });
-          const response = await fetch(`${URL}/login`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          });
-          const data = await response.json();
+  const loginUser = async (formData) => {
+    try {
+      dispatch({ type: USER_LOGIN_REQUEST });
+      const response = await fetch(`${URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
 
-          console.log(data);
-        
-  
-          // dispatch({ type: USER_LOGIN_SUCCESS, payload: token });
-          // localStorage.setItem("token", JSON.stringify(token));
-        } catch (error) {
-          console.log(error);
-          dispatch({ type: USER_LOGIN_FAIL, payload: error.message });
-        }
-      };
-  
-      sendRequest();
+      if (data.message) {
+        dispatch({ type: USER_LOGIN_FAIL, payload: data.message });
+        return
+      }
+
+      dispatch({ type: USER_LOGIN_SUCCESS, payload: data.token });
+      localStorage.setItem("token", JSON.stringify(data.token));
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: USER_LOGIN_FAIL, payload: error.message });
+    }
   };
 
-
   const logout = () => {
-    dispatch({type: LOGOUT});
-    dispatch({type: RESET});
+    dispatch({ type: LOGOUT });
+    dispatch({ type: RESET });
     localStorage.removeItem("token");
-  }
-
-
+  };
 
   return (
     <AuthContext.Provider

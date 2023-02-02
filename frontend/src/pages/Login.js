@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import MessageComponent from '../components/MessageComponent';
 import useAuthState from '../hooks/useAuthState';
 
+import { RESET_LOGIN_ERROR } from "../context/types"
+
 function Login() {
   const [formData, setFormData] = useState({});
   const [message, setMessage] = useState(null);
 
-  const { error } = useAuthState();
+  const { error, dispatch } = useAuthState();
 
 
   const { loginUser } = useAuthState();
@@ -17,6 +19,9 @@ function Login() {
 
     if (message) {
       setMessage(null);
+    }
+    if (error) {
+      dispatch({type: RESET_LOGIN_ERROR});
     }
     setFormData((prevForm) => {
       return { ...prevForm, [name]: value };
@@ -38,7 +43,7 @@ function Login() {
       </div>
         <p>Enter your email & password to login</p>
       </div>
-      {error && <MessageComponent message={error.msg} />}
+      {error && <MessageComponent message={error} />}
       <div className='form-group'>
         <label htmlFor="email">Email</label>
         <div className="input-group">

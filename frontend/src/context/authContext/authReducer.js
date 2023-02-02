@@ -6,6 +6,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   LOGOUT,
+  RESET_LOGIN_ERROR
 } from "../types";
 
 const authReducer = (state, action) => {
@@ -22,6 +23,9 @@ const authReducer = (state, action) => {
     case USER_REGISTER_FAIL:
       return { ...state, error: action.payload };
       break;
+    case RESET_LOGIN_ERROR:
+        return { ...state, error: null };
+        break;
     case USER_LOGIN_REQUEST:
       return { ...state, loading: true };
       break;
