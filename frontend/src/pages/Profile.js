@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Estates from "../components/Estates";
 
 import useUser from "../hooks/useUser";
 
@@ -14,7 +15,7 @@ function Profile() {
 
   return (
     <div className="profile-page-container">
-      <div className="container mt-5">
+      <div className="container">
         <div className="heading d-flex align-items-center justify-content-between">
           <div>
             <p>Account Overview</p>
@@ -26,7 +27,7 @@ function Profile() {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 left-profile-page">
             <div className="col-md-12">
               <div className="profile-container">
                 <div className="profile-header d-flex">
@@ -354,10 +355,8 @@ function Profile() {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <div>
-              
-            </div>
+          <div className="col-md-6 right-profile-page">
+             
           </div>
         </div>
       </div>

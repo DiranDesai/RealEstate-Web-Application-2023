@@ -1,50 +1,28 @@
-import React from 'react'
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import useUser from "../hooks/useUser";
 
 function CategoryList() {
+  const {categories} = useUser();
+
   return (
-    <div className='row g-5 category-listing-wrapper'>
-        <div className="col-3">
-            <div className="card">
-                <div className="inner-content">
-                    <i className="bi bi-building-fill"></i>
-                    <h5>Apartments</h5>
-                    <p>4 Listings</p>
-                    <button className='btn'>View Category</button>
-                </div>
+    <div className="row g-5 category-listing-wrapper">
+      {categories.map((category) => (
+        <div className="col-3" key={category.name}>
+          <div className="card">
+            <div className="inner-content">
+              <i className="bi bi-building-fill"></i>
+              <h5>{category.name}</h5>
+              <p>{category.listings} Listings</p>
+              <Link to={`category/${category.name}`}>
+                <button className="btn">View Category</button>
+              </Link>
             </div>
+          </div>
         </div>
-        <div className="col-3">
-            <div className="card">
-                <div className="inner-content">
-                    <i className="bi bi-bag-fill"></i>
-                    <h5>Commercial</h5>
-                    <p>3 Listings</p>
-                    <button className='btn'>View Category</button>
-                </div>
-            </div>
-        </div>
-        <div className="col-3">
-            <div className="card">
-                <div className="inner-content">
-                    <i className="bi bi-buildings"></i>
-                    <h5>Office</h5>
-                    <p>1 Listings</p>
-                    <button className='btn'>View Category</button>
-                </div>
-            </div>
-        </div>
-        <div className="col-3">
-            <div className="card">
-                <div className="inner-content">
-                    <i className="bi bi-amd"></i>
-                    <h5>Restaurant</h5>
-                    <p>2 Listings</p>
-                    <button className='btn'>View Category</button>
-                </div>
-            </div>
-        </div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default CategoryList
+export default CategoryList;

@@ -12,7 +12,18 @@ import { getToken } from "../utils"
 const UserState = ({children}) => {
     const initialState = {
         profileData: null,
-        loading: false
+        loading: false,
+        categories: [
+            { name: "apartments", listings: 4, icon: "bi bi-building-fill" },
+            { name: "commercial", listings: 2, icon: "bi bi-bag-fill" },
+            { name: "office", listings: 3, icon: "bi bi-buildings" },
+            { name: "restaraunt", listings: 1, icon: "bi bi-amd" },
+        ],
+        properties: [
+            {title: "Countryside Modern Lake View", location: "New London", price: 25000, author: "Tom Steven", pic: "user1.jpg", category: "office", task: "sale", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
+
+            {title: "Computer Office", location: "Chicago", price: 2000, author: "Diran Sai", pic: "user2.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]}
+        ]
     }
 
     const [state, dispatch] = useReducer(UserReducer, initialState);

@@ -30,7 +30,7 @@ const AuthState = (props) => {
   const initialState = {
     user: null,
     token: null,
-    error: null,
+    error: null
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);

@@ -59,7 +59,7 @@ function Login() {
         <input type="checkbox" />
         <span> Remember me</span>
       </div>
-      <button className='btn btn-primary btn-block my-3'>Create Account</button>
+      <button type="submit" className='btn btn-primary btn-block my-3'>Login</button>
       <p>Don't have account?? <Link to="/account">Create an account</Link></p>
     </div>
       </form>

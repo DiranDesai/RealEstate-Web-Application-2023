@@ -11,3 +11,8 @@ export const getToken = () => {
 }
 
 
+export const moneyFormat = (price) => {
+    const money = new Intl.NumberFormat().format(price);
+    return `K ${money}`
+}
+

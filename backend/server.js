@@ -10,7 +10,7 @@ const userRoutes = require("./routes/userRoutes");
 
 let corsOptions = {
     origin : 'http://localhost:3000',
- }
+}
 
 app.use(cors(corsOptions));
 app.use(express.json());

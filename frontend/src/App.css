@@ -10,7 +10,7 @@
 
 :root{
   --color-1: #e7eaed;
-  --color2: #0095e8;
+  --color2: #0b8cd3;
   --border-color1: #e1e3ea;
   --shallow-shadow2: 0 1px .625rem 0 hsla(210, 7%, 22%, .06), 0 .125rem .25rem 0 hsla(210, 7%, 22%, .08);
   --shallow-shadow: 0px 0 30px rgb(1 41 112 / 10%);
@@ -65,8 +65,8 @@ ul{
   height: 30px;
 }
 
-.main{
-  padding-top: 3rem;
+.app-wrapper{
+  padding-top: 6rem;
 }
 .dropdown-menu{
   padding: 0;
@@ -78,6 +78,12 @@ ul{
 .navbar{
   padding: 0;
   border-bottom: 1px solid var(--color-1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
 }
 .navbar .logo{
   flex: 0.5;
@@ -133,6 +139,15 @@ ul{
     color: white;
     top: -12px;
     right: 0;
+}
+.navbar .menu-2 ul li:nth-child(1) a .count{
+  background-color: #00b4d7 !important;
+}
+.navbar .menu-2 ul li:nth-child(2) a .count{
+  background-color: #6694c9 !important;
+}
+.navbar .menu-2 ul li:nth-child(3) a .count{
+  background-color: #f50022 !important;
 }
 .navbar .menu-3 .btn{
   color: white;
@@ -289,6 +304,7 @@ ul{
   color: rgb(15 105 249);
   font-size: 1.3rem;
   margin-top: 20px;
+  font-weight: 700;
 }
 .property .tag{
   display: inline-block;
@@ -361,6 +377,19 @@ ul{
   box-shadow: none;
   border: 1px solid var(--border-color1);
   background-color: white;
+  border: none;
+}
+.category-listing-wrapper .col-3:nth-child(1) .inner-content i{
+  color: red;
+}
+.category-listing-wrapper .col-3:nth-child(2) .inner-content i{
+  color: rgb(0, 44, 70);
+}
+.category-listing-wrapper .col-3:nth-child(3) .inner-content i{
+  color: rgb(63 141 248);
+}
+.category-listing-wrapper .col-3:nth-child(4) .inner-content i{
+  color: rgb(53 240 86);
 }
 .category-listing-container .heading{
   font-size: 19px;
@@ -370,9 +399,10 @@ ul{
   font-size: 16px;
   color: #333;
   font-weight: 700;
+  text-transform: capitalize;
 }
 .category-listing-wrapper i{
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 30px;
   color: #4b7ea1;
 }
@@ -525,7 +555,7 @@ ul{
   width: 15px;
   height: 15px;
 }
-.profile-page-container img{
+.profile-page-container .left-profile-page img{
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -639,6 +669,54 @@ ul{
   font-size: 17px;
   color: ;
 }
+
+
+/* ESTATE STYLES */
+.estate-container{
+  height: 500px;
+}
+.estates-wrapper table tr, .estates-wrapper table td{
+  border: none;
+}
+.estates-wrapper table .estate-name{
+  margin-left: 10px;
+}
+.estates-wrapper table thead{
+  background-color: #dcdcdf;
+  padding: 20px;
+  color: #63646e;
+  font-size: 14px;
+  border-radius: 20px !important;
+}
+.estates-wrapper table tbody{
+  border: none;
+}
+
+.estates-wrapper table tr div{
+  display: flex;
+}
+
+/* SPONSOR LISTING STYLES */ 
+.sponsor-listing-container ul{
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  align-items: center;
+  justify-items: center;
+}
+.sponsor-listing-container img{
+  width: 130px;
+  object-fit: cover;
+}
+
+
+.estates-wrapper table img{
+  width: 65px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
 
 
 /* RESPONSIVE WEB DESIGN */

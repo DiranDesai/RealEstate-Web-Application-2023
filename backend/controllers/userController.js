@@ -9,7 +9,7 @@ const authUser = asyncHandler(async (req, res) => {
     const user = await User.findOne({email});
 
     if (!user) {
-        throw new Error("User with that email is not found");
+        throw new Error("User with that email does not exist");
     } 
 
     if (user && await (checkPassword(user, password))) {
