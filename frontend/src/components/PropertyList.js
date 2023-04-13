@@ -12,7 +12,7 @@ function PropertyList() {
   return (
     <div className="row g-5 property-listing-wrapper">
       {properties.map((property, index) => (
-        <div className="col-md-4 property" key={index}>
+        <div className="col-md-3 property" key={index}>
           <div className="card">
             <div className="top">
               <div className="property-tags d-flex justify-content-between align-items-center">
@@ -52,7 +52,7 @@ function PropertyList() {
             </div>
             <div className="bottom d-flex justify-content-between align-items-center">
               <div className="owner d-flex align-items-center">
-                <img src="images/user1.jpg" />
+                <img src={`images/${property.pic}`} />
                 <p>
                   By <a href="#">{property.author}</a>
                 </p>

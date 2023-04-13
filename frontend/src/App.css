@@ -285,6 +285,9 @@ ul{
 .property .property-tags{
   margin-left: -7px;
 }
+.property .property-options{
+  display: none !important;
+}
 /* .property .property-tags{
   position: absolute;
   z-index: 1000;
@@ -304,7 +307,6 @@ ul{
   color: rgb(15 105 249);
   font-size: 1.3rem;
   margin-top: 20px;
-  font-weight: 700;
 }
 .property .tag{
   display: inline-block;
@@ -335,6 +337,9 @@ ul{
 .property .owner p{
   margin: 0;
   margin-left: 10px;
+}
+.property .owner p a{
+  color: var(--color2);
 }
 .property .btn{
   color: #151a1e;

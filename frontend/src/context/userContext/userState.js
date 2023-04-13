@@ -22,7 +22,19 @@ const UserState = ({children}) => {
         properties: [
             {title: "Countryside Modern Lake View", location: "New London", price: 25000, author: "Tom Steven", pic: "user1.jpg", category: "office", task: "sale", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
 
-            {title: "Computer Office", location: "Chicago", price: 2000, author: "Diran Sai", pic: "user2.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]}
+            {title: "Computer Office", location: "Chicago", price: 6000, author: "Diran Sai", pic: "user2.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
+
+            {title: "Computer Office", location: "Livingstone", price: 7000, author: "Shepy", pic: "user3.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
+
+            {title: "Car Wash", location: "Braga", price: 6500, author: "Jane Smith", pic: "user4.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
+
+            {title: "Restaurent", location: "Francisco", price: 2500, author: "Kunje", pic: "user5.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
+
+            {title: "Medicine Compass", location: "Lusaka", price: 12000, author: "Corder", pic: "user6.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
+
+            {title: "Medicine Compass", location: "Lusaka", price: 12000, author: "Peter", pic: "user6.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
+
+            {title: "Medicine Compass", location: "Lusaka", price: 12000, author: "John", pic: "user6.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]}
         ]
     }
 
