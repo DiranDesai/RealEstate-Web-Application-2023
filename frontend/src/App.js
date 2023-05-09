@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import AgentsListing from "./pages/AgentsListing";
 import Category from "./pages/Category";
 import Property from "./pages/Property";
+import CreateEstate from "./pages/CreateEstate";
 
 // COMPONENTS IMPORTS
 import "./App.css";
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} exact />
           <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
+          <Route path="/create" element={token ? <CreateEstate /> : <Navigate to="/login" />} />
           <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
           <Route path="/account" element={token ? <Navigate to="/" /> : <Register />} />
           <Route path="/agents/listing" element={token ? <AgentsListing /> : <Navigate to="/login" />}/>

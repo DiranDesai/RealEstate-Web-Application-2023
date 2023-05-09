@@ -1,10 +1,70 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Estates from "../components/Estates";
 
+import { Link } from "react-router-dom" 
+
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+//import faker from 'faker';
+
 import useUser from "../hooks/useUser";
+import Payouts from "../components/Payouts";
+import ProfileOverview from "../components/ProfileOverview";
+import EditProfile from "../components/EditProfile";
+import ProfileSettings from "../components/ProfileSettings";
+import ChangePassword from "../components/ChangePassword";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      //position: 'top' as const,
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Line Chart',
+    },
+  },
+};
+
+
+
 
 function Profile() {
   const { profileData, getCurrentUser } = useUser();
+
+  const [labels, setLabels] = useState(['January', 'February', 'March', 'April', 'May', 'June', 'July']);
+
+  const [chartData, setChartData] = useState({
+    labels,
+    datasets: [
+      {
+        label: "Payouts Monthly",
+        //data: labels.map(() => faker.datatype.number({ min: -100, max: 1000 })),
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      }
+    ]
+  });
 
   console.log(profileData);
 
@@ -23,7 +83,7 @@ function Profile() {
           </div>
           <div>
             <button className="btn ml-3">Invite Buyers <i className="bi bi-people-fill"></i></button>
-            <button className="btn">Create Estate <i className="bi bi-plus-lg"></i></button>
+            <Link to="/create"><button className="btn create-estate-btn">Create Estate <i className="bi bi-plus-lg"></i></button></Link>
           </div>
         </div>
         <div className="row">
@@ -135,220 +195,10 @@ function Profile() {
                       </li>
                     </ul>
                     <div className="tab-content pt-2">
-                      <div
-                        className="tab-pane fade profile-overview active show"
-                        id="profile-overview"
-                      >
-                        <h5 className="inner-title">About</h5>
-                        <p>
-                          I am a keen and enthusiastic learner. With over 5
-                          (five) years of result-oriented experience as a
-                          professional Web & software developer. I have acquired
-                          the practical skills and knowledge necessary to make
-                          any project a success.
-                        </p>
-                        <div className="profile-details mt-4">
-                          <h5 className="inner-title">Profile Details</h5>
-                          <div className="row">
-                            <div className="col-lg-3 col-md-4 label">
-                              Full Name
-                            </div>
-                            <div className="col-lg-7 col-md-8">Diran Sai</div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-3 col-md-4 label">
-                              Company
-                            </div>
-                            <div className="col-lg-7 col-md-8">Google</div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-3 col-md-4 label">Job</div>
-                            <div className="col-lg-7 col-md-8">
-                              Software Engineer
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-3 col-md-4 label">
-                              Country
-                            </div>
-                            <div className="col-lg-7 col-md-8">Zambia</div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-3 col-md-4 label">
-                              Address
-                            </div>
-                            <div className="col-lg-7 col-md-8">
-                              A108 Adam Street, New York, NY 535022
-                            </div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-3 col-md-4 label">Phone</div>
-                            <div className="col-lg-7 col-md-8">0763047932</div>
-                          </div>
-                          <div className="row">
-                            <div className="col-lg-3 col-md-4 label">Email</div>
-                            <div className="col-lg-7 col-md-8">
-                              Dirantechie@gmail.com
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="tab-pane fade edit-profile"
-                        id="edit-profile"
-                      >
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">
-                            Profile Image
-                          </div>
-                          <div className="col-lg-9 col-md-8">
-                            <div>
-                              <img
-                                src="images/user1.jpg"
-                                className="profile"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">
-                            Full Name
-                          </div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="Diran Sai"
-                            />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">About</div>
-                          <div className="col-lg-9 col-md-8">
-                            <textarea className="form-control">
-                              I am a keen and enthusiastic learner. With over 5
-                              (five) years of result-oriented experience as a
-                              professional Web & software developer. I have
-                              acquired the practical skills and knowledge
-                              necessary to make any project a success.
-                            </textarea>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">Job</div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="Software Engineer"
-                            />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">Country</div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="Zambia"
-                            />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">Address</div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="A108 Adam Street, New York, NY 535022"
-                            />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">Phone</div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="0776047932"
-                            />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">Email</div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="Dirantechie@gmail.com"
-                            />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">Twitter</div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="Dirantechie@twitter.com"
-                            />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4 label">
-                            Facebook
-                          </div>
-                          <div className="col-lg-9 col-md-8">
-                            <input
-                              type="text"
-                              className="form-control"
-                              value="Dirantechie@facebook.com"
-                            />
-                          </div>
-                        </div>
-                        <div className="mt-4">
-                          <button className="btn btn-primary">
-                            Save Changes
-                          </button>
-                        </div>
-                      </div>
-                      <div
-                        className="tab-pane fade settings"
-                        id="settings"
-                      ></div>
-                      <div
-                        className="tab-pane fade change-password"
-                        id="change-password"
-                      >
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4">
-                            Current Password
-                          </div>
-                          <div className="col-lg-9 col-md-8">
-                            <input type="text" className="form-control" />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4">New Password</div>
-                          <div className="col-lg-9 col-md-8">
-                            <input type="text" className="form-control" />
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-lg-3 col-md-4">
-                            Re-enter New Password
-                          </div>
-                          <div className="col-lg-9 col-md-8">
-                            <input type="text" className="form-control" />
-                          </div>
-                        </div>
-                        <div className="mt-4">
-                          <button className="btn btn-primary">
-                            Change Password
-                          </button>
-                        </div>
-                      </div>
+                      <ProfileOverview />
+                      <EditProfile />
+                      <ProfileSettings />
+                      <ChangePassword />
                     </div>
                   </div>
                 </div>
@@ -356,7 +206,20 @@ function Profile() {
             </div>
           </div>
           <div className="col-md-6 right-profile-page">
-             
+             <div className="profile-link-container mt-4">
+                <div>
+                  <ul className="profile-links-row nav nav-tabs nav-tabs-bordered">
+                    <li className="nav-item"><a href="#">My Listing <i className="badge badge-primary bg-primary">23</i></a></li>
+                    <li className="nav-item"><a href="#">Payouts</a></li>
+                    <li className="nav-item"><a href="#">Reviews <i className="badge badge-warning bg-warning">23</i></a></li>
+                    <li className="nav-item"><a href="#">Orders <i className="badge badge-danger bg-danger">23</i></a></li>
+                  </ul>
+                  <Payouts />
+                </div>
+             </div>
+             <div className="chart">
+              <Line options={options} data={chartData} />
+             </div>
           </div>
         </div>
       </div>

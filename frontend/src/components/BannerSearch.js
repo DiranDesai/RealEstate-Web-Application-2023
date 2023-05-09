@@ -1,0 +1,43 @@
+import React from "react";
+
+function BannerSearch() {
+  return (
+    <div className="banner-search">
+      <div className="row">
+        <div className="col-md-3">
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter keyword..."
+            />
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="form-group">
+            <select className="form-control">
+              <option value="property type">Property Type</option>
+            </select>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="form-group location">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Location"
+            />
+            <i class="bi bi-geo-alt loc"></i>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <button className="btn search">
+            Search<i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default BannerSearch;
