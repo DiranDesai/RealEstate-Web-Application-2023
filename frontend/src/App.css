@@ -41,6 +41,24 @@ img{
   width: 100%;
   object-fit: contain;
 }
+
+
+.modal{
+  display: block !important;
+}
+.modal .alert{
+  border-radius: 0;
+}
+.modal .error-icon{
+  text-align: center;
+  padding: 5rem;
+}
+.modal .error-icon i{
+  font-size: 4rem;
+}
+
+
+
 .btn:focus{
   box-shadow: none;
 }
@@ -204,6 +222,7 @@ ul{
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .active-state{
   display: inline-block;
@@ -533,20 +552,18 @@ ul{
   justify-content: center;
   display: none;
 }
-.loader-wrapper.loader-on{
+.loader-on{
   display: block;
 }
-.loader-wrapper.loader-off{
+.loader-off{
   display: none;
 }
 .loader-wrapper .loader{
-  width: 30px;
-  height: 30px;
+  width: 80px;
+  height: 80px;
   border: 4px solid;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  border: 4px solid #6390b7;
+  border: 10px solid #6390b7;
   border-radius: 50%;
   border-bottom-color: #3f1cd6;
   border-top-color: #24bebe;
@@ -665,6 +682,7 @@ ul{
   border-radius: 50%;
   padding: 10px;
   background-color: #f2f2f2;
+  object-fit: cover;
 }
 .profile-header .user-name{
   font-weight: 900;

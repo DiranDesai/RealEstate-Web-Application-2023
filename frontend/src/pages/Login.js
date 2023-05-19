@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom";
-import MessageComponent from '../components/MessageComponent';
+import MessageComponent2 from '../components/MessageComponent2';
 import useAuthState from '../hooks/useAuthState';
 
 import { RESET_LOGIN_ERROR } from "../context/types"
@@ -10,6 +10,8 @@ function Login() {
   const [message, setMessage] = useState(null);
 
   const { error, dispatch } = useAuthState();
+
+  console.log(error);
 
 
   const { loginUser } = useAuthState();
@@ -43,7 +45,7 @@ function Login() {
       </div>
         <p>Enter your email & password to login</p>
       </div>
-      {error && <MessageComponent message={error} />}
+      {error && <MessageComponent2 message={error} />}
       <div className='form-group'>
         <label htmlFor="email">Email</label>
         <div className="input-group">

@@ -7,8 +7,6 @@ import SingleProperty from "./SingleProperty";
 function PropertyList() {
   const { properties } = useUser();
 
-  console.log(properties);
-
   return (
     <div className="row g-5 property-listing-wrapper">
       {properties.map((property, index) => (

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -21,9 +21,20 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 
 import authContext from "./context/authContext/authContext";
+import useUser from "./hooks/useUser";
 
 function App() {
   const { token } = useContext(authContext);
+
+  const {getCurrentUser, profileData} = useUser();
+
+  console.log(profileData);
+
+  useEffect(() => {
+    getCurrentUser();
+  }, [profileData]);
+
+
   return (
     <>
       <Router>

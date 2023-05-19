@@ -8,8 +8,8 @@ function CategoryList() {
 
   return (
     <div className="row g-5 category-listing-wrapper">
-      {categories.map((category) => (
-       <SingleCategory key={category} category={category}/>
+      {categories.map((category,index) => (
+       <SingleCategory key={index} category={category}/>
       ))}
     </div>
   );

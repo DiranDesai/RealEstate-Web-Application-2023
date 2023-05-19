@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import EstateCreateTabs from "../components/EstateCreateTabs";
 import PropertyDescriptionCreate from "../components/PropertyDescriptionCreate";
 import PropertyDetailsCreate from "../components/PropertyDetailsCreate";
@@ -6,6 +6,13 @@ import PropertyLocationCreate from "../components/PropertyLocationCreate";
 import PropertyMediaCreate from "../components/PropertyMediaCreate";
 
 function CreateEstate() {
+
+  console.log(123);
+
+  useEffect(() => {
+
+  }, []);
+
   return (
     <div className="container">
       <div className="row">

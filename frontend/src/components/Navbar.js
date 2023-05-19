@@ -1,11 +1,15 @@
 import React, {useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import useAuthState from "../hooks/useAuthState";
+import useUser from "../hooks/useUser";
 
 import { getUrlPathname } from "../utils/main"
 
 function Navbar() {
   const { token, logout } = useAuthState();
+  const {profileData} = useUser();
+
+  
 
   return (
     <div className="navbar">
@@ -78,15 +82,15 @@ function Navbar() {
                 <ul className="d-flex align-items-center navbar-profile">
                   <li>
                     <a href="#" data-bs-toggle="dropdown">
-                      <img src="images/user1.jpg" />
+                    <img src={profileData?.profileUrl ? profileData?.profileUrl : 'images/default2.jpg'} alt={profileData?.username} />
                     </a>
                     <div className="dropdown">
                       <div className="dropdown-menu dropdown-menu-end">
                         <div className="navbar-top-profile">
-                          <img src="images/user1.jpg" alt="" />
+                        <img src={profileData?.profileUrl ? profileData?.profileUrl : 'images/default2.jpg'} alt={profileData?.username} />
                           <div className="profile-left">
-                            <h5>Diran Sai</h5>
-                            <h6>Dirantechie@gmail.com</h6>
+                            <h5>{profileData?.username}</h5>
+                            <h6>{profileData?.email}</h6>
                           </div>
                         </div>
                         <div className="navbar-bottom-profile">

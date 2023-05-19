@@ -1,5 +1,6 @@
 require("dotenv").config();
 const cors = require("cors");
+const fileUpload = require('express-fileupload');
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middlewares/errorMiddleware");
 runServer();
@@ -7,12 +8,14 @@ const express = require("express");
 const app = express();
 
 const userRoutes = require("./routes/userRoutes");
+const propertyRoutes = require("./routes/propertyRoutes");
 
 let corsOptions = {
     origin : 'http://localhost:3000',
 }
 
 app.use(cors(corsOptions));
+app.use(fileUpload());
 app.use(express.json());
 
 
@@ -21,6 +24,7 @@ app.get("/coding", (req, res) => {
 });
 
 app.use("/api/v1", userRoutes);
+app.use("/api/v1", propertyRoutes);
 
 app.use(errorHandler);
 

@@ -48,6 +48,8 @@ const AuthState = (props) => {
         });
         const { token } = await response.json();
 
+        
+
         dispatch({ type: USER_REGISTER_SUCCESS, payload: token });
         localStorage.setItem("token", JSON.stringify(token));
       } catch (error) {

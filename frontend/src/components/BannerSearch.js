@@ -27,12 +27,12 @@ function BannerSearch() {
               className="form-control"
               placeholder="Location"
             />
-            <i class="bi bi-geo-alt loc"></i>
+            <i className="bi bi-geo-alt loc"></i>
           </div>
         </div>
         <div className="col-md-3">
           <button className="btn search">
-            Search<i class="bi bi-search"></i>
+            Search<i className="bi bi-search"></i>
           </button>
         </div>
       </div>

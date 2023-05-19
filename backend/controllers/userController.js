@@ -52,6 +52,46 @@ const getCurrentUser = async (req, res) => {
     return res.json({...req.user});
 }
 
+const updateUserDetails = async (req, res) => {
+    try {
+        const user = await User.findOneAndUpdate({_id: req.user._id}, req.body);
+        return res.status(200).json({message: "Update Successfully"});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const changePassword = async (req, res) => {
+    const currentUser = await User.findById({_id: req.user._id});
+    const {currentPassword, newPassword} = req.body;
+    if (!await (checkPassword(currentUser, currentPassword))) {
+        return res.status(501).json({passwordMatch: false, message: "Please enter your current password"});
+    } else {
+        const generateSalt = await bcrypt.genSalt(10);
+        const hashPassword = await bcrypt.hash(newPassword, generateSalt);
+        currentUser.password = hashPassword;
+        currentUser.save();
+        return res.status(201).json({passwordChanged: true, message: "Password changed successfully"});
+    }
+}
+
+
+const uploadProfilePic = async (req, res) => {
+    const file = req.files.file;
+
+    console.log(file);
+
+    file.mv(`./frontend/public/uploads/${file.name}`, async (error) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).send(error);
+        }
+
+        //res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
+        await User.findOneAndUpdate({_id: req.user._id}, {profileUrl: `/uploads/${file.name}`});
+    });
+}
+
 function generateToken(userId) {
     return jwt.sign({userId}, process.env.JWT_SECRET, {expiresIn: "30d"});
 }
@@ -64,5 +104,8 @@ async function checkPassword(user, password) {
 module.exports = {
     authUser,
     register,
-    getCurrentUser
+    getCurrentUser,
+    updateUserDetails,
+    changePassword,
+    uploadProfilePic
 }

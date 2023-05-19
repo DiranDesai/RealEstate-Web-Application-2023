@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropertyList from '../components/PropertyList'
 import CategoryList from '../components/CategoryList'
 import PropertyHeader from '../components/PropertyHeader'
@@ -7,8 +7,11 @@ import Banner from '../components/Banner'
 import AgentShowCase from '../components/AgentShowCase'
 import SponsorListing from '../components/SponsorListing'
 import Loader from '../components/Loader'
+import useUser from '../hooks/useUser'
+
 
 function Home() {
+
   return (
     <>
         <section className="main">

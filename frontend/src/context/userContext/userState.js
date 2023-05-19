@@ -1,9 +1,11 @@
 import { useEffect, useReducer } from "react";
 
+import axios from "axios";
+
 import UserContext from "./userContext";
 import UserReducer from "./userReducer";
 
-import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS} from "../types";
+import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS} from "../types";
 
 import { URL } from "../constants"
 import { getToken } from "../utils"
@@ -38,10 +40,12 @@ const UserState = ({children}) => {
         ]
     }
 
+    let token = getToken();
+
     const [state, dispatch] = useReducer(UserReducer, initialState);
 
+
     const getCurrentUser = async () => {
-        let token = getToken();
         try {
             dispatch({type: USER_PROFILE_REQUEST});
             const response = await fetch(`${URL}/getMe`, {
@@ -57,10 +61,69 @@ const UserState = ({children}) => {
         }
     }
 
+    const updateUserProfile = async (userData) => {
+        try {
+            dispatch({type: USER_PROFILE_UPDATE_REQUEST});
+            const response = await fetch(`${URL}/updateMe`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(userData)
+            });
+            const data = await response.json();
+            dispatch({type: USER_PROFILE_UPDATE_SUCCESS});
+            
+            console.log(data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const uploadProfilePic = async (fileData) => {
+        try {
+            const res = await axios.post(`${URL}/uploadProfilePic`, fileData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                  Authorization: `Bearer ${token}`
+                },
+            });
+
+            console.log(res.data);
+        } catch (error) {
+            
+        }
+    }
+
+    const changePassword = async (passwordData) => {
+        try {
+            const response = await fetch(`${URL}/changePassword`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    ...passwordData
+                })
+            });
+            const data = await response.json();
+            return data
+        } catch (error) {
+            
+        }
+    }
+
+
     return (
         <UserContext.Provider value={{
             ...state,
-            getCurrentUser
+            getCurrentUser,
+            updateUserProfile,
+            changePassword,
+            uploadProfilePic
         }}>
             {children}
         </UserContext.Provider>
