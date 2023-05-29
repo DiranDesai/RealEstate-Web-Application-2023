@@ -99,7 +99,7 @@ ul{
 
 /* Navbar styles */
 .navbar{
-  padding: 0;
+  padding: 0 !important;
   border-bottom: 1px solid var(--color-1);
   position: fixed;
   top: 0;
@@ -277,6 +277,10 @@ ul{
 .banner .banner-content{
   min-width: 1000px;
 }
+.banner .banner-content p{
+  font-size: 22px;
+  color: black;
+}
 
 .banner .banner-control-buttons{
   margin: 20px 0;
@@ -284,6 +288,8 @@ ul{
 
 .banner-content h1{
   font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .banner-content .btn{
@@ -292,15 +298,16 @@ ul{
   font-weight: bold;
   border-radius: 8px;
   margin: 0px 20px;
+  font-size: 18px;
 }
 .banner-content .btn i{
   margin-left: 5px;
 }
 .banner-content .buy{
-  background-color: #ff7b48;
+  background-color: #ff593b;
 }
 .banner-content .rent{
-  background-color: #6694c9;
+  background-color: #4a87ff;
 }
 
 .banner-content .banner-search{
@@ -314,7 +321,9 @@ ul{
   justify-content: center;
 }
 .banner-content .search{
-  background-color: #6a656d;
+  background-color: white;
+  color: #18181a;
+  border: 1px solid #676771;
 }
 
 .banner-search input, .banner-search select{
@@ -426,6 +435,9 @@ ul{
   font-size: 1.3rem;
   margin-top: 20px;
 }
+.property .tag-text{
+  text-transform: capitalize;
+}
 .property .tag{
   display: inline-block;
   padding: 10px 2px;
@@ -439,7 +451,7 @@ ul{
   transform: scale(0.8);
 }
 .property .tag-1{
-  background-color: #4b7ea1;
+  background-color: #1097eb;
 }
 .property .tag-2{
   background-color: #00b4d7;
@@ -447,10 +459,14 @@ ul{
 .property .tag-3{
   background-color: #f9a11e;
 }
+.property .tag-4{
+  background-color: #787d80;
+}
 .property .owner img{
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .property .owner p{
   margin: 0;
@@ -487,6 +503,267 @@ ul{
   background-color: #00000027;
   z-index: 1000;
 } */
+
+
+/* PROPERTY PAGES STYLES */
+.shadow-1{
+  box-shadow: 0px 0 30px rgb(1 41 112 / 10%) !important;
+  border-radius: 0.625rem;
+  box-shadow: 0 7px 14px 0 rgba(65,69,88,0.1), 0 px 6px 0 rgba(0,0,0,0.07) !important;
+  border: none;
+} 
+.t-1{
+  font-weight: 700;
+  font-size: 20px;
+}
+.t-2{
+  font-weight: 700;
+  font-size: 18px;
+}
+.t-3{
+  font-size: 3rem;
+  font-weight: bold;
+}
+.heading-1{
+  font-family: Inter,"sans-serif";
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 20px;
+  margin-bottom: 1.5rem;
+}
+.property-showcase .t-4{
+  font-family: 'Nunito Sans';
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+}
+.property-showcase .price{
+  color: rgb(30, 41, 59);
+  font-family: 'Inter';
+  font-weight: 700;
+}
+.property-showcase .meta{
+  font-size: 15px;
+  color: #757573;
+}
+.property-showcase .meta span{
+  margin-right: 10px;
+}
+.property-showcase .meta span i{
+  margin-right: 5px;
+}
+.property-showcase .time{
+  margin-left: 10px;
+}
+.property-showcase .tag i{
+  margin-left: 10px;
+}
+.property-showcase .property-showcase-1-left .tag{
+  background-color: #34b9e8;
+  color: white;
+  padding: 5px 10px;
+  margin-top: 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.property-showcase .property-showcase-1-right .btn{
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+
+
+
+
+.reviews .review-stats{
+  border-bottom: 1px solid #c2c9cf7d;
+  padding-bottom: 2rem;
+}
+.reviews .stats-num span{
+  margin-right: 5px;
+}
+.reviews .stats-num span i{
+  color: orange;
+}
+.reviews .stats-num .num{
+  font-family: "Nunito Sans";
+}
+.reviews .progress{
+  height: 10px;
+  margin-top: 12px;
+}
+.reviews .progress-bar{
+  background-color: orange;
+}
+.reviews .review{
+  border-bottom: 1px solid #c2c9cf7d;
+  padding: 2rem;
+}
+.reviews .reviews-reply-container .review img{
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
+.reviews .reviews-reply-container .review .review-right{
+  margin-left: 15px;
+}
+.reviews .reviews-reply-container .review .content .stars span{
+  margin-right: 5px;
+}
+.reviews .reviews-reply-container .review .content .stars span i{
+  color: orange;
+}
+.reviews .reviews-reply-container .review .content h4{
+  font-size: 18px;
+  font-family: "Nunito Sans";
+  font-weight: 900;
+}
+.reviews .reviews-reply-container .review .content h4 span{
+  font-size: 15px;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+}
+.reviews .reviews-reply-container .review .content p{
+  color: #64748b;
+}
+.reviews .review-helpfull .btn{
+  color: white;
+  margin-left: 10px;
+}
+.reviews .review-helpfull p{
+  margin: 0;
+}
+.reviews .review-helpfull .btn:nth-child(1){
+  background-color: #5143d9;
+}
+.reviews .review-helpfull .btn:nth-child(2){
+  background-color: white;
+  color: #64748b;
+  border: 1px solid #64748b;
+}
+
+.property-page{
+
+}
+
+.property-page .property-card{
+  
+}
+.property-page .property-middle{
+  border-bottom: 1px solid #cfd4e185;
+  padding: 30px 20px;
+}
+.property-page .property-middle img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.property-page .property-middle .btn{
+  background-color: #ffffff;
+  color: #272323;
+  font-weight: 500;
+  border-radius: 7px;
+  font-family: 'Nunito Sans';
+  font-size: 17px;
+  border: 1px solid #333;
+  padding: 10px 20px;
+}
+.property-page .property-bottom{
+  padding: 30px 20px;
+}
+.property-page .property-bottom .list-group li{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.property-page .property-bottom .list-group li span:first-child{
+  margin-right: 15px;
+}
+
+
+.property-page .social-links{
+  display: flex;
+}
+.property-page .social-links span{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.property-page .social-links span i{
+  color: white;
+}
+.property-page .social-links span.facebook{
+  background-color: #3b5998;
+}
+.property-page .social-links span.twitter{
+  background-color: #0c85d0;
+}
+.property-page .social-links span.google{
+  background-color: #c63224;
+}
+.property-page .social-links span.dribbble{
+  background-color: #e62a72;
+}
+
+.views .btn{
+  border: 1px solid #939aa4;
+  padding: 7px 25px;
+  margin-right: 20px;
+}
+.property-page .create-review .stars i{
+  font-size: 2.5rem;
+  color: orange;
+  margin-right: 5px;
+}
+.property-page .create-review textarea{
+  border-radius: 40px;
+  resize: none;
+  padding: 10px 20px;
+}
+.property-page .create-review .terrible{
+  color: #9ba8b0;
+}
+.property-page .create-review label{
+  margin: 10px 0;
+  font-weight: 700;
+}
+.property-page .create-review label span{
+  font-weight: 400;
+}
+.property-page .create-review .create{
+  border-radius: 40px;
+  padding: 10px 20px;
+  background-color: #5143d9;
+  color: white;
+  font-weight: 500;
+  font-family: 'Nunito Sans';
+}
+
+
+.property-page .agents img{
+  border-radius: 5px;
+}
+.property-page .agents .agent-details .location{
+  margin: 0;
+}
+.property-page .agents .agent-details .heading-1{
+  margin: 10px 0;
+}
+.property-page .agents .agent-details .meta .stars{
+  margin-left: 10px;
+}
+.property-page .agents .agent-details .meta p{
+  color: black;
+  font-weight: 600;
+}
+.property-page .agents .agent-details .meta .stars i{
+  color: orange;
+}
 
 
 /* category styles */
@@ -550,13 +827,6 @@ ul{
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
-}
-.loader-on{
-  display: block;
-}
-.loader-off{
-  display: none;
 }
 .loader-wrapper .loader{
   width: 80px;

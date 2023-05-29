@@ -1,13 +1,31 @@
-import React, {useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, {useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useAuthState from "../hooks/useAuthState";
 import useUser from "../hooks/useUser";
 
 import { getUrlPathname } from "../utils/main"
 
 function Navbar() {
+  const [search, setSearch] = useState("");
+
   const { token, logout } = useAuthState();
   const {profileData} = useUser();
+
+  const navigate = useNavigate();
+
+
+  
+
+
+
+
+
+  const handleSearch = (e) => {
+    navigate(`/search`);
+    setSearch(prev => {
+      return e.target.value;
+    });
+  }
 
   
 
@@ -30,7 +48,7 @@ function Navbar() {
                 <input
                   type="search"
                   className="form-control"
-                  placeholder="search"
+                  placeholder="search" onChange={handleSearch}
                 />
                 <span className="search-icon">
                   <i className="bi bi-search"></i>

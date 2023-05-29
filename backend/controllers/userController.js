@@ -52,6 +52,16 @@ const getCurrentUser = async (req, res) => {
     return res.json({...req.user});
 }
 
+const getUser = async (req, res) => {
+    const {id} = req.params;
+    try {
+        const user = await User.findById({_id: id}).select("-password");
+        return res.status(201).json({user})
+    } catch (error) {
+        
+    }
+}
+
 const updateUserDetails = async (req, res) => {
     try {
         const user = await User.findOneAndUpdate({_id: req.user._id}, req.body);
@@ -86,14 +96,12 @@ const uploadProfilePic = async (req, res) => {
             console.error(error);
             return res.status(500).send(error);
         }
-
-        //res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
         await User.findOneAndUpdate({_id: req.user._id}, {profileUrl: `/uploads/${file.name}`});
     });
 }
 
 function generateToken(userId) {
-    return jwt.sign({userId}, process.env.JWT_SECRET, {expiresIn: "30d"});
+    return jwt.sign({userId}, process.env.JWT_SECRET, {expiresIn: "50d"});
 }
 
 async function checkPassword(user, password) {
@@ -105,6 +113,7 @@ module.exports = {
     authUser,
     register,
     getCurrentUser,
+    getUser,
     updateUserDetails,
     changePassword,
     uploadProfilePic

@@ -76,9 +76,8 @@ const AuthState = (props) => {
         dispatch({ type: USER_LOGIN_FAIL, payload: data.message });
         return
       }
-
-      dispatch({ type: USER_LOGIN_SUCCESS, payload: data.token });
       localStorage.setItem("token", JSON.stringify(data.token));
+      dispatch({ type: USER_LOGIN_SUCCESS, payload: data.token });
     } catch (error) {
       console.log(error);
       dispatch({ type: USER_LOGIN_FAIL, payload: error.message });

@@ -1,63 +1,633 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import PropertyViews from "../components/PropertyViews";
+import useUser from "../hooks/useUser";
+
+import { moneyFormat } from "../context/utils";
 
 function Property() {
+  const [userDetails, setUserDetails] = useState(null);
+  const [propertyDetails, setPropertyDetails] = useState(null);
+  const [reviews, setReviews] = useState([]);
+
+  const { id } = useParams();
+  const { getUser, getProperty, createPropertyReview, getPropertyReviews } =
+    useUser();
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      const propertyDb = await getProperty(id);
+      const userDb = await getUser(propertyDb.userId);
+      setPropertyDetails(propertyDb);
+      setUserDetails(userDb);
+    };
+
+    getUserInfo();
+  }, []);
+
   return (
-    <div className="container property-listing-wrapper">
+    <div className="property-page container">
       <div className="row">
-        <div className="col-md-6">
-          <div className="property">
-            <div className="card">
-              <div className="top">
-                <div className="property-tags d-flex justify-content-between align-items-center">
-                  <div>
-                    <span className="tag tag-1">For Sale</span>
+        <div className="col-md-9 property-left">
+          <div className="property-container">
+            <div className="property-showcase">
+              <div className="property-showcase-1 shadow-1 p-5">
+                <div className="row">
+                  <div className="col-md-8 property-showcase-1-left">
+                    <div>
+                      <h2 className="t-4">{propertyDetails?.title}</h2>
+                      <div className="d-flex meta">
+                        <span className="location">
+                          <i class="bi bi-geo-alt"></i>
+                          {propertyDetails?.city}, {propertyDetails?.country}
+                        </span>
+                        <span className="time">
+                          <i class="bi bi-calendar"></i>2 Month Ago
+                        </span>
+                        <span className="likes">
+                          <i class="bi bi-hand-thumbs-up"></i>400
+                        </span>
+                      </div>
+                      <span className="tag">
+                        For {propertyDetails?.status}
+                        <i class="bi bi-bag"></i>
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="tag tag-2">Popular</span>
-                    <span className="tag tag-3">Top</span>
+                  <div className="col-md-4 property-showcase-1-right">
+                    <div>
+                      <div>
+                        <button className="btn">
+                          <i class="bi bi-heart"></i>
+                        </button>
+                        <button className="btn">
+                          <i class="bi bi-cart"></i>
+                        </button>
+                        <button className="btn">
+                          <i class="bi bi-share"></i>
+                        </button>
+                        <button className="btn">
+                          <i class="bi bi-printer"></i>
+                        </button>
+                      </div>
+                      <h2 className="mt-3 price">
+                        {moneyFormat(propertyDetails?.price)}
+                      </h2>
+                    </div>
                   </div>
                 </div>
-                <div className="pricing">
-                  <h4>$50,000</h4>
-                </div>
-                {/* <img src="images/house1.jpg" className='cover' alt="" /> */}
               </div>
-              <div className="middle">
-                <h4 className="title">Countryside Modern Lake View</h4>
-                <p> New London</p>
-                <div className="property-options d-flex justify-content-between align-items-center">
-                  <div>
-                    <span>
-                      <i className="fas fa-regular fa-bed"></i> Beds 4
-                    </span>
+              <div className="property-showcase-2 shadow-1 p-5 mt-4">
+                <h3 className="heading-1">Property description</h3>
+                <div className="row">
+                  <div className="col-md-3">
+                    <div>
+                      <img src="../images/listing-single-3.jpg" alt="" />
+                    </div>
                   </div>
-                  <div>
-                    <span>
-                      <i className="fas fa-light fa-shower"></i> Baths 2
-                    </span>
+                  <div className="col-md-3">
+                    <div>
+                      <img src="../images/listing-single-2.jpg" alt="" />
+                    </div>
                   </div>
-                  <div>
-                    <span>
-                      <i className="fas fa-solid fa-bell"></i>Garage
-                    </span>
+                  <div className="col-md-3">
+                    <div>
+                      <img src="../images/listing-single-3.jpg" alt="" />
+                    </div>
+                  </div>
+                  <div className="col-md-3">
+                    <div>
+                      <img src="../images/listing-single-4.jpg" alt="" />
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="bottom d-flex justify-content-between align-items-center">
-                <div className="owner d-flex align-items-center">
-                  <img src="images/user1.jpg" />
-                  <p>
-                    By <a href="#">Tom Steven</a>
-                  </p>
+            </div>
+            <div className="reviews shadow-1 p-5 mt-4">
+              <div className="review-stats">
+                <h3 className="heading-1">How user rated this property</h3>
+                <div className="row">
+                  <div className="col-3">
+                    <div className="stats-num text-center">
+                      <h2 className="t-3 num">4.5</h2>
+                      <div className="stars mt-4">
+                        <span>
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                        <span>
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                        <span>
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                        <span>
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                        <span>
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </div>
+                      <span>(Based on 25 reviews)</span>
+                    </div>
+                  </div>
+                  <div className="col-9">
+                    <div className="stats-progress">
+                      <div className="row">
+                        <div className="col-8">
+                          <div className="progress-container">
+                            <div className="row">
+                              <div className="col-12">
+                                <div className="progress">
+                                  <div
+                                    className="progress-bar"
+                                    style={{ width: `25%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                              <div className="col-12">
+                                <div className="progress">
+                                  <div
+                                    className="progress-bar"
+                                    style={{ width: `70%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                              <div className="col-12">
+                                <div className="progress">
+                                  <div
+                                    className="progress-bar"
+                                    style={{ width: `85%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                              <div className="col-12">
+                                <div className="progress">
+                                  <div
+                                    className="progress-bar"
+                                    style={{ width: `45%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                              <div className="col-12">
+                                <div className="progress">
+                                  <div
+                                    className="progress-bar"
+                                    style={{ width: `75%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-4">
+                          <div className="row">
+                            <div className="col-12"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div className="reviews-reply mt-5">
+                <div className="header">
+                  <div className="row">
+                    <div className="col-7">
+                      <h3 className="heading-1">Reviews</h3>
+                    </div>
+                    <div className="col-5">
+                      <form>
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Search Review"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div className="reviews-reply-container">
+                  <div className="review">
+                    <div className="d-flex">
+                      <div className="review-left">
+                        <div className="profile">
+                          <img src="../images/user5.jpg" alt="" />
+                        </div>
+                      </div>
+                      <div className="review-right ml-5">
+                        <div className="content">
+                          <h4>
+                            Max Hawkins <span>2 days ago</span>
+                          </h4>
+                          <div className="stars my-2">
+                            <span>
+                              <i class="bi bi-star-fill"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                          </div>
+                          <p>
+                            Lectures were at a really good pace and I never felt
+                            lost. The instructor was well informed and allowed
+                            me to learn and navigate Figma easily.
+                          </p>
+                          <div className="review-helpfull d-flex align-items-center">
+                            <p>Was this review helpful?</p>
+                            <div className="button align-items-center">
+                              <button className="btn btn-sm">Yes</button>
+                              <button className="btn btn-sm">No</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="review">
+                    <div className="d-flex">
+                      <div className="review-left">
+                        <div className="profile">
+                          <img src="../images/user4.jpg" alt="" />
+                        </div>
+                      </div>
+                      <div className="review-right ml-5">
+                        <div className="content">
+                          <h4>
+                            Max Hawkins <span>2 days ago</span>
+                          </h4>
+                          <div className="stars my-2">
+                            <span>
+                              <i class="bi bi-star-fill"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star-fill"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                          </div>
+                          <p>
+                            Lectures were at a really good pace and I never felt
+                            lost. The instructor was well informed and allowed
+                            me to learn and navigate Figma easily.
+                          </p>
+                          <div className="review-helpfull d-flex align-items-center">
+                            <p>Was this review helpful?</p>
+                            <div className="button align-items-center">
+                              <button className="btn btn-sm">Yes</button>
+                              <button className="btn btn-sm">No</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="review">
+                    <div className="d-flex">
+                      <div className="review-left">
+                        <div className="profile">
+                          <img src="../images/user6.jpg" alt="" />
+                        </div>
+                      </div>
+                      <div className="review-right ml-5">
+                        <div className="content">
+                          <h4>
+                            Linda Nchaba <span>2 days ago</span>
+                          </h4>
+                          <div className="stars my-2">
+                            <span>
+                              <i class="bi bi-star-fill"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star-fill"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                          </div>
+                          <p>
+                            Lectures were at a really good pace and I never felt
+                            lost. The instructor was well informed and allowed
+                            me to learn and navigate Figma easily.
+                          </p>
+                          <div className="review-helpfull d-flex align-items-center">
+                            <p>Was this review helpful?</p>
+                            <div className="button align-items-center">
+                              <button className="btn btn-sm">Yes</button>
+                              <button className="btn btn-sm">No</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="review">
+                    <div className="d-flex">
+                      <div className="review-left">
+                        <div className="profile">
+                          <img src="../images/review1.jpg" alt="" />
+                        </div>
+                      </div>
+                      <div className="review-right ml-5">
+                        <div className="content">
+                          <h4>
+                            Diran Sai <span>2 days ago</span>
+                          </h4>
+                          <div className="stars my-2">
+                            <span>
+                              <i class="bi bi-star-fill"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                            <span>
+                              <i class="bi bi-star"></i>
+                            </span>
+                          </div>
+                          <p>
+                            Lectures were at a really good pace and I never felt
+                            lost. The instructor was well informed and allowed
+                            me to learn and navigate Figma easily.
+                          </p>
+                          <div className="review-helpfull d-flex align-items-center">
+                            <p>Was this review helpful?</p>
+                            <div className="button align-items-center">
+                              <button className="btn btn-sm">Yes</button>
+                              <button className="btn btn-sm">No</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="create-review shadow-1 p-5 mt-4">
+              <div className="row">
+                <div className="col-md-6">
+                  <div>
+                    <h3 className="heading-1">Write a Review</h3>
+                    <form>
+                      <div className="rate d-flex align-items-center">
+                        <div className="stars">
+                          <span>
+                            <i class="bi bi-star-fill"></i>
+                          </span>
+                          <span>
+                            <i class="bi bi-star"></i>
+                          </span>
+                          <span>
+                            <i class="bi bi-star"></i>
+                          </span>
+                          <span>
+                            <i class="bi bi-star"></i>
+                          </span>
+                          <span>
+                            <i class="bi bi-star"></i>
+                          </span>
+                        </div>
+                        <button className="btn terrible">Terrible</button>
+                      </div>
+                      <div className="form-group my-4">
+                        <label htmlFor="message mb-3">
+                          Message <span>13 from 999 symbol</span>
+                        </label>
+                        <textarea
+                          className="form-control"
+                          placeholder="Write your reveiw"
+                        ></textarea>
+                      </div>
+                      <button className="btn create">Submit Review</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <PropertyViews />
+          </div>
+        </div>
+        <div className="col-md-3 property-right">
+          <div className="property-container">
+            <div className="property-card shadow-1">
+              <div className="property-top"></div>
+              <div className="property-middle text-center">
                 <div>
-                  <button className="btn">Details</button>
+                  <img
+                    src={`../${
+                      userDetails?.profileUrl || `images/default2.jpg`
+                    }`}
+                    alt=""
+                  />
+                  <h4 className="mt-3 t-1">{userDetails?.username}</h4>
+                  <p>Real Estate Agent</p>
+                  <p>Member since november 2008</p>
+                  <button className="btn">
+                    View all states <i class="bi bi-houses"></i>
+                  </button>
+                </div>
+              </div>
+              <div className="property-bottom mt-4">
+                <div>
+                  <h4 className="t-2">Contact Info</h4>
+                  <ul className="list-group">
+                    <li>
+                      <span>
+                        <i class="bi bi-geo-alt"></i>
+                      </span>
+                      <span>
+                        {propertyDetails?.city} {propertyDetails?.country}
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <i class="bi bi-envelope-at"></i>
+                      </span>
+                      <span>{userDetails?.email}</span>
+                    </li>
+                    <li>
+                      <span>
+                        <i class="bi bi-telephone"></i>
+                      </span>
+                      <span>{userDetails?.phone || +260776047932}</span>
+                    </li>
+                    <li>
+                      <span>
+                        <i class="bi bi-link-45deg"></i>
+                      </span>
+                      <span>http://spruko.com/</span>
+                    </li>
+                  </ul>
+                  <div className="social-links mt-3">
+                    <span className="facebook">
+                      <i class="bi bi-facebook"></i>
+                    </span>
+                    <span className="twitter">
+                      <i class="bi bi-twitter"></i>
+                    </span>
+                    <span className="google">
+                      <i class="bi bi-google"></i>
+                    </span>
+                    <span className="dribbble">
+                      <i class="bi bi-dribbble"></i>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-md-6"></div>
+      </div>
+      <div className="agents p-5 mt-4">
+        <h3 className="heading-1">Related agents</h3>
+        <div className="row">
+          <div className="col-md-3">
+            <div className="agent-content">
+              <img src="../images/04.jpg" alt="" />
+              <div className="agent-details text-center mt-3">
+                <h3 className="heading-1">Dennis Barret</h3>
+                <p className="location">Nampundwe</p>
+                <div className="d-flex justify-content-center meta mt-2">
+                  <p>4.5/5.0</p>
+                  <div className="stars">
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3">
+            <div className="agent-content">
+              <img src="../images/08.jpg" alt="" />
+              <div className="agent-details text-center mt-3">
+                <h3 className="heading-1">Diran Sai</h3>
+                <p className="location">Lusaka</p>
+                <div className="d-flex justify-content-center meta mt-2">
+                  <p>4.5/5.0</p>
+                  <div className="stars">
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3">
+            <div className="agent-content">
+              <img src="../images/06.jpg" alt="" />
+              <div className="agent-details text-center mt-3">
+                <h3 className="heading-1">Paul Smith</h3>
+                <p className="location">Copperbelt</p>
+                <div className="d-flex justify-content-center meta mt-2">
+                  <p>4.5/5.0</p>
+                  <div className="stars">
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3">
+            <div className="agent-content">
+              <img src="../images/review1.jpg" alt="" />
+              <div className="agent-details text-center mt-3">
+                <h3 className="heading-1">Kunje Sai</h3>
+                <p className="location">Livingstone</p>
+                <div className="d-flex justify-content-center meta mt-2">
+                  <p>4.5/5.0</p>
+                  <div className="stars">
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star-fill"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star"></i>
+                    </span>
+                    <span>
+                      <i class="bi bi-star"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -55,7 +55,6 @@ function ChangePassword() {
 
   return (
     <div className="tab-pane fade change-password" id="change-password">
-      {error && <MessageComponent />}
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-lg-3 col-md-4">Current Password</div>

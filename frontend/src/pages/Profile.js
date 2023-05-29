@@ -1,20 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Estates from "../components/Estates";
+import EarningStatsChart from "../components/EarningStatsChart";
 
 import { Link } from "react-router-dom";
-
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
-//import faker from 'faker';
 
 import useUser from "../hooks/useUser";
 import Payouts from "../components/Payouts";
@@ -23,54 +11,11 @@ import EditProfile from "../components/EditProfile";
 import ProfileSettings from "../components/ProfileSettings";
 import ChangePassword from "../components/ChangePassword";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      //position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
-    },
-  },
-};
 
 function Profile() {
   const { profileData, getCurrentUser } = useUser();
   const {profileUrl, username} = profileData;
-
-  const [labels, setLabels] = useState([
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ]);
-
-  const [chartData, setChartData] = useState({
-    labels,
-    datasets: [
-      {
-        label: "Payouts Monthly",
-        //data: labels.map(() => faker.datatype.number({ min: -100, max: 1000 })),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-    ],
-  });
 
   return (
     <>
@@ -248,7 +193,7 @@ function Profile() {
                   </div>
                 </div>
                 <div className="chart">
-                  <Line options={options} data={chartData} />
+                  <EarningStatsChart />
                 </div>
               </div>
             </div>

@@ -19,21 +19,15 @@ import CreateEstate from "./pages/CreateEstate";
 // COMPONENTS IMPORTS
 import "./App.css";
 import Navbar from "./components/Navbar";
+import MessageComponent from "./components/MessageComponent";
 
 import authContext from "./context/authContext/authContext";
 import useUser from "./hooks/useUser";
+import Loader from "./components/Loader";
+import useNotify from "./hooks/useNotify";
 
 function App() {
   const { token } = useContext(authContext);
-
-  const {getCurrentUser, profileData} = useUser();
-
-  console.log(profileData);
-
-  useEffect(() => {
-    getCurrentUser();
-  }, [profileData]);
-
 
   return (
     <>
@@ -42,13 +36,14 @@ function App() {
         <div className="app-wrapper">
         <Routes>
           <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} exact />
+          <Route path="/search" element={token ? <Home /> : <Navigate to="/login" />} />
           <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
           <Route path="/create" element={token ? <CreateEstate /> : <Navigate to="/login" />} />
           <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
           <Route path="/account" element={token ? <Navigate to="/" /> : <Register />} />
           <Route path="/agents/listing" element={token ? <AgentsListing /> : <Navigate to="/login" />}/>
           <Route path="/category/:category" element={token ? <Category /> : <Navigate to="/login" />}/>
-          <Route path="/property/:property" element={token ? <Property /> : <Navigate to="/login" />}/>
+          <Route path="/property/:id" element={token ? <Property /> : <Navigate to="/login" />}/>
         </Routes>
         </div>
       </Router>

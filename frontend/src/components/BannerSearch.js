@@ -2,7 +2,7 @@ import React from "react";
 
 function BannerSearch() {
   return (
-    <div className="banner-search">
+    <div className="banner-search shadow-1">
       <div className="row">
         <div className="col-md-3">
           <div className="form-group">

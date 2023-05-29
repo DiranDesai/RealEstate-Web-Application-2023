@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useNotify from "../hooks/useNotify";
 import useUser from "../hooks/useUser";
 import MessageComponent from "./MessageComponent";
+import { LOADING } from "../context/types"
 
 function EditProfile() {
   const {updateUserProfile, getCurrentUser, uploadProfilePic, loading, profileData} = useUser();
@@ -24,22 +25,24 @@ function EditProfile() {
   } = formData;
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    dispatch({type: LOADING, payload: true});
 
     const fileData = new FormData();
     fileData.append('file', file);
-
-    updateUserProfile(formData);
 
     if (photoStatus) {
       if (file === null) {
         dispatch({type: true, payload: {success: false, message: "Please choose a file"}});
         return
       }
-      uploadProfilePic(fileData);
+      await uploadProfilePic(fileData);
     }
 
+    updateUserProfile(formData);
+    dispatch({type: LOADING, payload: false});
     dispatch({type: true, payload: {success: true, message: "Profile data updated successfully"}});
   }
 
@@ -112,7 +115,7 @@ function EditProfile() {
         <div className="row">
           <div className="col-lg-3 col-md-4 label">Email</div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={email} name="email" onChange={handleOnChange} />
+            <input type="text" className="form-control" value={email} name="email" disabled={true} onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">

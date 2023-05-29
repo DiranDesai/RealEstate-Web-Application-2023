@@ -13,6 +13,10 @@ export const getToken = () => {
 
 export const moneyFormat = (price) => {
     const money = new Intl.NumberFormat().format(price);
-    return `$ ${money}`
+    return `K ${money}`
 }
 
+export const handleFormChange = (target, dispatch) => {
+    console.log(target.value);
+    dispatch({type: "handlePropertyForm", payload: target});
+}

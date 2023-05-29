@@ -1,17 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import useUser from "../hooks/useUser";
 
 import SingleProperty from "./SingleProperty";
 
 function PropertyList() {
-  const { properties } = useUser();
+  const { properties, getProperties } = useUser();
+
+  console.log(properties);
+
+  useEffect(() => {
+    getProperties();
+  }, []);
 
   return (
     <div className="row g-5 property-listing-wrapper">
-      {properties.map((property, index) => (
-        <SingleProperty key={index} property={property} index={index}/>
-      ))}
+      {properties.length > 0 && (
+        properties.map((property) => {
+          return <SingleProperty key={property._id} property={property}/>
+        })
+      )}
     </div>
   );
 }

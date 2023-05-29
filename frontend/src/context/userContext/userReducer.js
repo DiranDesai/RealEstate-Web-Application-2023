@@ -1,7 +1,10 @@
-import { USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, RESET, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROFILE_UPDATE_FAIL } from "../types";
+import { USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, RESET, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROFILE_UPDATE_FAIL, LOADING, USER_PROPERTY_SUCCESS, PROPERTY_LIST_SUCCESS } from "../types";
 
 const userReducer = (state, action) => {
   switch (action.type) {
+    case LOADING:
+      return {...state, loading: action.payload};
+      break;
     case USER_PROFILE_REQUEST:
       return { ...state, loading: true };
       break;
@@ -13,6 +16,17 @@ const userReducer = (state, action) => {
       break;
     case USER_PROFILE_UPDATE_SUCCESS:
       return { ...state, loading: false};
+      break;
+    case "handlePropertyForm":
+      const target = action.payload;
+      console.log(target.name);
+      return { ...state, propertyFormData: {...state.propertyFormData, [target.name]: target.value}};
+      break;
+    case USER_PROPERTY_SUCCESS:
+      return {...state, properties: [...state.properties, action.payload]};
+      break;
+    case PROPERTY_LIST_SUCCESS:
+      return {...state, properties: action.payload};
       break;
     case RESET:
       return { profileData: null };

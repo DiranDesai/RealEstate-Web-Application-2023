@@ -1,19 +1,23 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 import axios from "axios";
 
 import UserContext from "./userContext";
 import UserReducer from "./userReducer";
 
-import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS} from "../types";
+import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROPERTY_SUCCESS, PROPERTY_LIST_SUCCESS} from "../types";
 
 import { URL } from "../constants"
 import { getToken } from "../utils"
+import useNotify from "../../hooks/useNotify";
 
 
 const UserState = ({children}) => {
+    const {dispatch: d} = useNotify();
+
     const initialState = {
         profileData: null,
+        propertyFormData: {},
         loading: false,
         categories: [
             { name: "apartments", listings: 4, icon: "bi bi-building-fill" },
@@ -21,26 +25,14 @@ const UserState = ({children}) => {
             { name: "office", listings: 3, icon: "bi bi-buildings" },
             { name: "restaraunt", listings: 1, icon: "bi bi-amd" },
         ],
-        properties: [
-            {title: "Countryside Modern Lake View", location: "New London", price: 25000, author: "Tom Steven", pic: "user1.jpg", category: "office", task: "sale", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
-
-            {title: "Computer Office", location: "Chicago", price: 6000, author: "Diran Sai", pic: "user2.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
-
-            {title: "Computer Office", location: "Livingstone", price: 7000, author: "Shepy", pic: "user3.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
-
-            {title: "Car Wash", location: "Braga", price: 6500, author: "Jane Smith", pic: "user4.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
-
-            {title: "Restaurent", location: "Francisco", price: 2500, author: "Kunje", pic: "user5.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
-
-            {title: "Medicine Compass", location: "Lusaka", price: 12000, author: "Corder", pic: "user6.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
-
-            {title: "Medicine Compass", location: "Lusaka", price: 12000, author: "Peter", pic: "user6.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]},
-
-            {title: "Medicine Compass", location: "Lusaka", price: 12000, author: "John", pic: "user6.jpg", category: "office", task: "Rent", features: [{name: "bed", count: 2, icon: "bed"}, {name: "garage", count: 1, icon: "garage"}, {name: "baths", count: 1, icon: "bed"}]}
-        ]
+        properties: []
     }
 
-    let token = getToken();
+    const token = getToken();
+    const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+    };
 
     const [state, dispatch] = useReducer(UserReducer, initialState);
 
@@ -49,10 +41,7 @@ const UserState = ({children}) => {
         try {
             dispatch({type: USER_PROFILE_REQUEST});
             const response = await fetch(`${URL}/getMe`, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`
-                }
+                headers: headers
             });
             const data = await response.json();
             dispatch({type: USER_PROFILE_SUCCESS, payload: data._doc});
@@ -61,21 +50,31 @@ const UserState = ({children}) => {
         }
     }
 
+    const getUser = async (id) => {
+        console.log(id);
+        try {
+            const response = await fetch(`${URL}/getUser/${id}`, {
+                method: "GET",
+                headers: headers
+            });
+            const {user} = await response.json();
+            return user;
+        } catch (error) {
+            
+        }
+    }
+
     const updateUserProfile = async (userData) => {
         try {
             dispatch({type: USER_PROFILE_UPDATE_REQUEST});
             const response = await fetch(`${URL}/updateMe`, {
                 method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`
-                },
+                headers: headers,
                 body: JSON.stringify(userData)
             });
             const data = await response.json();
-            dispatch({type: USER_PROFILE_UPDATE_SUCCESS});
-            
-            console.log(data);
+            //dispatch({type: USER_PROFILE_UPDATE_SUCCESS});
+            return data;
 
         } catch (error) {
             
@@ -84,14 +83,12 @@ const UserState = ({children}) => {
 
     const uploadProfilePic = async (fileData) => {
         try {
-            const res = await axios.post(`${URL}/uploadProfilePic`, fileData, {
-                headers: {
-                  'Content-Type': 'multipart/form-data',
-                  Authorization: `Bearer ${token}`
-                },
+            const response = await axios.post(`${URL}/uploadProfilePic`, fileData, {
+                headers: headers,
             });
 
-            console.log(res.data);
+            const data = await response.json();
+            return data;
         } catch (error) {
             
         }
@@ -101,10 +98,7 @@ const UserState = ({children}) => {
         try {
             const response = await fetch(`${URL}/changePassword`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`
-                },
+                headers: headers,
                 body: JSON.stringify({
                     ...passwordData
                 })
@@ -116,14 +110,93 @@ const UserState = ({children}) => {
         }
     }
 
+    const createProperty = async (propertyData) => {
+        try {
+            let response = await fetch(`${URL}/createProperty`, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify({
+                    ...propertyData
+                })
+            });
+            const {property} = await response.json();
+            dispatch({type: USER_PROPERTY_SUCCESS, payload: property});
+            d({type: true, payload: {success: true, message: "Property created successfully..."}});
+        } catch (error) {
+            
+        }
+    }
+
+    const getProperties = async () => {
+        try {
+            const response = await fetch(`${URL}/getProperties`, {
+                method: "GET",
+                headers: headers
+            }); 
+            const {properties} = await response.json();
+            dispatch({type: PROPERTY_LIST_SUCCESS, payload: properties});
+        } catch (error) {
+            
+        }
+    }
+
+    const getProperty = async (id) => {
+        console.log(id);
+        try {
+            const response = await fetch(`${URL}/getProperty/${id}`, {
+                method: "GET",
+                headers: headers
+            });
+            const {property} = await response.json();
+            return property;
+        } catch (error) {
+            
+        }
+    }
+
+    // const createPropertyReview = async (reviewData, propertyId) => {
+    //     try {
+    //         const response = await fetch(`${URL}/property/${propertyId}/review`, {
+    //             method: "POST",
+    //             headers: headers,
+    //             body: JSON.stringify(reviewData)
+    //         });
+    //         const data = await response.json();
+    //         console.log(data);
+    //     } catch (error) {
+            
+    //     }
+
+    // }
+
+    // const getPropertyReviews = async () => {
+    //     try {
+    //         const response = await fetch(`${URL}/property/${propertyId}/review`, {
+    //             method: "GET",
+    //             headers: headers
+    //         })
+    //         const data = await response.json();
+    //         console.log(data);
+    //     } catch (error) {
+            
+    //     }
+    // }
+
+
+
 
     return (
         <UserContext.Provider value={{
             ...state,
+            dispatch,
             getCurrentUser,
+            getUser,
             updateUserProfile,
             changePassword,
-            uploadProfilePic
+            uploadProfilePic,
+            createProperty,
+            getProperties,
+            getProperty
         }}>
             {children}
         </UserContext.Provider>

@@ -8,15 +8,15 @@ const protect = async (req, res, next) => {
         token = req.headers.authorization.split(" ")[1];
 
         if (!token) {
-            res.status(401).json({
+            console.log(token);
+            return res.status(401).json({
                 msg: "No token available"
             });
+        } else {
+            const {userId} = await jwt.verify(token, process.env.JWT_SECRET);
+            req.user = await User.findOne({_id: userId}).select("-password");
+            next();
         }
-
-        const {userId} = await jwt.verify(token, process.env.JWT_SECRET);
-        req.user = await User.findOne({_id: userId}).select("-password");
-        
-        next();
         
     } else {
         res.status(401).json({

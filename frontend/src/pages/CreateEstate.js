@@ -5,13 +5,17 @@ import PropertyDetailsCreate from "../components/PropertyDetailsCreate";
 import PropertyLocationCreate from "../components/PropertyLocationCreate";
 import PropertyMediaCreate from "../components/PropertyMediaCreate";
 
+import useUser from "../hooks/useUser";
+
 function CreateEstate() {
 
-  console.log(123);
+  const {propertyFormData, createProperty} = useUser();
 
-  useEffect(() => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  }, []);
+    createProperty(propertyFormData);
+  }
 
   return (
     <div className="container">
@@ -19,6 +23,7 @@ function CreateEstate() {
         <div className="col-md-8">
           <div className="create-estate-wrapper">
             <h4 className="text-dark fw-bold">Add Estate</h4>
+            <form onSubmit={handleSubmit}>
             <div className="estate-card card mt-3 p-5">
               <EstateCreateTabs />
               <div className="tab-content">
@@ -36,6 +41,7 @@ function CreateEstate() {
                 </button>
               </div>
             </div>
+            </form>
           </div>
         </div>
         <div className="col-md-4"></div>
