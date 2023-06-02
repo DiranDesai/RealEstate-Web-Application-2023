@@ -1,1 +1,1 @@
-export const URL = "https://real-estate-backend-2nky.onrender.com/";
+export const URL = "https://real-estate-backend-2nky.onrender.com";
