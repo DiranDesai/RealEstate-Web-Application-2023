@@ -11,7 +11,7 @@ const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
 
 let corsOptions = {
-    origin : 'http://localhost:3000',
+    origin : 'https://real-estate-backend-2nky.onrender.com/',
 }
 
 app.use(cors(corsOptions));
