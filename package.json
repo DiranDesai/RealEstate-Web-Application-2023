@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "install-server": "npm install",
+    "start-server": "cd backend && node server.js",
+    "install-frontend": "cd frontend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "start-frontend": "cd frontend && npm run start"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +24,7 @@
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "express-fileupload": "^1.4.0",
+    "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3",
     "nodemon": "^2.0.20"

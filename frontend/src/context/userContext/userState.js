@@ -5,7 +5,7 @@ import axios from "axios";
 import UserContext from "./userContext";
 import UserReducer from "./userReducer";
 
-import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROPERTY_SUCCESS, PROPERTY_LIST_SUCCESS} from "../types";
+import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROPERTY_SUCCESS, PROPERTY_LIST_SUCCESS, LOAD_FAVOURITES} from "../types";
 
 import { URL } from "../constants"
 import { getToken } from "../utils"
@@ -15,7 +15,7 @@ import useNotify from "../../hooks/useNotify";
 const UserState = ({children}) => {
     const {dispatch: d} = useNotify();
 
-    const initialState = {
+    let initialState = {
         profileData: null,
         propertyFormData: {},
         loading: false,
@@ -25,8 +25,22 @@ const UserState = ({children}) => {
             { name: "office", listings: 3, icon: "bi bi-buildings" },
             { name: "restaraunt", listings: 1, icon: "bi bi-amd" },
         ],
-        properties: []
+        properties: [],
+        favourites: []
     }
+
+    let [state, dispatch] = useReducer(UserReducer, initialState);
+
+    useEffect(() => {
+        const localStorageFavourites = localStorage.getItem("favourites") ? JSON.parse(localStorage.getItem("favourites")) : [];
+        dispatch({type: LOAD_FAVOURITES, payload: localStorageFavourites});
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("favourites", JSON.stringify(state.favourites));
+        console.log("diran");
+    }, [state.favourites]);
+    console.log(state);
 
     const token = getToken();
     const headers = {
@@ -34,7 +48,6 @@ const UserState = ({children}) => {
         Authorization: `Bearer ${token}`
     };
 
-    const [state, dispatch] = useReducer(UserReducer, initialState);
 
 
     const getCurrentUser = async () => {
@@ -154,33 +167,33 @@ const UserState = ({children}) => {
         }
     }
 
-    // const createPropertyReview = async (reviewData, propertyId) => {
-    //     try {
-    //         const response = await fetch(`${URL}/property/${propertyId}/review`, {
-    //             method: "POST",
-    //             headers: headers,
-    //             body: JSON.stringify(reviewData)
-    //         });
-    //         const data = await response.json();
-    //         console.log(data);
-    //     } catch (error) {
-            
-    //     }
+    const createPropertyReview = async (reviewData, propertyId) => {
+        try {
+            const response = await fetch(`${URL}/property/${propertyId}/review`, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(reviewData)
+            });
+            const {review} = await response.json();
+            return review
+        } catch (error) {
+            console.log(error.message);
+        }
 
-    // }
+    }
 
-    // const getPropertyReviews = async () => {
-    //     try {
-    //         const response = await fetch(`${URL}/property/${propertyId}/review`, {
-    //             method: "GET",
-    //             headers: headers
-    //         })
-    //         const data = await response.json();
-    //         console.log(data);
-    //     } catch (error) {
+    const getPropertyReviews = async (propertyId) => {
+        try {
+            const response = await fetch(`${URL}/property/${propertyId}/review`, {
+                method: "GET",
+                headers: headers
+            })
+            const {reviews} = await response.json();
+            return reviews
+        } catch (error) {
             
-    //     }
-    // }
+        }
+    }
 
 
 
@@ -196,7 +209,9 @@ const UserState = ({children}) => {
             uploadProfilePic,
             createProperty,
             getProperties,
-            getProperty
+            getProperty,
+            createPropertyReview,
+            getPropertyReviews
         }}>
             {children}
         </UserContext.Provider>

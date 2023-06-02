@@ -1,23 +1,26 @@
 import React, { useEffect, useRef } from "react";
 import useNotify from "../hooks/useNotify";
 
-function MessageComponent() {
-  const { dispatch, payloadData, error } = useNotify();
+function MessageComponent({success, message, setError}) {
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setError(false);
+    }, 2000);
 
-  const {message, success} = payloadData;
+    return () => clearInterval(interval)
+  }, []);
 
   const handleError = () => {
-    dispatch({ type: false });
+    setError(false);
   }
+
+  
 
   return (
     <>
       <div
         class={`modal msgContainer`}
         id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
       >
         <div class="modal-dialog">
           <div class="modal-content">

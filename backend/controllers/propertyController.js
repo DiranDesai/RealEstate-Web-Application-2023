@@ -44,14 +44,45 @@ const getProperty = async (req, res) => {
     }
 }
 
-const addPropertyReview = async (req, res) => {
-    const params = req.params;
-    console.log(params);
+const createPropertyReview = async (req, res) => {
+    const {id} = req.params;
+    const {rating, message} = req.body
+    
+    const property = await PropertyModal.findById({_id: id});
+
+    if (property) {
+        const alreadyReviewed = property.reviews.find(r => r.userId.toString() === req.user._id.toString());
+        if (alreadyReviewed) {
+            res.status(400).json({message: "Product already reviewed"});
+            //throw new Error('Product already reviewed');
+        }
+
+        const review = {userId: req.user._id, rating, message};
+        property.reviews.push(review);
+
+        const savedReview = await property.save();
+
+        if (savedReview) {
+            return res.status(201).json({review: property.reviews[property.reviews.length - 1]});
+        }
+        
+    } else {
+        return res.status(401).json({message: "Property not found"});
+    }
 }
 
 const getPropertyReviews = async (req, res) => {
-    const params = req.params;
-    console.log(params);
+    const {id} = req.params;
+    
+    try {
+        const property = await PropertyModal.findById({_id: id});
+        if (property) {
+            return res.status(200).json({reviews: property.reviews});
+        }
+    } catch (error) {
+        
+    }
+
 }
 
 module.exports = {
@@ -59,6 +90,6 @@ module.exports = {
     getCurrentUserProperties,
     getAllProperties,
     getProperty,
-    addPropertyReview,
+    createPropertyReview,
     getPropertyReviews
 }

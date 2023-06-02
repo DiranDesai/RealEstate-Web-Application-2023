@@ -9,14 +9,9 @@ function Navbar() {
   const [search, setSearch] = useState("");
 
   const { token, logout } = useAuthState();
-  const {profileData} = useUser();
+  const {profileData, favourites} = useUser();
 
   const navigate = useNavigate();
-
-
-  
-
-
 
 
 
@@ -63,10 +58,10 @@ function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to={`/favourites`}><a href="#">
                       <i className="bi bi-heart"></i>
-                      <span className="count">1</span>
-                    </a>
+                      <span className="count">{favourites.length}</span>
+                    </a></Link>
                   </li>
                   <li>
                     <a href="#">

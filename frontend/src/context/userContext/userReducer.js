@@ -1,4 +1,4 @@
-import { USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, RESET, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROFILE_UPDATE_FAIL, LOADING, USER_PROPERTY_SUCCESS, PROPERTY_LIST_SUCCESS } from "../types";
+import { USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, RESET, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROFILE_UPDATE_FAIL, LOADING, USER_PROPERTY_SUCCESS, PROPERTY_LIST_SUCCESS, ADD_FAVOURITES, LOAD_FAVOURITES } from "../types";
 
 const userReducer = (state, action) => {
   switch (action.type) {
@@ -27,6 +27,12 @@ const userReducer = (state, action) => {
       break;
     case PROPERTY_LIST_SUCCESS:
       return {...state, properties: action.payload};
+      break;
+    case ADD_FAVOURITES:
+      return {...state, favourites: [...state.favourites, action.payload]};
+      break;
+    case LOAD_FAVOURITES:
+      return {...state, favourites: action.payload};
       break;
     case RESET:
       return { profileData: null };

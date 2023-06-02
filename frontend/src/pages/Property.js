@@ -5,28 +5,81 @@ import PropertyViews from "../components/PropertyViews";
 import useUser from "../hooks/useUser";
 
 import { moneyFormat } from "../context/utils";
+import PropertyReviews from "../components/PropertyReviews";
+
+import {ADD_FAVOURITES} from "../context/types";
+import MessageComponent from "../components/MessageComponent";
 
 function Property() {
   const [userDetails, setUserDetails] = useState(null);
   const [propertyDetails, setPropertyDetails] = useState(null);
   const [reviews, setReviews] = useState([]);
+  const [reviewForm, setReviewForm] = useState({});
+  const [error, setError] = useState(null);
 
   const { id } = useParams();
-  const { getUser, getProperty, createPropertyReview, getPropertyReviews } =
+  const { getUser, getProperty, createPropertyReview, getPropertyReviews, favourites, dispatch } =
     useUser();
 
   useEffect(() => {
     const getUserInfo = async () => {
       const propertyDb = await getProperty(id);
       const userDb = await getUser(propertyDb.userId);
+      const propertyReviewsDb = await getPropertyReviews(id);
       setPropertyDetails(propertyDb);
       setUserDetails(userDb);
+      setReviews(propertyReviewsDb);
     };
 
     getUserInfo();
   }, []);
 
+
+  const handleReviewSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!reviewForm.rating || !reviewForm.message) {
+      setError("Please add review message");
+      return
+    }
+
+    try {
+      const createdReview = await createPropertyReview(reviewForm, id);
+      console.log(createdReview);
+      setReviews(prev => {
+        return [...prev, createdReview];
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+
+
+  }
+
+  const handleOnchange = (e) => {
+    setReviewForm(prev => {
+      return {...prev, rating: 3, [e.target.name]: e.target.value}
+    });
+  }
+
+  console.log(propertyDetails);
+
+  const addFavourite = () => {
+    const checkFavourite = favourites.find(favourite => favourite._id === propertyDetails._id);
+    if (checkFavourite) {
+      //alert("Already added to favourites");
+      setError("Already added to favourites");
+    } else {
+      dispatch({type: ADD_FAVOURITES, payload: propertyDetails});
+      setError("Added to favourites successfully");
+    }
+  }
+
+
   return (
+    <>
+    {error && <MessageComponent success={true} message={error} setError={setError} />}
     <div className="property-page container">
       <div className="row">
         <div className="col-md-9 property-left">
@@ -58,7 +111,7 @@ function Property() {
                   <div className="col-md-4 property-showcase-1-right">
                     <div>
                       <div>
-                        <button className="btn">
+                        <button className="btn" onClick={addFavourite}>
                           <i class="bi bi-heart"></i>
                         </button>
                         <button className="btn">
@@ -104,301 +157,13 @@ function Property() {
                 </div>
               </div>
             </div>
-            <div className="reviews shadow-1 p-5 mt-4">
-              <div className="review-stats">
-                <h3 className="heading-1">How user rated this property</h3>
-                <div className="row">
-                  <div className="col-3">
-                    <div className="stats-num text-center">
-                      <h2 className="t-3 num">4.5</h2>
-                      <div className="stars mt-4">
-                        <span>
-                          <i class="bi bi-star-fill"></i>
-                        </span>
-                        <span>
-                          <i class="bi bi-star-fill"></i>
-                        </span>
-                        <span>
-                          <i class="bi bi-star-fill"></i>
-                        </span>
-                        <span>
-                          <i class="bi bi-star-fill"></i>
-                        </span>
-                        <span>
-                          <i class="bi bi-star-fill"></i>
-                        </span>
-                      </div>
-                      <span>(Based on 25 reviews)</span>
-                    </div>
-                  </div>
-                  <div className="col-9">
-                    <div className="stats-progress">
-                      <div className="row">
-                        <div className="col-8">
-                          <div className="progress-container">
-                            <div className="row">
-                              <div className="col-12">
-                                <div className="progress">
-                                  <div
-                                    className="progress-bar"
-                                    style={{ width: `25%` }}
-                                  ></div>
-                                </div>
-                              </div>
-                              <div className="col-12">
-                                <div className="progress">
-                                  <div
-                                    className="progress-bar"
-                                    style={{ width: `70%` }}
-                                  ></div>
-                                </div>
-                              </div>
-                              <div className="col-12">
-                                <div className="progress">
-                                  <div
-                                    className="progress-bar"
-                                    style={{ width: `85%` }}
-                                  ></div>
-                                </div>
-                              </div>
-                              <div className="col-12">
-                                <div className="progress">
-                                  <div
-                                    className="progress-bar"
-                                    style={{ width: `45%` }}
-                                  ></div>
-                                </div>
-                              </div>
-                              <div className="col-12">
-                                <div className="progress">
-                                  <div
-                                    className="progress-bar"
-                                    style={{ width: `75%` }}
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-4">
-                          <div className="row">
-                            <div className="col-12"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="reviews-reply mt-5">
-                <div className="header">
-                  <div className="row">
-                    <div className="col-7">
-                      <h3 className="heading-1">Reviews</h3>
-                    </div>
-                    <div className="col-5">
-                      <form>
-                        <div className="form-group">
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Search Review"
-                          />
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div className="reviews-reply-container">
-                  <div className="review">
-                    <div className="d-flex">
-                      <div className="review-left">
-                        <div className="profile">
-                          <img src="../images/user5.jpg" alt="" />
-                        </div>
-                      </div>
-                      <div className="review-right ml-5">
-                        <div className="content">
-                          <h4>
-                            Max Hawkins <span>2 days ago</span>
-                          </h4>
-                          <div className="stars my-2">
-                            <span>
-                              <i class="bi bi-star-fill"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                          </div>
-                          <p>
-                            Lectures were at a really good pace and I never felt
-                            lost. The instructor was well informed and allowed
-                            me to learn and navigate Figma easily.
-                          </p>
-                          <div className="review-helpfull d-flex align-items-center">
-                            <p>Was this review helpful?</p>
-                            <div className="button align-items-center">
-                              <button className="btn btn-sm">Yes</button>
-                              <button className="btn btn-sm">No</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="review">
-                    <div className="d-flex">
-                      <div className="review-left">
-                        <div className="profile">
-                          <img src="../images/user4.jpg" alt="" />
-                        </div>
-                      </div>
-                      <div className="review-right ml-5">
-                        <div className="content">
-                          <h4>
-                            Max Hawkins <span>2 days ago</span>
-                          </h4>
-                          <div className="stars my-2">
-                            <span>
-                              <i class="bi bi-star-fill"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star-fill"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                          </div>
-                          <p>
-                            Lectures were at a really good pace and I never felt
-                            lost. The instructor was well informed and allowed
-                            me to learn and navigate Figma easily.
-                          </p>
-                          <div className="review-helpfull d-flex align-items-center">
-                            <p>Was this review helpful?</p>
-                            <div className="button align-items-center">
-                              <button className="btn btn-sm">Yes</button>
-                              <button className="btn btn-sm">No</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="review">
-                    <div className="d-flex">
-                      <div className="review-left">
-                        <div className="profile">
-                          <img src="../images/user6.jpg" alt="" />
-                        </div>
-                      </div>
-                      <div className="review-right ml-5">
-                        <div className="content">
-                          <h4>
-                            Linda Nchaba <span>2 days ago</span>
-                          </h4>
-                          <div className="stars my-2">
-                            <span>
-                              <i class="bi bi-star-fill"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star-fill"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                          </div>
-                          <p>
-                            Lectures were at a really good pace and I never felt
-                            lost. The instructor was well informed and allowed
-                            me to learn and navigate Figma easily.
-                          </p>
-                          <div className="review-helpfull d-flex align-items-center">
-                            <p>Was this review helpful?</p>
-                            <div className="button align-items-center">
-                              <button className="btn btn-sm">Yes</button>
-                              <button className="btn btn-sm">No</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="review">
-                    <div className="d-flex">
-                      <div className="review-left">
-                        <div className="profile">
-                          <img src="../images/review1.jpg" alt="" />
-                        </div>
-                      </div>
-                      <div className="review-right ml-5">
-                        <div className="content">
-                          <h4>
-                            Diran Sai <span>2 days ago</span>
-                          </h4>
-                          <div className="stars my-2">
-                            <span>
-                              <i class="bi bi-star-fill"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                            <span>
-                              <i class="bi bi-star"></i>
-                            </span>
-                          </div>
-                          <p>
-                            Lectures were at a really good pace and I never felt
-                            lost. The instructor was well informed and allowed
-                            me to learn and navigate Figma easily.
-                          </p>
-                          <div className="review-helpfull d-flex align-items-center">
-                            <p>Was this review helpful?</p>
-                            <div className="button align-items-center">
-                              <button className="btn btn-sm">Yes</button>
-                              <button className="btn btn-sm">No</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PropertyReviews reviews={reviews}/>
             <div className="create-review shadow-1 p-5 mt-4">
               <div className="row">
                 <div className="col-md-6">
                   <div>
                     <h3 className="heading-1">Write a Review</h3>
-                    <form>
+                    <form onSubmit={handleReviewSubmit}>
                       <div className="rate d-flex align-items-center">
                         <div className="stars">
                           <span>
@@ -425,7 +190,7 @@ function Property() {
                         </label>
                         <textarea
                           className="form-control"
-                          placeholder="Write your reveiw"
+                          placeholder="Write your review" name="message" onChange={handleOnchange}
                         ></textarea>
                       </div>
                       <button className="btn create">Submit Review</button>
@@ -630,6 +395,7 @@ function Property() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

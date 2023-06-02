@@ -603,6 +603,7 @@ ul{
   width: 65px;
   height: 65px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .reviews .reviews-reply-container .review .review-right{
   margin-left: 15px;

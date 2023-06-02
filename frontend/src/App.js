@@ -15,6 +15,7 @@ import AgentsListing from "./pages/AgentsListing";
 import Category from "./pages/Category";
 import Property from "./pages/Property";
 import CreateEstate from "./pages/CreateEstate";
+import Favourites from "./components/Favourites";
 
 // COMPONENTS IMPORTS
 import "./App.css";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/agents/listing" element={token ? <AgentsListing /> : <Navigate to="/login" />}/>
           <Route path="/category/:category" element={token ? <Category /> : <Navigate to="/login" />}/>
           <Route path="/property/:id" element={token ? <Property /> : <Navigate to="/login" />}/>
+          <Route path="/favourites" element={token ? <Favourites /> : <Navigate to="/login" />}/>
         </Routes>
         </div>
       </Router>
