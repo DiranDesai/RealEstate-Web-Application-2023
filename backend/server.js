@@ -5,7 +5,7 @@ const connectDB = require("./config/db");
 const { errorHandler } = require("./middlewares/errorMiddleware");
 runServer();
 const express = require("express");
-const ap = express();
+const app = express();
 
 const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
