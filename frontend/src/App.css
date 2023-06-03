@@ -275,7 +275,7 @@ ul{
 }
 
 .banner .banner-content{
-  min-width: 1000px;
+  /* min-width: 1000px; */
 }
 .banner .banner-content p{
   font-size: 22px;
@@ -1261,9 +1261,10 @@ ul{
   .property-listing-container .row>*{
     width: 100% !important;
     flex-shrink: 1;
+
   }
   .banner-content{
-    min-width: 100px !important;
+    /* min-width: 100px !important; */
     margin-top: 300px;
   }
   .property-listing-container{
