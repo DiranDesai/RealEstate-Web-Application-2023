@@ -1274,7 +1274,7 @@ ul{
   .property-listing-container{
     margin-top: 200px;
   }
-  .banner-search input{
+  .banner-search input, .banner-search select{
     margin-top: 10px;
   }
 
