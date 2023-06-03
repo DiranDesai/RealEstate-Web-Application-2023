@@ -1247,6 +1247,10 @@ ul{
   .navbar .menu-1{
     display: none;
   }
+
+  .banner-content h1{
+    font-size: 30px;
+  }
 }
 
 
