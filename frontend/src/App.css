@@ -1297,6 +1297,10 @@ ul{
   .banner-content .btn{
     display: flex;
   }
+  .banner-content p{
+    color: #555f89;
+    font-size: 18px;
+  }
 }
 
 
