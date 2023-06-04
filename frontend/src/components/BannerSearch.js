@@ -30,7 +30,7 @@ function BannerSearch() {
             <i className="bi bi-geo-alt loc"></i>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-3 search-col">
           <button className="btn search">
             Search<i className="bi bi-search"></i>
           </button>

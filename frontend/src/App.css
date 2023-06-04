@@ -1277,6 +1277,15 @@ ul{
   .banner-search input, .banner-search select{
     margin-top: 10px;
   }
+  .search-col{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .property-listing-container .header-left{
+    visibility: hidden;
+  }
 
   .navbar{
     position: relative;
