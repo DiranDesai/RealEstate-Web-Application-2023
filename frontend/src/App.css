@@ -504,10 +504,10 @@ ul{
 
 /* PROPERTY PAGES STYLES */
 .shadow-1{
-  box-shadow: 0px 0 30px rgb(1 41 112 / 10%) !important;
+  /* box-shadow: 0px 0 30px rgb(1 41 112 / 10%) !important;
   border-radius: 0.625rem;
   box-shadow: 0 7px 14px 0 rgba(65,69,88,0.1), 0 px 6px 0 rgba(0,0,0,0.07) !important;
-  border: none;
+  border: none; */
 } 
 .t-1{
   font-weight: 700;
