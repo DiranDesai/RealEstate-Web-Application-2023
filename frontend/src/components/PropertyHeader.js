@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function PropertyHeader() {
+  const [status, setStatus] = useState(false);
+
+  useEffect(() => {
+    const innerWid = window.innerWidth;
+    if (innerWid < 900) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
+
+    console.log(innerWid);
+  }, [window.innerWidth]);
+
+
   return (
     <div className='property-header d-flex align-items-center justify-content-between'>
         <div className="header-left">
@@ -9,9 +23,9 @@ function PropertyHeader() {
         </div>
         <div className="header-right">
             <div className='d-flex align-items-center'>
-                <button className='btn'>All Categories</button>
-                <button className='btn'>For Sale</button>
-                <button className='btn'>For Lent</button>
+                <button className='btn'>{status ? "" : "All"} Categories</button>
+                <button className='btn'>{status ? "" : "For"} Sale</button>
+                <button className='btn'>{status ? "" : "For"} Lent</button>
             </div>
         </div>
     </div>
