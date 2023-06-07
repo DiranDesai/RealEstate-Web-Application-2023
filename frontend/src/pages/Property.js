@@ -85,7 +85,7 @@ function Property() {
         <div className="col-md-9 property-left">
           <div className="property-container">
             <div className="property-showcase">
-              <div className="property-showcase-1 shadow-1 p-5">
+              <div className="property-showcase-1 shadow-1 p-5 mt-4">
                 <div className="row">
                   <div className="col-md-8 property-showcase-1-left">
                     <div>
@@ -204,7 +204,7 @@ function Property() {
         </div>
         <div className="col-md-3 property-right">
           <div className="property-container">
-            <div className="property-card shadow-1">
+            <div className="property-card agent shadow-1">
               <div className="property-top"></div>
               <div className="property-middle text-center">
                 <div>

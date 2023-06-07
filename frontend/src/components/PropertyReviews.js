@@ -9,7 +9,7 @@ function PropertyReviews({ reviews }) {
       <div className="review-stats">
         <h3 className="heading-1">How user rated this property</h3>
         <div className="row">
-          <div className="col-3">
+          <div className="col-sm-12">
             <div className="stats-num text-center">
               <h2 className="t-3 num">4.5</h2>
               <div className="stars mt-4">
@@ -32,7 +32,7 @@ function PropertyReviews({ reviews }) {
               <span>(Based on 25 reviews)</span>
             </div>
           </div>
-          <div className="col-9">
+          <div className="col-sm-12">
             <div className="stats-progress">
               <div className="row">
                 <div className="col-8">

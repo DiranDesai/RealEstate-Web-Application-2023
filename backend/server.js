@@ -10,10 +10,17 @@ const app = express();
 const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
 
+let origin;
+
+if (process.env.NODE_ENV == "production") {
+    origin = "https://real-estate-frontend-z0wx.onrender.com"
+} else {
+    origin = "http://localhost:3000"
+}
+
 //PRODUCTION ORIGIN
 let corsOptions = {
-    origin : 'https://real-estate-frontend-z0wx.onrender.com'
-    // origin: "http://localhost:3000"
+    origin: origin
 }
 
 
