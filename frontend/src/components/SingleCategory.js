@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 
 function SingleCategory({ category }) {
   return (
-    <div className="col-3">
+    <div className="col-md-3 col-sm-12">
       <div className="card">
         <div className="inner-content">
           <i className="bi bi-building-fill"></i>

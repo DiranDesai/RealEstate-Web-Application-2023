@@ -10,9 +10,14 @@ const app = express();
 const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
 
+//PRODUCTION ORIGIN
 let corsOptions = {
-    origin : 'https://real-estate-frontend-z0wx.onrender.com',
+    origin : 'https://real-estate-frontend-z0wx.onrender.com'
+    // origin: "http://localhost:3000"
 }
+
+
+console.log(process.env.NODE_ENV);
 
 app.use(cors(corsOptions));
 app.use(fileUpload());

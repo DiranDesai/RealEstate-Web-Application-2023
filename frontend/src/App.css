@@ -30,8 +30,7 @@ body{
   font-family: "Open Sans", sans-serif; 
   /* font-family: "Roboto"; */
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
-  overflow-x: hidden;
-  height: 2000px;
+  overflow-x: hidden !important;
 }
 a{
   color: #333e48;
@@ -1300,6 +1299,15 @@ ul{
   .banner-content p{
     color: #555f89;
     font-size: 18px;
+  }
+
+  .property-showcase-1, .property-showcase-2, .reviews, .create-review, .views{
+    padding: 10px !important;
+  }
+  .property-showcase-2 img{
+    height: 200px;
+    object-fit: cover;
+    margin-top: 20px;
   }
 }
 
