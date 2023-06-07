@@ -1261,6 +1261,9 @@ ul{
 }
 
 @media(max-width: 1000px) {
+  .navbar-profile{
+    display: none !important;
+  }
   .property-listing-container .row>*{
     width: 100% !important;
     flex-shrink: 1;
@@ -1309,6 +1312,11 @@ ul{
     object-fit: cover;
     margin-top: 20px;
   }
+
+  .agent-showcase{
+    padding: 2rem 0px;
+  }
+
 }
 
 

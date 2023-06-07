@@ -4,7 +4,7 @@ function SponsorListing() {
   return (
     <div className="sponsor-listing-container mt-5">
       <div className="container">
-        <ul className="grid">
+        <ul>
           <li>
             <img src="images/sponsor1.svg" alt="" />
           </li>
