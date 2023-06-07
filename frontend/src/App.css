@@ -1121,10 +1121,10 @@ ul{
 
 /* SPONSOR LISTING STYLES */ 
 .sponsor-listing-container ul{
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(6, auto);
   align-items: center;
-  justify-items: center;
+  justify-items: center; */
 }
 .sponsor-listing-container img{
   width: 130px;
