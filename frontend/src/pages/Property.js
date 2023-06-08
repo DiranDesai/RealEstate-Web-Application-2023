@@ -7,8 +7,9 @@ import useUser from "../hooks/useUser";
 import { moneyFormat } from "../context/utils";
 import PropertyReviews from "../components/PropertyReviews";
 
-import {ADD_FAVOURITES} from "../context/types";
+import {ADD_FAVOURITES, LOADING} from "../context/types";
 import MessageComponent from "../components/MessageComponent";
+import Loader from "../components/Loader";
 
 function Property() {
   const [userDetails, setUserDetails] = useState(null);
@@ -18,21 +19,27 @@ function Property() {
   const [error, setError] = useState(null);
 
   const { id } = useParams();
-  const { getUser, getProperty, createPropertyReview, getPropertyReviews, favourites, dispatch } =
+  const { getUser, getProperty, createPropertyReview, getPropertyReviews, favourites, dispatch, loading } =
     useUser();
 
   useEffect(() => {
     const getUserInfo = async () => {
+      dispatch({type: LOADING, payload: true});
       const propertyDb = await getProperty(id);
       const userDb = await getUser(propertyDb.userId);
       const propertyReviewsDb = await getPropertyReviews(id);
       setPropertyDetails(propertyDb);
       setUserDetails(userDb);
       setReviews(propertyReviewsDb);
+      dispatch({type: LOADING, payload: false});
     };
 
     getUserInfo();
   }, []);
+
+  if (loading) {
+    return <Loader />
+  }
 
 
   const handleReviewSubmit = async (e) => {
@@ -75,6 +82,8 @@ function Property() {
       setError("Added to favourites successfully");
     }
   }
+
+
 
 
   return (

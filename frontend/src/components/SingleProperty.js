@@ -68,7 +68,7 @@ function SingleProperty({property}) {
           <div className="owner d-flex align-items-center">
             <img src={user?.profileUrl || `images/default2.jpg`} />
             <p>
-              By <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{user?.username}</a></Link>
+              By <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{user?.username || "wait..."}</a></Link>
             </p>
           </div>
           <div>
