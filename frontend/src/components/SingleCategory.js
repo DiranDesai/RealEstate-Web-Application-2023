@@ -7,7 +7,8 @@ function SingleCategory({ category }) {
     <div className="col-md-3 col-sm-12">
       <div className="card">
         <div className="inner-content">
-          <i className="bi bi-building-fill"></i>
+          <img src={category.link} alt="" />
+          {/* <i className="bi bi-building-fill"></i> */}
           <h5>{category.name}</h5>
           <p>{category.listings} Listings</p>
           <Link to={`category/${category.name}`}>

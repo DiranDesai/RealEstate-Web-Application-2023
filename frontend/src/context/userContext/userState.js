@@ -20,10 +20,10 @@ const UserState = ({children}) => {
         propertyFormData: {},
         loading: false,
         categories: [
-            { name: "apartments", listings: 4, icon: "bi bi-building-fill" },
-            { name: "commercial", listings: 2, icon: "bi bi-bag-fill" },
-            { name: "office", listings: 3, icon: "bi bi-buildings" },
-            { name: "restaraunt", listings: 1, icon: "bi bi-amd" },
+            { name: "office", listings: 4, link: "https://img.icons8.com/?size=512&id=bx3Fsc9twEvU&format=png" },
+            { name: "lodges", listings: 2, link: "https://img.icons8.com/?size=512&id=lswPqFny6bQU&format=png" },
+            { name: "houses", listings: 3, link: "https://img.icons8.com/?size=512&id=QAaCUYnGw7pk&format=png" },
+            { name: "restaraunt", listings: 1, link: "https://img.icons8.com/?size=512&id=sfJwEBemSndz&format=png" },
         ],
         properties: [],
         favourites: []

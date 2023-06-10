@@ -111,7 +111,7 @@ function Property() {
                           <i class="bi bi-hand-thumbs-up"></i>400
                         </span>
                       </div>
-                      <span className="tag">
+                      <span className={`tag ${propertyDetails?.status === "sell" ? 'tag-1' : 'tag-3'}`}>
                         For {propertyDetails?.status}
                         <i class="bi bi-bag"></i>
                       </span>

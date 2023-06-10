@@ -22,6 +22,11 @@ function Home() {
     }, [token]);
 
 
+    if (!token) {
+      return <Loader />
+    }
+
+
 
 
 
