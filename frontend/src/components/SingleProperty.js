@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { moneyFormat } from "../context/utils";
 import useUser from "../hooks/useUser";
 
+import Spinner from "./Spinner";
+
 function SingleProperty({property}) {
   const [user, setUser] = useState(null);
 
@@ -68,7 +70,7 @@ function SingleProperty({property}) {
           <div className="owner d-flex align-items-center">
             <img src={user?.profileUrl || `images/default2.jpg`} />
             <p>
-              By <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{user?.username || "wait..."}</a></Link>
+              By <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{user?.username || <Spinner />}</a></Link>
             </p>
           </div>
           <div>

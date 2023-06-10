@@ -41,6 +41,10 @@ img{
   object-fit: contain;
 }
 
+.property-spinner{
+  width: 20px;
+  height: 20px;
+}
 .app-wrapper{
   margin-top: 4rem;
 }
@@ -832,7 +836,7 @@ ul{
   align-items: center;
   justify-content: center;
 }
-.loader-wrapper .loader{
+.loader-wrapper .loader-2{
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -842,6 +846,11 @@ ul{
   border-top-color: #7424be;
   border-right-color: #242957;
   animation: loading 0.9s linear 0s infinite;
+}
+
+.loader-wrapper .loader-1{
+  width: 100px;
+  height: 100px;
 }
 
 @keyframes loading {
