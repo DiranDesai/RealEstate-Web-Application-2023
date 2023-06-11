@@ -36,16 +36,16 @@ function App() {
         {token && <Navbar />}
         <div className="app-wrapper">
         <Routes>
-          <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} exact />
+          <Route path="/" element={<Home />} exact />
           <Route path="/search" element={token ? <Home /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
-          <Route path="/create" element={token ? <CreateEstate /> : <Navigate to="/login" />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/create" element={<CreateEstate />} />
           <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
           <Route path="/account" element={token ? <Navigate to="/" /> : <Register />} />
-          <Route path="/agents/listing" element={token ? <AgentsListing /> : <Navigate to="/login" />}/>
-          <Route path="/category/:category" element={token ? <Category /> : <Navigate to="/login" />}/>
-          <Route path="/property/:id" element={token ? <Property /> : <Navigate to="/login" />}/>
-          <Route path="/favourites" element={token ? <Favourites /> : <Navigate to="/login" />}/>
+          <Route path="/agents/listing" element={<AgentsListing />}/>
+          <Route path="/category/:category" element={<Category />}/>
+          <Route path="/property/:id" element={<Property />}/>
+          <Route path="/favourites" element={ <Favourites /> }/>
         </Routes>
         </div>
       </Router>

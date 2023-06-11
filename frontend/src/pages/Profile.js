@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Estates from "../components/Estates";
 import EarningStatsChart from "../components/EarningStatsChart";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import useUser from "../hooks/useUser";
 import Payouts from "../components/Payouts";
@@ -10,12 +10,26 @@ import ProfileOverview from "../components/ProfileOverview";
 import EditProfile from "../components/EditProfile";
 import ProfileSettings from "../components/ProfileSettings";
 import ChangePassword from "../components/ChangePassword";
+import Loader from "../components/Loader";
+import useAuthState from "../hooks/useAuthState";
 
 
 
 function Profile() {
   const { profileData, getCurrentUser } = useUser();
-  const {profileUrl, username} = profileData;
+  const {token} = useAuthState();
+
+
+  useEffect(() => {
+    if (token == null && profileData) { 
+      window.location = "/login";
+    } 
+    getCurrentUser();
+  }, []);
+
+  if (!profileData) {
+    return <Loader />
+  }
 
   return (
     <>
@@ -44,7 +58,7 @@ function Profile() {
                   <div className="profile-container">
                     <div className="profile-header d-flex">
                       <div className="user-profile-wrapper">
-                        <img src={profileUrl ? profileUrl : 'images/default2.jpg'} alt={username} />
+                        <img src={profileData.profileUrl ? profileData.profileUrl : 'images/default2.jpg'} alt={profileData.username} />
                         <span className="active-state"></span>
                       </div>
                       <div>

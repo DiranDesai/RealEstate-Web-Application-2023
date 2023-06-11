@@ -12,7 +12,7 @@ function SingleCategory({ category }) {
           <h5>{category.name}</h5>
           <p>{category.listings} Listings</p>
           <Link to={`category/${category.name}`}>
-            <button className="btn">View Category</button>
+            <button className="btn">View Category <i class="bi bi-eye"></i></button>
           </Link>
         </div>
       </div>
