@@ -1604,6 +1604,15 @@ ul {
     margin-top: 20px;
   }
 
+  .agent-showcase img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .estate-card{
+    padding: 10px !important;
+  }
+
 }
 
 

@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import useUser from "../hooks/useUser";
-import Loader from "./Loader";
 
 import SingleProperty from "./SingleProperty";
 
@@ -16,12 +15,10 @@ function PropertyList() {
 
   return (
     <div className="row g-5 property-listing-wrapper">
-      {properties.length > 0 ?  (
+      {properties.length > 0 && (
         properties.map((property) => {
           return <SingleProperty key={property._id} property={property}/>
         })
-      )  : (
-        <Loader />
       )}
     </div>
   );
