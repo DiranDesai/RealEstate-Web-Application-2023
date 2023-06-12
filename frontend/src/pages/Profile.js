@@ -53,7 +53,7 @@ function Profile() {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-6 left-profile-page">
+              <div className="col-sm-12 col-md-6 left-profile-page">
                 <div className="col-md-12">
                   <div className="profile-container">
                     <div className="profile-header d-flex">
@@ -64,7 +64,7 @@ function Profile() {
                       <div>
                         <div className="top-profile-header d-flex justify-content-between flex-column">
                           <div className="left">
-                            <p>
+                            <p className="username">
                               <span className="user-name">
                                 {profileData.username}
                               </span>{" "}
@@ -177,7 +177,7 @@ function Profile() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 right-profile-page">
+              <div className="col-sm-12 col-md-6 right-profile-page">
                 <div className="profile-link-container mt-4">
                   <div>
                     <ul className="profile-links-row nav nav-tabs nav-tabs-bordered">

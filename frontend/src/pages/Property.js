@@ -83,9 +83,7 @@ function Property() {
     }
   }
 
-
-
-
+  
   return (
     <>
     {error && <MessageComponent success={true} message={error} setError={setError} />}

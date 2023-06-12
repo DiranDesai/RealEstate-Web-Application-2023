@@ -86,7 +86,7 @@ const UserState = ({children}) => {
                 body: JSON.stringify(userData)
             });
             const data = await response.json();
-            //dispatch({type: USER_PROFILE_UPDATE_SUCCESS});
+            dispatch({type: USER_PROFILE_UPDATE_SUCCESS});
             return data;
 
         } catch (error) {

@@ -49,7 +49,7 @@ img {
 }
 
 .app-wrapper {
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 
@@ -189,7 +189,7 @@ ul {
 }
 
 .navbar .menu-2 ul li:nth-child(1) a .count {
-  background-color: #00b4d7 !important;
+  background-color: #f96565 !important;
 }
 
 .navbar .menu-2 ul li:nth-child(2) a .count {
@@ -984,7 +984,7 @@ ul {
   bottom: 0;
   right: 0;
   z-index: 1000;
-  background-color: #c0c9ca30;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1085,7 +1085,9 @@ ul {
   width: 160px;
 }
 
-.profile-page-container .heading div:first-child {}
+.profile-page-container .heading div:first-child {
+  visibility: hidden;
+}
 
 .profile-page-container .heading div>p:first-child {
   font-weight: 900;
@@ -1369,6 +1371,7 @@ ul {
   border: none;
   box-shadow: 0px 0 30px rgb(1 41 112 / 10%);
   border-radius: 12px;
+  box-shadow: none !important;
 }
 
 .create-estate-control-btn {
@@ -1478,10 +1481,6 @@ ul {
 }
 
 @media(max-width: 1000px) {
-  .navbar-profile {
-    display: none !important;
-  }
-
   .property-listing-container .row>* {
     width: 100% !important;
     flex-shrink: 1;
@@ -1564,6 +1563,42 @@ ul {
   .property-card.agent {
     margin-top: 24px;
   }
+
+  .profile-page-container .heading div:first-child{
+    display: none;
+  }
+
+  .user-profile-wrapper{
+    width: 200px;
+    height: 200px;
+    margin: auto !important;
+  }
+
+  .profile-header{
+    display: block !important;
+  }
+  .top-profile-header .username{
+    text-align: center;
+  }
+
+  .profile-header ul{
+    flex-direction: column;
+    align-items: revert;
+  }
+  .profile-header ul li{
+    margin-bottom: 10px;
+  }
+
+  .profile-page-container .left-profile-page img{
+    
+  }
+  .profile-header .top-profile-header .right button:last-child{
+    margin-top: 10px;
+  }
+  .profile-header .top-profile-header .right button:first-child{
+    margin-top: 10px;
+  }
+
 }
 
 

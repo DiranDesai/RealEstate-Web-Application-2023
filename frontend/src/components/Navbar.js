@@ -51,12 +51,12 @@ function Navbar() {
               </div>
               <div className="menu-2 d-flex align-items-center">
                 <ul className="d-flex align-items-center navbar-icon-links">
-                  <li>
+                  {/* <li>
                     <a href="#">
                       <i className="bi bi-arrow-left-right"></i>
                       <span className="count">2</span>
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to={`/favourites`}><a href="#">
                       <i className="bi bi-heart"></i>
