@@ -221,6 +221,7 @@ ul {
 
 .navbar-profile {
   position: relative;
+  padding-left: 20px;
 }
 
 .navbar-profile .dropdown-menu {
@@ -1597,6 +1598,10 @@ ul {
   }
   .profile-header .top-profile-header .right button:first-child{
     margin-top: 10px;
+  }
+
+  .earning-card{
+    margin-top: 20px;
   }
 
 }
