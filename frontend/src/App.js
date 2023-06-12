@@ -36,7 +36,7 @@ function App() {
         {token && <Navbar />}
         <div className="app-wrapper">
         <Routes>
-          <Route path="/" element={<Home />} exact />
+          <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} exact />
           <Route path="/search" element={token ? <Home /> : <Navigate to="/login" />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/create" element={<CreateEstate />} />
