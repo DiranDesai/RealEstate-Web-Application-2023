@@ -1490,7 +1490,7 @@ ul {
   }
 
   .banner-content {
-    /* min-width: 100px !important; */
+    min-width: 100px !important;
     margin-top: 100px;
   }
 
