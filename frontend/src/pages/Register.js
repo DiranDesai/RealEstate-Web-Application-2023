@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import MessageComponent from "../components/MessageComponent";
 import useAuthState from "../hooks/useAuthState";
 
@@ -76,7 +78,7 @@ function Register() {
           Create Account
         </button>
         <p>
-          Already have an account? <a href="#">Log in</a>
+          Already have an account?<Link to="/login">Log in</Link>
         </p>
       </div>
      </form>

@@ -1680,6 +1680,10 @@ ul {
     font-size: 14px;
   }
 
+  .form-wrapper .form-container{
+    max-width: 350px;
+  }
+
 }
 
 

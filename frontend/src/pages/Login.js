@@ -62,7 +62,7 @@ function Login() {
         <span> Remember me</span>
       </div>
       <button type="submit" className='btn btn-primary btn-block my-3'>Login</button>
-      <p>Don't have account?? <Link to="/account">Create an account</Link></p>
+      <p>Don't have account? <Link to="/account">Create an account</Link></p>
     </div>
       </form>
   </div>
