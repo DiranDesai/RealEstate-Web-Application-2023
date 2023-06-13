@@ -715,6 +715,7 @@ ul {
 .reviews .review {
   border-bottom: 1px solid #c2c9cf7d;
   padding: 2rem;
+  margin-top: 2rem;
 }
 
 .reviews .reviews-reply-container .review img {
@@ -1226,7 +1227,13 @@ ul {
 
 .profile-wrapper-right {}
 
-.profile-wrapper-right .nav-tabs {}
+.profile-wrapper-right .nav-tabs {
+
+}
+
+.profile-wrapper-right .nav-tabs li{
+  flex: 1;
+}
 
 .profile-wrapper-right .nav-link {
   border: none;
@@ -1537,6 +1544,9 @@ ul {
 
   .banner-content .btn {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
   }
 
   .banner-content p {
@@ -1653,6 +1663,10 @@ ul {
     display: flex;
   }
 
+  .btn-container-2{
+    margin: 0;
+  }
+
   .navbar .logo img{
     width: 30px;
     height: 70px;
@@ -1660,6 +1674,10 @@ ul {
     transform: scale(2.5);
     margin-left: 13px;
     object-fit: contain;
+  }
+
+  reviews .reviews-reply-container .review .content p {
+    font-size: 14px;
   }
 
 }
