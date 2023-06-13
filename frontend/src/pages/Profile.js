@@ -41,7 +41,7 @@ function Profile() {
                 <p>Account Overview</p>
                 <p>Home/Account/Overview</p>
               </div>
-              <div>
+              <div className="btn-container-1">
                 <button className="btn ml-3">
                   Invite Buyers <i className="bi bi-people-fill"></i>
                 </button>
@@ -87,12 +87,12 @@ function Profile() {
                               </ul>
                             </div>
                           </div>
-                          <div className="right mt-3">
+                          <div className="right btn-container-2 mt-3">
                             <button className="btn ml-3">
                               Follow <i className="bi bi-person-plus"></i>
                             </button>
                             <button className="btn">
-                              Current Sales <i className="bi bi-cart3"></i>
+                              Sales <i className="bi bi-cart3"></i>
                             </button>
                           </div>
                         </div>

@@ -280,7 +280,7 @@ function Property() {
           </div>
         </div>
       </div>
-      <div className="agents p-5 mt-4">
+      <div className="agents p-2 mt-4">
         <h3 className="heading-1">Related agents</h3>
         <div className="row">
           <div className="col-md-3">
