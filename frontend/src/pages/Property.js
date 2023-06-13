@@ -37,9 +37,6 @@ function Property() {
     getUserInfo();
   }, []);
 
-  if (loading) {
-    return <Loader />
-  }
 
 
   const handleReviewSubmit = async (e) => {
@@ -86,6 +83,7 @@ function Property() {
   
   return (
     <>
+    {loading && <Loader />}
     {error && <MessageComponent success={true} message={error} setError={setError} />}
     <div className="property-page container">
       <div className="row">
