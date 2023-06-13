@@ -29,6 +29,7 @@ const AuthState = (props) => {
 
   const initialState = {
     user: null,
+    loading: false,
     token: null,
     error: null
   };
