@@ -16,8 +16,20 @@ import useAuthState from "../hooks/useAuthState";
 
 
 function Profile() {
+  const [windowStatus, setWindowStatus] = useState(null);
   const { profileData, getCurrentUser } = useUser();
   const {token} = useAuthState();
+
+  useEffect(() => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth < 1000) {
+      setWindowStatus(true);
+    } else {
+      setWindowStatus(false);
+    }
+  }, []);
+
+  console.log(windowStatus);
 
 
   useEffect(() => {
@@ -131,8 +143,14 @@ function Profile() {
                               data-bs-toggle="tab"
                               data-bs-target="#profile-overview"
                             >
-                              Profile Overview
-                              <i class="bi bi-person-circle"></i>
+                              {windowStatus ? (
+                                <i class="bi bi-person-circle"></i>
+                              ) : (
+                                <span>
+                                  Profile Overview
+                                  <i class="bi bi-person-circle"></i>
+                                </span>
+                              )}
                             </button>
                           </li>
                           <li className="nav-item">
@@ -141,8 +159,14 @@ function Profile() {
                               data-bs-toggle="tab"
                               data-bs-target="#edit-profile"
                             >
-                              Edit Profile
-                              <i className="bi bi-pencil-square"></i>
+                              {windowStatus ? (
+                                <i className="bi bi-pencil-square"></i>
+                              ) : (
+                                <span>
+                                  Edit Profile
+                                  <i className="bi bi-pencil-square"></i>
+                                </span>
+                              )}
                             </button>
                           </li>
                           <li className="nav-item">
@@ -151,8 +175,14 @@ function Profile() {
                               data-bs-toggle="tab"
                               data-bs-target="#settings"
                             >
-                              Settings
-                              <i className="bi bi-gear"></i>
+                              {windowStatus ? (
+                                <i className="bi bi-gear"></i>
+                              ) : (
+                                <span>
+                                  Settings
+                                  <i className="bi bi-gear"></i>
+                                </span>
+                              )}
                             </button>
                           </li>
                           <li className="nav-item">
@@ -161,8 +191,14 @@ function Profile() {
                               data-bs-toggle="tab"
                               data-bs-target="#change-password"
                             >
-                              Change Password
-                              <i className="bi bi-key"></i>
+                              {windowStatus ? (
+                                <i className="bi bi-key"></i>
+                              ) : (
+                                <span>
+                                  Change Password
+                                  <i className="bi bi-key"></i>
+                                </span>
+                              )}
                             </button>
                           </li>
                         </ul>
@@ -183,8 +219,7 @@ function Profile() {
                     <ul className="profile-links-row nav nav-tabs nav-tabs-bordered">
                       <li className="nav-item">
                         <a href="#">
-                          My Listing{" "}
-                          <i className="badge badge-primary bg-primary">23</i>
+                          My Listings
                         </a>
                       </li>
                       <li className="nav-item">
@@ -192,14 +227,12 @@ function Profile() {
                       </li>
                       <li className="nav-item">
                         <a href="#">
-                          Reviews{" "}
-                          <i className="badge badge-warning bg-warning">23</i>
+                          Reviews
                         </a>
                       </li>
                       <li className="nav-item">
                         <a href="#">
-                          Orders{" "}
-                          <i className="badge badge-danger bg-danger">23</i>
+                          Orders
                         </a>
                       </li>
                     </ul>

@@ -1097,7 +1097,7 @@ ul {
 .profile-page-container .btn {
   font-weight: 500;
   color: white;
-  width: 160px;
+  /* width: 160px; */
 }
 
 .profile-page-container .heading div:first-child {
@@ -1135,15 +1135,15 @@ ul {
 }
 
 .profile-page-container .user-profile-wrapper .active-state {
-  top: 21px;
-  right: 30px;
+  top: 10px;
+  right: 24px;
   width: 15px;
   height: 15px;
 }
 
 .profile-page-container .left-profile-page img {
-  width: 200px;
-  height: 200px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   padding: 10px;
   background-color: #f2f2f2;
@@ -1241,6 +1241,7 @@ ul {
 
 .profile-wrapper-right .nav-link i {
   margin-left: 5px;
+  font-size: 1.5rem;
 }
 
 .profile-wrapper-right .nav-link.active {
@@ -1308,7 +1309,7 @@ ul {
 
 .earning-card {
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .earning-card h4 {
@@ -1593,8 +1594,8 @@ ul {
   }
 
   .user-profile-wrapper{
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     margin: auto !important;
   }
 
@@ -1603,6 +1604,9 @@ ul {
   }
   .top-profile-header .username{
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .profile-header ul{
@@ -1664,24 +1668,37 @@ ul {
   }
 
   .btn-container-2{
-    margin: 0;
+    margin: 0 !important;
   }
 
   .navbar .logo img{
-    width: 30px;
+    width: 40px;
     height: 70px;
     cursor: pointer;
-    transform: scale(2.5);
-    margin-left: 13px;
+    transform: scale(2.7);
+    margin-left: 25px;
     object-fit: contain;
   }
 
-  reviews .reviews-reply-container .review .content p {
+  .reviews .reviews-reply-container .review .content p {
     font-size: 14px;
   }
 
   .form-wrapper .form-container{
     max-width: 350px;
+  }
+
+  .navbar-top-profile .profile-left h5{
+    font-size: 17px;
+  }
+
+  .navbar-top-profile .profile-left {
+    margin-left: 10px;
+  }
+
+  .profile-header .user-name {
+    font-size: 18px;
+    margin-right: 0px;
   }
 
 }
