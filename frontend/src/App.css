@@ -415,6 +415,11 @@ ul {
   color: white;
   padding: 3rem 0;
 }
+.agent-showcase .showcase-img-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .agent-showcase img {
   width: 400px;
@@ -924,9 +929,11 @@ ul {
 /* category styles */
 .category-listing-container {
   background-color: #fff;
-  padding: 2rem;
 }
-
+.category-listing-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 .category-listing-wrapper .card {
   display: flex;
   align-items: center;
@@ -975,6 +982,7 @@ ul {
 
 .category-listing-wrapper i {
   font-size: 20px;
+  margin-left: 5px;
 }
 
 .category-listing-wrapper .card .btn {
@@ -1349,11 +1357,11 @@ ul {
 
 /* SPONSOR LISTING STYLES */
 .sponsor-listing-container ul {
-  /* display: grid;
-  grid-template-columns: repeat(6, auto);
-  align-items: center;
-  justify-items: center; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }
+
 
 .sponsor-listing-container img {
   width: 130px;
@@ -1699,6 +1707,18 @@ ul {
   .profile-header .user-name {
     font-size: 18px;
     margin-right: 0px;
+  }
+
+  .agent-showcase h2 {
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    margin-top: 20px;
+  }
+
+  .category-listing-wrapper img{
+    width: 120px;
+    height: 120px;
   }
 
 }

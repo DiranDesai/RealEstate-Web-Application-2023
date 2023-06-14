@@ -5,7 +5,7 @@ function AgentShowCase() {
     <div className="agent-showcase">
         <div className="container">
             <div className="row align-items-center">
-                <div className="col-md-4">
+                <div className="col-md-4 showcase-img-container">
                     <img src="images/agent1.png" alt="" />
                 </div>
                 <div className="col-md-8">
