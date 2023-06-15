@@ -5,7 +5,7 @@ import axios from "axios";
 import UserContext from "./userContext";
 import UserReducer from "./userReducer";
 
-import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROPERTY_SUCCESS, PROPERTY_LIST_SUCCESS, LOAD_FAVOURITES} from "../types";
+import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROPERTY_SUCCESS, PROPERTY_LIST_REQUEST, PROPERTY_LIST_SUCCESS, LOAD_FAVOURITES} from "../types";
 
 import { URL } from "../constants"
 import { getToken } from "../utils"
@@ -19,6 +19,8 @@ const UserState = ({children}) => {
         profileData: null,
         propertyFormData: {},
         loading: false,
+        propertyListLoading: false,
+        pageLoading: false,
         categories: [
             { name: "office", listings: 4, link: "https://img.icons8.com/?size=512&id=bx3Fsc9twEvU&format=png" },
             { name: "lodges", listings: 2, link: "https://img.icons8.com/?size=512&id=lswPqFny6bQU&format=png" },
@@ -142,6 +144,7 @@ const UserState = ({children}) => {
 
     const getProperties = async () => {
         try {
+            dispatch({type: PROPERTY_LIST_REQUEST});
             const response = await fetch(`${URL}/getProperties`, {
                 method: "GET",
                 headers: headers

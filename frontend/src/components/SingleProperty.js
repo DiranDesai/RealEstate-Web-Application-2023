@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { moneyFormat } from "../context/utils";
 import useUser from "../hooks/useUser";
+import { truncate } from "../utils/main";
 
 import Spinner from "./Spinner";
 
@@ -69,9 +70,9 @@ function SingleProperty({property}) {
         <div className="bottom d-flex justify-content-between align-items-center">
           <div className="owner d-flex align-items-center">
             <img src={user?.profileUrl || `images/default2.jpg`} />
-            <p>
-              By <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{user?.username || <Spinner />}</a></Link>
-            </p>
+            <div>
+              By <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{truncate(user?.username) || <Spinner />}</a></Link>
+            </div>
           </div>
           <div>
             <Link to={`property/${_id}`}>

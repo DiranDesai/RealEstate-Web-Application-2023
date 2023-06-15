@@ -391,6 +391,7 @@ ul {
 
 .banner-search button {
   padding: 15px 40px !important;
+  display: flex;
   font-family: "Jost";
 }
 
@@ -408,7 +409,7 @@ ul {
 
 /* AGENT SHOWCASE STYLES */
 .agent-showcase {
-  background-color: #ffffff;
+  background-color: #19b1eb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,22 +429,23 @@ ul {
 
 .agent-showcase h2 {
   font-size: 40px;
-  color: #4f5259;
+  color: #f0f4ff;
   font-family: 'Nunito Sans';
   font-weight: 800;
   margin-bottom: 2rem;
 }
 
 .agent-showcase p {
-  color: #595b61;
+  color: #d8dff1;
 }
 
 
 .agent-showcase .register-btn {
   color: #ffffff;
-  background-color: rgb(255 68 25);
+  background-color: rgb(55 120 149);
   padding: 15px 20px;
-  border-radius: 30px;
+  border-radius: 50px;
+  margin-top: 15px;
   font-weight: 800;
   font-family: 'Open Sans';
   
@@ -535,10 +537,10 @@ ul {
 
 .property .tag {
   display: inline-block;
-  padding: 10px 2px;
+  padding: 10px 5px;
   background-color: #d7e0e6;
   border-radius: 7px;
-  width: 70px;
+  min-width: 30px;
   text-align: center;
   margin-right: 5px;
   color: white;
@@ -568,10 +570,15 @@ ul {
   border-radius: 50%;
   object-fit: cover;
 }
-
+.property .owner div{
+  margin-left: 8px;
+}
 .property .owner p {
   margin: 0;
   margin-left: 10px;
+}
+.property .owner a{
+  color: #0b8cd3;
 }
 
 .property .owner p a {
@@ -930,10 +937,6 @@ ul {
 .category-listing-container {
   background-color: #fff;
 }
-.category-listing-wrapper{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
 .category-listing-wrapper .card {
   display: flex;
   align-items: center;
@@ -945,6 +948,14 @@ ul {
   border: 1px solid var(--border-color1);
   background-color: transparent !important;
   border: none;
+}
+
+.category-header h3{
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-family: 'Inter';
 }
 
 .category-listing-wrapper .col-3:nth-child(1) .inner-content i {
@@ -1357,9 +1368,9 @@ ul {
 
 /* SPONSOR LISTING STYLES */
 .sponsor-listing-container ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
@@ -1580,6 +1591,9 @@ ul {
   .agent-showcase {
     padding: 2rem 0;
   }
+  .agent-showcase .content{
+    padding: 1rem;
+  }
 
   .shadow-1 {
     border-radius: 0;
@@ -1719,6 +1733,17 @@ ul {
   .category-listing-wrapper img{
     width: 120px;
     height: 120px;
+  }
+
+  .category-listing-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sponsor-listing-container ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   }
 
 }

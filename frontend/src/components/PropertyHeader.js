@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import useWindow from '../hooks/useWindow'
 
 function PropertyHeader() {
-  const [status, setStatus] = useState(false);
-
-  useEffect(() => {
-    const innerWid = window.innerWidth;
-    if (innerWid < 900) {
-      setStatus(true);
-    } else {
-      setStatus(false);
-    }
-
-    console.log(innerWid);
-  }, [window.innerWidth]);
+  const windowStatus = useWindow();
+ 
 
 
   return (
@@ -23,9 +14,9 @@ function PropertyHeader() {
         </div>
         <div className="header-right">
             <div className='d-flex align-items-center'>
-                <button className='btn'>{status ? "" : "All"} Categories</button>
-                <button className='btn'>{status ? "" : "For"} Sale</button>
-                <button className='btn'>{status ? "" : "For"} Lent</button>
+                <button className='btn'>{windowStatus ? "" : "All"} Categories</button>
+                <button className='btn'>{windowStatus ? "" : "For"} Sale</button>
+                <button className='btn'>{windowStatus ? "" : "For"} Lent</button>
             </div>
         </div>
     </div>

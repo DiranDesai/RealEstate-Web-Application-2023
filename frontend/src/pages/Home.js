@@ -6,6 +6,7 @@ import UserState from "../context/userContext/userState";
 import Banner from "../components/Banner";
 import AgentShowCase from "../components/AgentShowCase";
 import SponsorListing from "../components/SponsorListing";
+import CategoryHeader from "../components/CategoryHeader";
 import Loader from "../components/Loader";
 import useUser from "../hooks/useUser";
 import useAuthState from "../hooks/useAuthState";
@@ -19,6 +20,7 @@ function Home() {
       if (token) {
         getCurrentUser();
       }
+      console.log("TESTING....");
     }, [token]);
 
 
@@ -44,6 +46,7 @@ function Home() {
         </div>
         <div className="category-listing-container mt-5">
           <div className="container">
+            <CategoryHeader />
             <CategoryList />
           </div>
         </div>

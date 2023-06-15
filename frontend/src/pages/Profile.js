@@ -12,24 +12,15 @@ import ProfileSettings from "../components/ProfileSettings";
 import ChangePassword from "../components/ChangePassword";
 import Loader from "../components/Loader";
 import useAuthState from "../hooks/useAuthState";
+import useWindow from "../hooks/useWindow";
 
 
 
 function Profile() {
-  const [windowStatus, setWindowStatus] = useState(null);
   const { profileData, getCurrentUser } = useUser();
   const {token} = useAuthState();
-
-  useEffect(() => {
-    const windowWidth = window.innerWidth;
-    if (windowWidth < 1000) {
-      setWindowStatus(true);
-    } else {
-      setWindowStatus(false);
-    }
-  }, []);
-
-  console.log(windowStatus);
+  const windowStatus = useWindow();
+  
 
 
   useEffect(() => {

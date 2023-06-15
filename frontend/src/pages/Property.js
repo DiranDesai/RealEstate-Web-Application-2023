@@ -7,7 +7,7 @@ import useUser from "../hooks/useUser";
 import { moneyFormat } from "../context/utils";
 import PropertyReviews from "../components/PropertyReviews";
 
-import {ADD_FAVOURITES, LOADING} from "../context/types";
+import {ADD_FAVOURITES, PAGE_LOADING_REQUEST, PAGE_LOADING_SUCCESS} from "../context/types";
 import MessageComponent from "../components/MessageComponent";
 import Loader from "../components/Loader";
 
@@ -19,19 +19,19 @@ function Property() {
   const [error, setError] = useState(null);
 
   const { id } = useParams();
-  const { getUser, getProperty, createPropertyReview, getPropertyReviews, favourites, dispatch, loading } =
+  const { getUser, getProperty, createPropertyReview, getPropertyReviews, favourites, dispatch, pageLoading } =
     useUser();
 
   useEffect(() => {
     const getUserInfo = async () => {
-      dispatch({type: LOADING, payload: true});
+      dispatch({type: PAGE_LOADING_REQUEST});
       const propertyDb = await getProperty(id);
       const userDb = await getUser(propertyDb.userId);
       const propertyReviewsDb = await getPropertyReviews(id);
       setPropertyDetails(propertyDb);
       setUserDetails(userDb);
       setReviews(propertyReviewsDb);
-      dispatch({type: LOADING, payload: false});
+      dispatch({type: PAGE_LOADING_SUCCESS});
     };
 
     getUserInfo();
@@ -80,10 +80,11 @@ function Property() {
     }
   }
 
+  if (pageLoading) return <Loader />
+
   
   return (
     <>
-    {loading && <Loader />}
     {error && <MessageComponent success={true} message={error} setError={setError} />}
     <div className="property-page container">
       <div className="row">
