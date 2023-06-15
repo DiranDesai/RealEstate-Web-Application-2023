@@ -30,6 +30,7 @@ import useNotify from "./hooks/useNotify";
 function App() {
   const { token } = useContext(authContext);
 
+
   return (
     <>
       <Router>

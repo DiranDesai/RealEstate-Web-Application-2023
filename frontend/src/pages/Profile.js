@@ -13,15 +13,17 @@ import ChangePassword from "../components/ChangePassword";
 import Loader from "../components/Loader";
 import useAuthState from "../hooks/useAuthState";
 import useWindow from "../hooks/useWindow";
+import usePropertiesUser from "../hooks/usePropertiesUser";
 
 
 
 function Profile() {
   const { profileData, getCurrentUser } = useUser();
   const {token} = useAuthState();
+  const currentUserId = usePropertiesUser(profileData?._id);
   const windowStatus = useWindow();
   
-
+  console.log(currentUserId);
 
   useEffect(() => {
     if (token == null && profileData) { 
@@ -123,7 +125,7 @@ function Profile() {
                 <div className="col-md-12 mt-4">
                   <div className="profile-wrapper-right">
                     <div>
-                      <div className="card-body p-3">
+                      <div className="card-body">
                         <ul
                           className="nav nav-tabs nav-tabs-bordered"
                           role="tablist"
@@ -232,6 +234,74 @@ function Profile() {
                 </div>
                 <div className="chart">
                   <EarningStatsChart />
+                </div>
+              </div>
+              <div className="col-sm-12 bottom-profile-page mt-5">
+                <div>
+                  <h5>Your properties</h5>
+                </div>
+                <div className="user-properties-container mt-4">
+                  <div className="properties-search-container">
+                    <form>
+                      <div className="form-group">
+                        <input type="text" className="form-control search" placeholder="Search your properties..." />
+                      </div>
+                    </form>
+                    <table className="table mt-4">
+                      <thead>
+                        <tr>
+                          <th><span>name</span></th>
+                          <th><span>price</span></th>
+                          <th><span>type</span></th>
+                          <th><span>status</span></th>
+                          <th><span>location</span></th>
+                          <th><span>last updated</span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span className="name">Real Estate Backend</span>
+                          </td>
+                          <td>
+                            <span>$45, 600</span>
+                          </td>
+                          <td>
+                            <span>Hotel</span>
+                          </td>
+                          <td>
+                            <div className="property-status"><span className="dot succeeded"></span> Succeeded</div>
+                          </td>
+                          <td>
+                            <span>Livingstone</span>
+                          </td>
+                          <td>
+                            <span>3 Hours Ago</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span className="name">Real Estate Frontend</span>
+                          </td>
+                          <td>
+                            <span>$12, 600</span>
+                          </td>
+                          <td>
+                            <span>Lodge</span>
+                          </td>
+                          <td>
+                            <div className="property-status"><span className="dot pending"></span> Pending</div>
+                          </td>
+                          <td>
+                            <span>Lusaka</span>
+                          </td>
+                          <td>
+                            <span>12 Hours Ago</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

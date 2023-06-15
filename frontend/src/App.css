@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500&display=swap');
+@import url('https://fonts.cdnfonts.com/css/graphik');
 
 :root {
   --color-1: #e7eaed;
@@ -32,10 +33,13 @@ body {
   color: #364550;
   /* font-family: "Inter"; */
   /* font-family: 'Jost', sans-serif; */
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   /* font-family: "Roboto"; */
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
   overflow: hidden !important;
+  /* font-family: 'Graphik', sans-serif; */
+  /* height: 3000px; */
+                                                
 }
 
 a {
@@ -54,7 +58,7 @@ img {
 }
 
 .app-wrapper {
-  /* margin-top: 6rem; */
+  
 }
 
 
@@ -96,6 +100,9 @@ ul {
 .card {
   border: 1px solid var(--color-1);
   box-shadow: var(--shallow-shadow3);
+}
+.form-control{
+  border: 1px solid #d0dbf0 !important; 
 }
 
 .container {
@@ -245,13 +252,14 @@ ul {
 }
 
 .navbar-top-profile .profile-left {
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .navbar-top-profile .profile-left h5 {
   color: #000000;
   font-weight: 400;
   margin: 0;
+  font-size: 18px;
 }
 
 .navbar-top-profile .profile-left h6 {
@@ -618,10 +626,10 @@ ul {
 
 /* PROPERTY PAGES STYLES */
 .shadow-1 {
-  /* box-shadow: 0px 0 30px rgb(1 41 112 / 10%) !important;
+  box-shadow: 0px 0 30px rgb(1 41 112 / 10%) !important;
   border-radius: 0.625rem;
   box-shadow: 0 7px 14px 0 rgba(65,69,88,0.1), 0 px 6px 0 rgba(0,0,0,0.07) !important;
-  border: none; */
+  border: none;
 }
 
 .t-1 {
@@ -1104,7 +1112,7 @@ ul {
 }
 
 .profile-container {
-  padding: 20px 5px;
+  padding: 20px 0px;
 }
 
 .profile-page-container .profile-header.card {
@@ -1161,8 +1169,8 @@ ul {
 }
 
 .profile-page-container .left-profile-page img {
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   padding: 10px;
   background-color: #f2f2f2;
@@ -1170,7 +1178,7 @@ ul {
 }
 
 .profile-header .user-name {
-  font-weight: 900;
+  font-weight: 600;
   color: #16192c;
   font-size: 23px;
   margin-right: 20px;
@@ -1187,7 +1195,7 @@ ul {
 }
 
 .profile-header .top-profile-header .right button:last-child {
-  background-color: #c72b25;
+  background-color: #ff6868;
 }
 
 .profile-header ul {
@@ -1251,7 +1259,11 @@ ul {
 }
 
 .profile-wrapper-right .nav-tabs li{
-  flex: 1;
+  
+}
+.profile-wrapper-right .nav-tabs li button span{
+  display: flex;
+  align-items: center;
 }
 
 .profile-wrapper-right .nav-link {
@@ -1334,6 +1346,57 @@ ul {
 .earning-card h4 {
   font-weight: 600;
 }
+
+.user-properties-container .search{
+  padding: 10px 30px;
+}
+.user-properties-container thead{
+  border-bottom: 2px solid #d0dbf0;
+}
+.user-properties-container span{
+  color: #12263f;
+}
+.user-properties-container thead span{
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-family: "Jost";
+  color: #a1aaba;
+}
+
+.user-properties-container tbody tr td{
+  padding: 20px 5px;
+  border-bottom: 1px solid #d0dbf0;
+}
+
+.user-properties-container .property-status{
+  padding: 5px;
+  border: 1px solid #d0dbf0;
+  display: flex;
+  align-items: center;
+  width: 90px;
+  justify-content: space-around;
+  font-size: 13px;
+  border-radius: 8px;
+}
+.user-properties-container .property-status .dot{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.user-properties-container .property-status .dot.pending{
+  background-color: #ff6868;
+}
+.user-properties-container .property-status .dot.succeeded{
+  background-color: #00b4d7;
+}
+.user-properties-container table span.name{
+  font-weight: 500;
+}
+
+
+
 
 
 /* ESTATE STYLES */
@@ -1636,7 +1699,7 @@ ul {
     align-items: revert;
   }
   .profile-header ul li{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .profile-page-container .left-profile-page img{
@@ -1745,6 +1808,16 @@ ul {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
   }
+
+  .profile-page-container .left-profile-page img{
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile-wrapper-right .nav-tabs li{
+    flex: 1;
+  }
+
 
 }
 
