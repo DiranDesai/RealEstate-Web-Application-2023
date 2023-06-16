@@ -21,7 +21,7 @@ function CreateEstate() {
     <div className="container">
       <div className="row">
         <div className="col-md-8">
-          <div className="create-estate-wrapper">
+          <div className="create-estate-wrapper mt-5">
             <h4 className="text-dark fw-bold">Add Estate</h4>
             <form onSubmit={handleSubmit}>
             <div className="estate-card card mt-3 p-5">

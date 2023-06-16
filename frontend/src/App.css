@@ -1454,12 +1454,21 @@ ul {
 
 .create-estate-wrapper .estates-create-tabs ul {
   padding-left: 0;
+  display: flex;
 }
 
 .create-estate-wrapper .estates-create-tabs .btn {
   font-weight: 600;
 }
+.create-estate-wrapper .estates-create-tabs ul li{
+  flex: 1;
+}
 
+.create-estate-wrapper .estates-create-tabs ul li button{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+ }
 .create-estate-wrapper .estates-create-tabs ul li i {
   margin-left: 5px;
   font-size: 20px;
@@ -1832,7 +1841,18 @@ ul {
   .profile-header > div{
     margin-left: 0px;
   }
-  
+  .create-estate-wrapper .form-group{
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 20px;
+  }
+
+  .create-estate-control-btn .btn-style-1 {
+    padding: 10px;
+    border: 1px solid #1a1b1b;
+    border-radius: 50px;
+    font-weight: 600;
+  }
 
 
 }
