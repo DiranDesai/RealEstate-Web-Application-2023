@@ -85,7 +85,7 @@ function Profile() {
                               <ul>
                                 <li>
                                   <i className="bi bi-code-square"></i>
-                                  <span>Developer</span>
+                                  <span>Software Engineer</span>
                                 </li>
                                 <li>
                                   <i className="bi bi-geo-alt-fill"></i>
@@ -218,7 +218,7 @@ function Profile() {
                     <ul className="profile-links-row nav nav-tabs nav-tabs-bordered">
                       <li className="nav-item">
                         <a href="#">
-                          My Listings
+                          Listings
                         </a>
                       </li>
                       <li className="nav-item">
