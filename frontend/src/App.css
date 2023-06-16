@@ -29,7 +29,7 @@ body {
   line-height: 1.3;
   background: #fff;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   color: #364550;
   /* font-family: "Inter"; */
   /* font-family: 'Jost', sans-serif; */
@@ -630,7 +630,6 @@ ul {
   border-radius: 0.625rem;
   box-shadow: 0 7px 14px 0 rgba(65,69,88,0.1), 0 px 6px 0 rgba(0,0,0,0.07) !important;
   border: none;
-  padding: 20px;
 }
 
 .t-1 {
@@ -1188,6 +1187,7 @@ ul {
 .profile-header .user-icon {
   color: #3689ef;
   font-size: 40px;
+  margin-left: 5px;
 }
 
 .profile-header .top-profile-header .right button:first-child {
@@ -1315,7 +1315,6 @@ ul {
 
 .profile-link-container .profile-links-row {
   display: flex;
-  padding: 7px;
   border-radius: 4px;
 }
 
@@ -1324,7 +1323,9 @@ ul {
 }
 
 .profile-link-container .profile-links-row li {
-  margin-left: 30px;
+  padding: 5px;
+  flex: 1 !important;
+  text-align: center;
 }
 
 .profile-link-container .tab-content .inner-earnings>div:nth-child(1) .earning-card {
@@ -1348,8 +1349,14 @@ ul {
   font-weight: 600;
 }
 
+.bottom-profile-page .heading{
+  font-weight: 700;
+}
 .user-properties-container .search{
   padding: 10px 30px;
+}
+.user-properties-container table{
+  width: 100%;
 }
 .user-properties-container thead{
   border-bottom: 2px solid #d0dbf0;
@@ -1358,11 +1365,11 @@ ul {
   color: #12263f;
 }
 .user-properties-container thead span{
-  font-weight: 400;
+  font-weight: 500;
   font-size: 13px;
   text-transform: uppercase;
   font-family: "Jost";
-  color: #a1aaba;
+  color: #000000;
 }
 
 .user-properties-container tbody tr td{
@@ -1680,8 +1687,8 @@ ul {
   }
 
   .user-profile-wrapper{
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     margin: auto !important;
   }
 
@@ -1811,13 +1818,21 @@ ul {
   }
 
   .profile-page-container .left-profile-page img{
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
   }
 
   .profile-wrapper-right .nav-tabs li{
     flex: 1;
   }
+
+  .user-properties-container table{
+    width: 200%;
+  }
+  .profile-header > div{
+    margin-left: 0px;
+  }
+  
 
 
 }

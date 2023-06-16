@@ -156,6 +156,19 @@ const UserState = ({children}) => {
         }
     }
 
+    const getCurrentUserProperties = async () => {
+        try {
+            const response = await fetch(`${URL}/currentProperties`, {
+                method: "GET",
+                headers: headers
+            }); 
+            const {properties} = await response.json();
+            return properties
+        } catch (error) {
+            
+        }
+    }
+
     const getProperty = async (id) => {
         console.log(id);
         try {
@@ -212,6 +225,7 @@ const UserState = ({children}) => {
             uploadProfilePic,
             createProperty,
             getProperties,
+            getCurrentUserProperties,
             getProperty,
             createPropertyReview,
             getPropertyReviews
