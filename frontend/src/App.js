@@ -30,6 +30,9 @@ import useNotify from "./hooks/useNotify";
 function App() {
   const { token } = useContext(authContext);
 
+  useEffect(() => {
+    console.log("CHANGED...");
+  }, [window.location]);
 
   return (
     <>

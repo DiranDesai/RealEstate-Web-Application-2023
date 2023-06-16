@@ -20,17 +20,12 @@ function Home() {
       if (token) {
         getCurrentUser();
       }
-      console.log("TESTING....");
     }, [token]);
 
 
     if (!token) {
       return <Loader />
     }
-
-
-
-
 
   return (
     <>

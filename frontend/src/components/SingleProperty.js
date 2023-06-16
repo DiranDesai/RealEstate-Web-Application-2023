@@ -13,7 +13,6 @@ function SingleProperty({property}) {
   const {_id: loggedUserId} = profileData;
   const {_id, price, title, status, city, userId} = property;
  
-  console.log(status);
   useEffect(() => {
 
     const loadUser = async () => {

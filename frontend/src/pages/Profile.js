@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Estates from "../components/Estates";
 import EarningStatsChart from "../components/EarningStatsChart";
 
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import useUser from "../hooks/useUser";
 import Payouts from "../components/Payouts";
@@ -21,15 +21,22 @@ import UserProperties from "../components/UserProperties";
 function Profile() {
   const [currentUserProperties, setCurrentUserProperties] = useState(null);
   const { profileData, getCurrentUser, getCurrentUserProperties } = useUser();
+
   const {token} = useAuthState();
+  const navigate = useNavigate();
+  
   const windowStatus = useWindow();
 
 
-  useEffect(() => {
-    if (token == null && profileData) { 
-      window.location = "/login";
-    } 
 
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token]);
+
+  useEffect(() => {
     const loadUserData = async () => {
       getCurrentUser();
       setCurrentUserProperties(await getCurrentUserProperties());
@@ -38,6 +45,7 @@ function Profile() {
     loadUserData();
   }, []);
 
+  
   if (!profileData) {
     return <Loader />
   }

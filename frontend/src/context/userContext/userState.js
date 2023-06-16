@@ -20,7 +20,7 @@ const UserState = ({children}) => {
         propertyFormData: {},
         loading: false,
         propertyListLoading: false,
-        pageLoading: false,
+        pageLoading: true,
         categories: [
             { name: "office", listings: 4, link: "https://img.icons8.com/?size=512&id=bx3Fsc9twEvU&format=png" },
             { name: "lodges", listings: 2, link: "https://img.icons8.com/?size=512&id=lswPqFny6bQU&format=png" },
@@ -40,9 +40,7 @@ const UserState = ({children}) => {
 
     useEffect(() => {
         localStorage.setItem("favourites", JSON.stringify(state.favourites));
-        console.log("diran");
     }, [state.favourites]);
-    console.log(state);
 
     const token = getToken();
     const headers = {
@@ -66,7 +64,6 @@ const UserState = ({children}) => {
     }
 
     const getUser = async (id) => {
-        console.log(id);
         try {
             const response = await fetch(`${URL}/getUser/${id}`, {
                 method: "GET",
@@ -170,7 +167,6 @@ const UserState = ({children}) => {
     }
 
     const getProperty = async (id) => {
-        console.log(id);
         try {
             const response = await fetch(`${URL}/getProperty/${id}`, {
                 method: "GET",

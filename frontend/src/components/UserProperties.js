@@ -45,7 +45,7 @@ function UserProperties({properties}) {
               </thead>
               <tbody>
                 {properties.map((property) => (
-                    <tr>
+                    <tr key={property._id}>
                     <td>
                       <span className="name">{property.title}</span>
                     </td>

@@ -3,7 +3,6 @@ export function getUrlPathname() {
 }
 
 export function truncate(str) {
-    console.log(str);
     if (!str) return
     return str.length > 10 ? `${str.substr(0, 10)}..` : str
 }

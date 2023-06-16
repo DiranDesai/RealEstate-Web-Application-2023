@@ -8,8 +8,6 @@ import Spinner2 from "./Spinner2";
 function PropertyList() {
   const { properties, getProperties, propertyListLoading } = useUser();
 
-  console.log(properties);
-
   useEffect(() => {
     getProperties();
   }, []);

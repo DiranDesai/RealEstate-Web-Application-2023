@@ -85,7 +85,7 @@ function EditProfile() {
         <div className="row">
           <div className="col-lg-3 col-md-4 label">About</div>
           <div className="col-lg-9 col-md-8">
-            <textarea className="form-control" name="about" onChange={handleOnChange}>{about}</textarea>
+            <textarea className="form-control" name="about" value={about} onChange={handleOnChange}></textarea>
           </div>
         </div>
         <div className="row">

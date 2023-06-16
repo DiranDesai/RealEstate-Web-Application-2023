@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 
 import PropertyViews from "../components/PropertyViews";
 import useUser from "../hooks/useUser";
@@ -10,6 +10,8 @@ import PropertyReviews from "../components/PropertyReviews";
 import {ADD_FAVOURITES, PAGE_LOADING_REQUEST, PAGE_LOADING_SUCCESS} from "../context/types";
 import MessageComponent from "../components/MessageComponent";
 import Loader from "../components/Loader";
+import useAuthState from "../hooks/useAuthState";
+import useLogout from "../hooks/useLogout";
 
 function Property() {
   const [userDetails, setUserDetails] = useState(null);
@@ -21,6 +23,13 @@ function Property() {
   const { id } = useParams();
   const { getUser, getProperty, createPropertyReview, getPropertyReviews, favourites, dispatch, pageLoading } =
     useUser();
+
+    console.log(pageLoading);
+  
+  const token = useLogout();
+
+  
+
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -49,7 +58,6 @@ function Property() {
 
     try {
       const createdReview = await createPropertyReview(reviewForm, id);
-      console.log(createdReview);
       setReviews(prev => {
         return [...prev, createdReview];
       });
@@ -67,7 +75,6 @@ function Property() {
     });
   }
 
-  console.log(propertyDetails);
 
   const addFavourite = () => {
     const checkFavourite = favourites.find(favourite => favourite._id === propertyDetails._id);
@@ -80,7 +87,12 @@ function Property() {
     }
   }
 
+  // if (!token) {
+  //   return
+  // }
+
   if (pageLoading) return <Loader />
+
 
   
   return (
