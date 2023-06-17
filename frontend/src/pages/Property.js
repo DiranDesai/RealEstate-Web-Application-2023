@@ -8,7 +8,7 @@ import { moneyFormat } from "../context/utils";
 import PropertyReviews from "../components/PropertyReviews";
 
 import {ADD_FAVOURITES, PAGE_LOADING_REQUEST, PAGE_LOADING_SUCCESS, SHOW_NOTIFY} from "../context/types";
-import MessageComponent2 from "../components/MessageComponent2";
+import MessageComponent from "../components/MessageComponent";
 import Loader from "../components/Loader";
 import useAuthState from "../hooks/useAuthState";
 import useLogout from "../hooks/useLogout";
@@ -99,7 +99,7 @@ function Property() {
   
   return (
     <>
-    {error && <MessageComponent2/>}
+    {error && <MessageComponent />}
     <div className="property-page container">
       <div className="row">
         <div className="col-md-9 property-left">
