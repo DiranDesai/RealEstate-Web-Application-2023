@@ -63,6 +63,7 @@ function Property() {
       setReviews(prev => {
         return [...prev, createdReview];
       });
+      notifyDispatch({type: SHOW_NOTIFY, payload: {success: true, message: "Review created successfully..."}});
     } catch (error) {
       console.log(error);
     }

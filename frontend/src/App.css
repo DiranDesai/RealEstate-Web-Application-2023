@@ -778,9 +778,13 @@ ul {
 }
 
 .reviews .reviews-reply-container .review .content h4 span {
-  font-size: 15px;
-  font-family: "Nunito Sans";
-  font-weight: 500;
+  font-size: 12px;
+  font-family: 'Jost';
+  color: #475058d4;
+  margin-left: 10px;
+}
+.reviews .reviews-reply-container .review .content h4 span i{
+  margin-right: 5px;
 }
 .review-helpfull p{
   flex: 1;
@@ -1772,6 +1776,7 @@ ul {
 
   .earning-card{
     margin-top: 20px;
+    padding: 2rem 20px;
   }
 
   .agent-showcase img {
