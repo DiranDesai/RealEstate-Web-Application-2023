@@ -1127,9 +1127,8 @@ ul {
 }
 
 .profile-page-container .btn {
-  font-weight: 500;
-  color: white;
-  /* width: 160px; */
+  width: 135px;
+  text-wrap: nowrap;
 }
 
 .profile-page-container .heading div:first-child {
@@ -1788,7 +1787,7 @@ ul {
   }
 
   .profile-page-container{
-    padding: 20px;
+    padding: 20px 10px;
   }
 
   .btn-container-1, .btn-container-2{
