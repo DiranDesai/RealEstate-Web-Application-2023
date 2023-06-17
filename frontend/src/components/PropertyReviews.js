@@ -102,7 +102,7 @@ function PropertyReviews({ reviews }) {
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control review-search"
                     placeholder="Search Review"
                   />
                 </div>

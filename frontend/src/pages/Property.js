@@ -13,6 +13,7 @@ import Loader from "../components/Loader";
 import useAuthState from "../hooks/useAuthState";
 import useLogout from "../hooks/useLogout";
 import useNotify from "../hooks/useNotify";
+import { formatAgoTime } from "../utils/main";
 
 function Property() {
   const [userDetails, setUserDetails] = useState(null);
@@ -96,7 +97,7 @@ function Property() {
 
   if (pageLoading) return <Loader />
 
-
+  console.log(propertyDetails);
   
   return (
     <>
@@ -113,19 +114,20 @@ function Property() {
                       <h2 className="t-4">{propertyDetails?.title}</h2>
                       <div className="d-flex meta">
                         <span className="location">
-                          <i class="bi bi-geo-alt"></i>
-                          {propertyDetails?.city}, {propertyDetails?.country}
+                          <i className="bi bi-geo-alt"></i>
+                          <span className="cap">{propertyDetails?.address}</span>
+                          <span className="cap">{propertyDetails?.country}</span>
                         </span>
                         <span className="time">
-                          <i class="bi bi-calendar"></i>2 Month Ago
+                          <i className="bi bi-calendar"></i>{formatAgoTime(propertyDetails?.createdAt)}
                         </span>
                         <span className="likes">
-                          <i class="bi bi-hand-thumbs-up"></i>400
+                          <i className="bi bi-hand-thumbs-up"></i>400
                         </span>
                       </div>
                       <span className={`tag ${propertyDetails?.status === "sell" ? 'tag-1' : 'tag-3'}`}>
                         For {propertyDetails?.status}
-                        <i class="bi bi-bag"></i>
+                        <i className="bi bi-bag"></i>
                       </span>
                     </div>
                   </div>
@@ -133,16 +135,16 @@ function Property() {
                     <div>
                       <div>
                         <button className="btn" onClick={addFavourite}>
-                          <i class="bi bi-heart"></i>
+                          <i className="bi bi-heart"></i>
                         </button>
                         <button className="btn">
-                          <i class="bi bi-cart"></i>
+                          <i className="bi bi-cart"></i>
                         </button>
                         <button className="btn">
-                          <i class="bi bi-share"></i>
+                          <i className="bi bi-share"></i>
                         </button>
                         <button className="btn">
-                          <i class="bi bi-printer"></i>
+                          <i className="bi bi-printer"></i>
                         </button>
                       </div>
                       <h2 className="mt-3 price">

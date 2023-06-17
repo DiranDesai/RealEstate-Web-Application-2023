@@ -51,6 +51,9 @@ img {
   width: 100%;
   object-fit: contain;
 }
+span.cap{
+  text-transform: capitalize !important;
+}
 
 .property-spinner {
   width: 20px;
@@ -718,7 +721,9 @@ ul {
 
 
 
-
+.reviews .review-search::placeholder{
+  font-size: 12px;
+}
 .reviews .review-stats {
   border-bottom: 1px solid #c2c9cf7d;
   padding-bottom: 2rem;
