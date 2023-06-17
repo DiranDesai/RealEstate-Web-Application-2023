@@ -1600,7 +1600,7 @@ ul {
     transform: scale(0);
   }
   100%{
-    transform: scale(1);
+    transform: scale(1.5);
   }
 }
 
@@ -1788,7 +1788,7 @@ ul {
   }
 
   .profile-page-container{
-    padding-top: 1rem;
+    padding: 20px;
   }
 
   .btn-container-1, .btn-container-2{
