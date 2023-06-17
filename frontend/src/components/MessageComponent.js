@@ -1,17 +1,21 @@
 import React, { useEffect, useRef } from "react";
+import { SHOW_NOTIFY, HIDE_NOTIFY } from "../context/types";
 import useNotify from "../hooks/useNotify";
 
-function MessageComponent({success, message, setError}) {
+function MessageComponent() {
+  const {error, payloadData, dispatch} = useNotify();
+  const {success, message} = payloadData;
+
   useEffect(() => {
     const interval = setTimeout(() => {
-      setError(false);
+      dispatch({type: HIDE_NOTIFY});
     }, 2000);
 
     return () => clearInterval(interval)
   }, []);
 
   const handleError = () => {
-    setError(false);
+    dispatch({type: HIDE_NOTIFY});
   }
 
   

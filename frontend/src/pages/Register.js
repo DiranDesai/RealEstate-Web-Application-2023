@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
-import MessageComponent from "../components/MessageComponent";
+import MessageComponent2 from "../components/MessageComponent2";
+import { RESET_ERROR } from "../context/types";
 import useAuthState from "../hooks/useAuthState";
 
 function Register() {
   const [formData, setFormData] = useState({});
   const [message, setMessage] = useState(null);
 
-  const { registerUser } = useAuthState();
+  const { registerUser, loading, error, dispatch } = useAuthState();
 
   const handleFormData = (e) => {
     const name = e.target.name;
     const value = name == "agreeStatus" ? e.target.checked : e.target.value;
 
-    if (message) {
+    if (message || error) {
       setMessage(null);
+      dispatch({type: RESET_ERROR})
     }
 
     setFormData((prevForm) => {
@@ -27,12 +30,19 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const {password1, password2} = formData;
+    const {password1, password2, agreeStatus} = formData;
 
     if (password1 !== password2) {
       setMessage("Two password do not match");
       return
     }
+
+    if (!agreeStatus) {
+      setMessage("Agree to the terms and condition");
+      return
+    }
+
+
 
     registerUser(formData);
 
@@ -40,6 +50,8 @@ function Register() {
   };
 
   return (
+    <>
+    {loading && <Loader />}
     <div className="form-wrapper mt-5">
      <form onSubmit={handleSubmit}>
      <div className="form-container">
@@ -49,7 +61,8 @@ function Register() {
           </div>
           <p>Enter your personal details to create account</p>
         </div>
-        {message && <MessageComponent message={message} />}
+        {message && <MessageComponent2 message={message} />}
+        {error && <MessageComponent2 message={error} />}
         <div className="form-group">
           <label htmlFor="name">Your Name</label>
           <input type="text" className="form-control" name="username" onChange={handleFormData} />
@@ -83,6 +96,7 @@ function Register() {
       </div>
      </form>
     </div>
+    </>
   );
 }
 

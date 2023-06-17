@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SHOW_NOTIFY } from "../context/types";
 
 import useNotify from "../hooks/useNotify";
 import useUser from "../hooks/useUser";
@@ -19,31 +20,30 @@ function ChangePassword() {
     
     if (!currentPassword || !newPassword, !confirmPassword) {
       console.log("Fields Empty...");
-      dispatch({type: true, payload: {success: false, message: "Fields are Empty"}});
+      dispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Fields are Empty"}});
       return
     }
 
     if (newPassword.length < 8) {
       console.log("Check password length...");
-      dispatch({type: true, payload: {success: false, message: "Password length cant be less than 8"}});
+      dispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Password length cant be less than 8"}});
       return
     }
 
     if (newPassword !== confirmPassword) {
       console.log("Two Password do not match");
-      dispatch({type: true, payload: {success: false, message: "Two passwords do not match"}});
+      dispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Two passwords do not match"}});
       return
     }
 
     const {passwordMatch, message} = await changePassword(formData);
 
-    console.log(passwordMatch, message);
 
     if (passwordMatch === false) {
-      dispatch({type: true, payload: {success: false, message}});
+      dispatch({type: SHOW_NOTIFY, payload: {success: false, message}});
     } else {
       setFormData({currentPassword: "", newPassword: "", confirmPassword: ""});
-      dispatch({type: true, payload: {success: true, message}});
+      dispatch({type: SHOW_NOTIFY, payload: {success: true, message}});
     }
   }
 

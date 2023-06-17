@@ -6,7 +6,8 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   LOGOUT,
-  RESET_LOGIN_ERROR
+  RESET_LOGIN_ERROR,
+  RESET_ERROR
 } from "../types";
 
 const authReducer = (state, action) => {
@@ -21,7 +22,7 @@ const authReducer = (state, action) => {
       return { ...state, loading: false, token: action.payload };
       break;
     case USER_REGISTER_FAIL:
-      return { ...state, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
       break;
     case RESET_LOGIN_ERROR:
         return { ...state, error: null };
@@ -35,6 +36,8 @@ const authReducer = (state, action) => {
     case USER_LOGIN_FAIL:
       return { ...state, loading: false, error: action.payload };
       break;
+    case RESET_ERROR:
+      return {...state, error: null}
     case LOGOUT:
       return { token: null };
       break;

@@ -24,16 +24,17 @@ function Profile() {
 
   const {token} = useAuthState();
   const navigate = useNavigate();
-  
+
   const windowStatus = useWindow();
 
-
-
-
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
+    const loadTimer = setTimeout(() => {
+      if (!token) {
+        navigate("/login");
+      }
+    });
+
+    return () => clearInterval(loadTimer);
   }, [token]);
 
   useEffect(() => {

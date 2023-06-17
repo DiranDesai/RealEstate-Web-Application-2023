@@ -2,8 +2,8 @@ import React from 'react'
 
 function Spinner() {
   return (
-    <div class="spinner-border text-primary property-spinner" role="status">
-      <span class="visually-hidden">Loading...</span>
+    <div className="spinner-border text-primary property-spinner" role="status">
+      <span className="visually-hidden">Loading...</span>
     </div>
   )
 }

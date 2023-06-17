@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import useNotify from "../hooks/useNotify";
 import useUser from "../hooks/useUser";
 import MessageComponent from "./MessageComponent";
-import { LOADING } from "../context/types"
+import { LOADING, SHOW_NOTIFY } from "../context/types"
 
 function EditProfile() {
   const {updateUserProfile, getCurrentUser, uploadProfilePic, loading, profileData} = useUser();
   const [photoStatus, setPhotoStatus] = useState(false);
   const {profileUrl} = profileData;
-  const {dispatch, error} = useNotify();
+  const {dispatch, error, payloadData} = useNotify();
   const [formData, setFormData] = useState(profileData);
   const [file, setFile] = useState(null);
 
@@ -35,7 +35,7 @@ function EditProfile() {
 
     if (photoStatus) {
       if (file === null) {
-        dispatch({type: true, payload: {success: false, message: "Please choose a file"}});
+        dispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Please choose a file"}});
         return
       }
       await uploadProfilePic(fileData);
@@ -43,7 +43,7 @@ function EditProfile() {
 
     updateUserProfile(formData);
     dispatch({type: LOADING, payload: false});
-    dispatch({type: true, payload: {success: true, message: "Profile data updated successfully"}});
+    dispatch({type: SHOW_NOTIFY, payload: {success: true, message: "Profile data updated successfully"}});
   }
 
   const handleOnChange = (e) => {
@@ -63,7 +63,7 @@ function EditProfile() {
 
   return (
     <>
-      {error && <MessageComponent />}
+      {error && <MessageComponent payloadData={payloadData} />}
       <div className="tab-pane fade edit-profile" id="edit-profile">
       <form onSubmit={handleSubmit}>
         <div className="row">

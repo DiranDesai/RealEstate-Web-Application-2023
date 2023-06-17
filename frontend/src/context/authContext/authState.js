@@ -47,13 +47,17 @@ const AuthState = (props) => {
           },
           body: JSON.stringify(formData),
         });
-        const { token } = await response.json();
+        const data = await response.json();
 
-        
-
-        dispatch({ type: USER_REGISTER_SUCCESS, payload: token });
+        if (data.msg) {
+          dispatch({ type: USER_REGISTER_FAIL, payload: data.msg });
+          return
+        }
+        const {token} = data;
         localStorage.setItem("token", JSON.stringify(token));
+        dispatch({ type: USER_REGISTER_SUCCESS, payload: token });
       } catch (error) {
+        console.log(error);
         dispatch({ type: USER_REGISTER_FAIL });
       }
     };

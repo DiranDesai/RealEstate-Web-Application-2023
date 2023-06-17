@@ -32,3 +32,8 @@ export const ADD_FAVOURITES = "ADD_FAVOURITES";
 export const LOADING = "LOADING";
 export const PAGE_LOADING_REQUEST = "PAGE_LOADING_REQUEST";
 export const PAGE_LOADING_SUCCESS = "PAGE_LOADING_SUCCESS";
+
+export const RESET_ERROR = "RESET_ERROR";
+
+export const SHOW_NOTIFY = "SHOW_NOTIFY";
+export const HIDE_NOTIFY = "HIDE_NOTIFY";
