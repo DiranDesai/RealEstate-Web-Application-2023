@@ -61,10 +61,14 @@ img {
   
 }
 
+.modal-dialog{
+  margin: 5rem auto;
+}
 
 .modal {
   display: block !important;
 }
+
 
 .modal .alert {
   border-radius: 0;
@@ -1877,8 +1881,7 @@ ul {
   }
 
   .modal-dialog{
-    max-width: 350px;
-    margin: 5rem auto;
+    max-width: 300px;
     animation: modalScale 0.5s ease-in-out;
   }
 
