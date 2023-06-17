@@ -78,15 +78,15 @@ function Navbar() {
                         <Link className="dropdown-item" onClick={logout} >
                           Logout
                         </Link>
-                        <Link to="account" className="dropdown-item">
-                          Register
+                        <Link to="agents" className="dropdown-item">
+                          Agents
                         </Link>
                         <a href="#" className="dropdown-item">
                           Feedback
                         </a>
                         <h6 className="dropdown-divider"></h6>
                         <a href="#" className="dropdown-item">
-                          Settings
+                          Performance
                         </a>
                       </div>
                     </div>

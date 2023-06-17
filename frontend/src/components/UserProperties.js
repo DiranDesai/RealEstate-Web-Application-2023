@@ -1,5 +1,6 @@
 import React from "react";
 import { moneyFormat } from "../context/utils";
+import { formatAgoTime } from "../utils/main";
 
 function UserProperties({properties}) {
     console.log(properties);
@@ -24,6 +25,9 @@ function UserProperties({properties}) {
               <thead>
                 <tr>
                   <th>
+                    <span>Image</span>
+                  </th>
+                  <th>
                     <span>name</span>
                   </th>
                   <th>
@@ -47,6 +51,9 @@ function UserProperties({properties}) {
                 {properties.map((property) => (
                     <tr key={property._id}>
                     <td>
+                      <img src="images/house2.jpg" alt={property.title} />
+                    </td>
+                    <td>
                       <span className="name">{property.title}</span>
                     </td>
                     <td>
@@ -64,7 +71,7 @@ function UserProperties({properties}) {
                       <span>{property.address}</span>
                     </td>
                     <td>
-                      <span>3 Hours Ago</span>
+                      <span>{formatAgoTime(property.createdAt)}</span>
                     </td>
                   </tr>
                 ))}

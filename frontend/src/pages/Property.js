@@ -81,11 +81,11 @@ function Property() {
   const addFavourite = () => {
     const checkFavourite = favourites.find(favourite => favourite._id === propertyDetails._id);
     if (checkFavourite) {
-      //alert("Already added to favourites");
-      //setError("Already added to favourites");
+      notifyDispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Already added to favourites"}});
     } else {
       dispatch({type: ADD_FAVOURITES, payload: propertyDetails});
-      //setError("Added to favourites successfully");
+      notifyDispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Added to favourites successfully"}});
+      
     }
   }
 

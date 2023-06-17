@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { moneyFormat } from "../context/utils";
 import useUser from "../hooks/useUser";
-import { truncate } from "../utils/main";
+import { formatAgoTime, truncate } from "../utils/main";
 
 import Spinner from "./Spinner";
 
@@ -11,7 +11,7 @@ function SingleProperty({property}) {
 
   const {getUser, getCurrentUser, profileData} = useUser();
   const {_id: loggedUserId} = profileData;
-  const {_id, price, title, status, city, userId} = property;
+  const {_id, price, title, status, city, userId, createdAt} = property;
  
   useEffect(() => {
 
@@ -47,7 +47,7 @@ function SingleProperty({property}) {
           <Link to={`property/${_id}`}>
             <h4 className="title">{title}</h4>
           </Link>
-          <p>{city}</p>
+          <p>{city} <span className="time"><i class="bi bi-clock"></i>{formatAgoTime(createdAt)}</span></p>
           <div className="property-options d-flex justify-content-between align-items-center">
             <div>
               <span>

@@ -503,6 +503,14 @@ ul {
 .property .middle p {
   color: #6694c9;
 }
+.property .middle p .time{
+  margin-left: 20px;
+  color: #828496eb;
+  font-size: 13px;
+}
+.property .middle p .time i{
+  margin-right: 3px;
+}
 
 /* .property .top{
   height: 260px;
@@ -1363,6 +1371,12 @@ ul {
 .user-properties-container table{
   width: 100%;
 }
+.user-properties-container table img{
+  width: 70px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 7px;
+}
 .user-properties-container thead{
   border-bottom: 2px solid #d0dbf0;
 }
@@ -1378,8 +1392,9 @@ ul {
 }
 
 .user-properties-container tbody tr td{
-  padding: 20px 5px;
+  padding: 5px;
   border-bottom: 1px solid #d0dbf0;
+  vertical-align: middle;
 }
 
 .user-properties-container .property-status{

@@ -27,7 +27,7 @@ const getCurrentUserProperties = async (req, res) => {
 
 const getAllProperties = async (req, res) => {
     try {
-        const properties = await PropertyModal.find({}).limit(8).skip(3);
+        const properties = await PropertyModal.find({}).sort({createdAt: -1}).limit(8);
         res.status(200).json({properties: properties});
     } catch (error) {
         
