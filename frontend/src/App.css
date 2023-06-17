@@ -51,8 +51,9 @@ img {
   width: 100%;
   object-fit: contain;
 }
-span.cap{
+.cap{
   text-transform: capitalize !important;
+  display: inline-block;
 }
 
 .property-spinner {
