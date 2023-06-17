@@ -1127,8 +1127,9 @@ ul {
 }
 
 .profile-page-container .btn {
-  width: 135px;
+  
   text-wrap: nowrap;
+  color: white;
 }
 
 .profile-page-container .heading div:first-child {

@@ -7,22 +7,24 @@ import useUser from "../hooks/useUser";
 import { moneyFormat } from "../context/utils";
 import PropertyReviews from "../components/PropertyReviews";
 
-import {ADD_FAVOURITES, PAGE_LOADING_REQUEST, PAGE_LOADING_SUCCESS} from "../context/types";
-import MessageComponent from "../components/MessageComponent";
+import {ADD_FAVOURITES, PAGE_LOADING_REQUEST, PAGE_LOADING_SUCCESS, SHOW_NOTIFY} from "../context/types";
+import MessageComponent2 from "../components/MessageComponent2";
 import Loader from "../components/Loader";
 import useAuthState from "../hooks/useAuthState";
 import useLogout from "../hooks/useLogout";
+import useNotify from "../hooks/useNotify";
 
 function Property() {
   const [userDetails, setUserDetails] = useState(null);
   const [propertyDetails, setPropertyDetails] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [reviewForm, setReviewForm] = useState({});
-  const [error, setError] = useState(null);
 
   const { id } = useParams();
   const { getUser, getProperty, createPropertyReview, getPropertyReviews, favourites, dispatch, pageLoading } =
     useUser();
+
+  const {error, dispatch: notifyDispatch} = useNotify();
 
     console.log(pageLoading);
   
@@ -52,7 +54,7 @@ function Property() {
     e.preventDefault();
 
     if (!reviewForm.rating || !reviewForm.message) {
-      setError("Please add review message");
+      notifyDispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Review field is empty"}});
       return
     }
 
@@ -80,10 +82,10 @@ function Property() {
     const checkFavourite = favourites.find(favourite => favourite._id === propertyDetails._id);
     if (checkFavourite) {
       //alert("Already added to favourites");
-      setError("Already added to favourites");
+      //setError("Already added to favourites");
     } else {
       dispatch({type: ADD_FAVOURITES, payload: propertyDetails});
-      setError("Added to favourites successfully");
+      //setError("Added to favourites successfully");
     }
   }
 
@@ -97,7 +99,7 @@ function Property() {
   
   return (
     <>
-    {error && <MessageComponent success={true} message={error} setError={setError} />}
+    {error && <MessageComponent2/>}
     <div className="property-page container">
       <div className="row">
         <div className="col-md-9 property-left">
