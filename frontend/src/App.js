@@ -43,7 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} exact />
           <Route path="/search" element={token ? <Home /> : <Navigate to="/login" />} />
-          <Route path="#/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/create" element={<CreateEstate />} />
           <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
           <Route path="/account" element={token ? <Navigate to="/" /> : <Register />} />
