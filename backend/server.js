@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const cors = require("cors");
 const fileUpload = require('express-fileupload');
 const connectDB = require("./config/db");
