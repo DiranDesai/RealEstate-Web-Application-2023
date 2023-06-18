@@ -30,6 +30,17 @@ app.use(cors(corsOptions));
 app.use(fileUpload());
 app.use(express.json());
 
+        
+// Serve static files such as images, CSS files, and JavaScript files for the React frontend app
+app.use(express.static(path.join(__dirname, 'frontend/build')))
+// This solves the "Not found" issue when loading an URL other than index.html.
+app.get('/*', (req, res) => { //n3
+  res.sendFile(path.join(__dirname + '/frontend/build/index.html'), err => {
+    if (err) { res.status(500).send(err) }
+  })
+})
+
+
 
 app.get("/coding", (req, res) => {
     res.json({msg: true});
