@@ -14,13 +14,15 @@ import useAuthState from "../hooks/useAuthState";
 function Home() {
 
     const {token} = useAuthState();
-    const {getCurrentUser} = useUser();
+    const {getCurrentUser, profileData} = useUser();
 
     useEffect(() => {
-      if (token) {
-        getCurrentUser();
-      }
-    }, [token]);
+      // if (token) {
+      //   getCurrentUser();
+      // }
+      console.log("Data Changed");
+      getCurrentUser();
+    }, [token, profileData]);
 
 
     if (!token) {
