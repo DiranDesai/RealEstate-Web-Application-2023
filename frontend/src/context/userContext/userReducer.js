@@ -44,7 +44,7 @@ const userReducer = (state, action) => {
       return {...state, favourites: action.payload};
       break;
     case RESET:
-      return { profileData: null };
+      return { ...state, profileData: null };
       break;
     default:
       return state;

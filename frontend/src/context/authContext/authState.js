@@ -17,6 +17,7 @@ import {
 
 import { URL } from "../constants";
 import { getToken } from "../utils";
+import useUser from "../../hooks/useUser";
 
 //console.log(getToken());
 
@@ -33,6 +34,7 @@ const AuthState = (props) => {
     token: null,
     error: null
   };
+
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
@@ -91,7 +93,6 @@ const AuthState = (props) => {
 
   const logout = () => {
     dispatch({ type: LOGOUT });
-    dispatch({ type: RESET });
     localStorage.removeItem("token");
   };
 

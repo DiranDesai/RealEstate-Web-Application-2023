@@ -10,6 +10,7 @@ import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_R
 import { URL } from "../constants"
 import { getToken } from "../utils"
 import useNotify from "../../hooks/useNotify";
+import useAuthState from "../../hooks/useAuthState";
 
 
 const UserState = ({children}) => {
@@ -42,7 +43,8 @@ const UserState = ({children}) => {
         localStorage.setItem("favourites", JSON.stringify(state.favourites));
     }, [state.favourites]);
 
-    const token = getToken();
+    const {token} = useAuthState();
+
     const headers = {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`

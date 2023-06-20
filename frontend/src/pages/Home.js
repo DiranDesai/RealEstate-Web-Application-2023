@@ -16,16 +16,17 @@ function Home() {
     const {token} = useAuthState();
     const {getCurrentUser, profileData} = useUser();
 
+    console.log(token);
+
     useEffect(() => {
-      // if (token) {
-      //   getCurrentUser();
-      // }
-      console.log("Data Changed");
-      getCurrentUser();
-    }, [token, profileData]);
+      if (token) {
+        console.log("Data Changed");
+        getCurrentUser();
+      }
+    }, [token]);
 
 
-    if (!token) {
+    if (!token || !profileData) {
       return <Loader />
     }
 

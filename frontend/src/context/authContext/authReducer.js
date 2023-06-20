@@ -39,7 +39,7 @@ const authReducer = (state, action) => {
     case RESET_ERROR:
       return {...state, error: null}
     case LOGOUT:
-      return { token: null };
+      return {...state, token: null };
       break;
     default:
       break;

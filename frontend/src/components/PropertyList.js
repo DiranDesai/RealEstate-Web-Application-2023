@@ -9,6 +9,7 @@ function PropertyList() {
   const { properties, getProperties, propertyListLoading } = useUser();
 
   useEffect(() => {
+    console.log("GO");
     getProperties();
   }, []);
 

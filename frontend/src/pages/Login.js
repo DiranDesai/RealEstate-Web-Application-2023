@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Loader from "../components/Loader";
@@ -12,6 +12,7 @@ function Login() {
   const [message, setMessage] = useState(null);
 
   const { error, dispatch, loading } = useAuthState();
+
 
   const { loginUser } = useAuthState();
   const handleFormData = (e) => {

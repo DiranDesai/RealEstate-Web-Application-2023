@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { RESET } from "../context/types";
 import useAuthState from "../hooks/useAuthState";
 import useUser from "../hooks/useUser";
 
@@ -9,7 +10,7 @@ function Navbar() {
   const [search, setSearch] = useState("");
 
   const { token, logout } = useAuthState();
-  const {profileData, favourites} = useUser();
+  const {profileData, favourites, dispatch} = useUser();
 
   const navigate = useNavigate();
 
@@ -21,6 +22,12 @@ function Navbar() {
       return e.target.value;
     });
   }
+
+  const handleLogout = () => {
+    dispatch({type: RESET});
+    logout();
+  }
+
 
   
 
@@ -75,7 +82,7 @@ function Navbar() {
                     </a>
                     <div className="dropdown">
                       <div className="dropdown-menu dropdown-menu-end">
-                        <Link className="dropdown-item" onClick={logout} >
+                        <Link className="dropdown-item" onClick={handleLogout} >
                           Logout
                         </Link>
                         <Link to="agents" className="dropdown-item">
