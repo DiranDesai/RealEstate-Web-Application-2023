@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const cors = require("cors");
 const fileUpload = require('express-fileupload');
 const connectDB = require("./config/db");
@@ -29,7 +30,6 @@ console.log(process.env.NODE_ENV);
 app.use(cors(corsOptions));
 app.use(fileUpload());
 app.use(express.json());
-
 
 app.get("/coding", (req, res) => {
     res.json({msg: true});

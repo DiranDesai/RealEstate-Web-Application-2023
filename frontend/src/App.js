@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
+  HashRouter,
   Routes,
   Route,
   Navigate
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <HashRouter>
         {token && <Navbar />}
         <div className="app-wrapper">
         <Routes>
@@ -52,7 +53,7 @@ function App() {
           <Route path="/favourites" element={ <Favourites /> }/>
         </Routes>
         </div>
-      </Router>
+      </HashRouter>
     </>
   );
 }

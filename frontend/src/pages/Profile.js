@@ -27,6 +27,7 @@ function Profile() {
 
   const windowStatus = useWindow();
 
+  /*
   useEffect(() => {
     const loadTimer = setTimeout(() => {
       if (!token) {
@@ -36,6 +37,7 @@ function Profile() {
 
     return () => clearInterval(loadTimer);
   }, [token]);
+  */
 
   useEffect(() => {
     const loadUserData = async () => {
