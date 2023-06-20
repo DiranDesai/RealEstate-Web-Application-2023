@@ -27,8 +27,11 @@ function Home() {
 
 
     if (!token || !profileData) {
+      console.log(profileData);
       return <Loader />
     }
+
+  
 
   return (
     <>
