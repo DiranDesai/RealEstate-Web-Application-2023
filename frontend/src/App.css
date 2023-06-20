@@ -1652,6 +1652,14 @@ ul {
   }
 }
 
+/* min width */ 
+@media(min-width: 1000px) {
+  .property-page .shadow-1{
+    box-shadow: none !important;
+  }
+}
+
+/* max width*/
 @media(max-width: 1000px) {
   .property-listing-container .row>* {
     width: 100% !important;
@@ -1910,6 +1918,8 @@ ul {
     max-width: 300px;
     animation: modalScale 0.5s ease-in-out;
   }
+
+
 
 
 }

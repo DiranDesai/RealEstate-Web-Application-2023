@@ -18,20 +18,35 @@ export function formatAgoTime(dateParam) {
 
     let minutesAgo = Math.floor(dateAgoDifference / seconds / minutes);
     let hoursAgo = minutesAgo / 60;
+    let secondsAgo = Math.floor(dateAgoDifference / seconds);
 
+
+    
+    if (secondsAgo <= 60) {
+        const secondsData = secondsAgo <= 1 ? `${secondsAgo + 1} Second ago` : `${secondsAgo} Seconds ago`;
+        return secondsData
+    }
+
+    if (minutesAgo <= 60) {
+        //minutesAgo = Math.floor(minutesAgo / 60);
+
+        //console.log(minutesAgo);
+
+        const minutesData = minutesAgo <= 1 ? `${minutesAgo} Min ago` : `${minutesAgo} Mins ago`;
+        return minutesData
+    }
 
     if (hoursAgo >= 24) {
         hoursAgo = Math.floor(hoursAgo / 24);
-        return `${hoursAgo} Days Ago`
+       //return `${hoursAgo} Days Ago`
+
+       const hoursData = hoursAgo <= 1 ? `${hoursAgo} Day ago` : `${hoursAgo} Days ago`;
+        return hoursData
     }
 
-    if (minutesAgo >= 60) {
-        minutesAgo = Math.floor(minutesAgo / 60);
-        return `${minutesAgo} Hour Ago`
-    }
 
 
-    return `${minutesAgo} Mins Ago`
+    //return `${minutesAgo} Mins Ago`
 
 
 }
