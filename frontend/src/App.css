@@ -38,7 +38,7 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
   overflow: hidden !important;
   /* font-family: 'Graphik', sans-serif; */
-  /* height: 3000px; */
+  height: 3000px;
                                                 
 }
 
@@ -1372,8 +1372,12 @@ ul {
   font-weight: 600;
 }
 
+.bottom-profile-page{
+  
+}
 .bottom-profile-page .heading{
-  font-weight: 700;
+  font-size: 27px;
+  font-family: 'Jost';
 }
 .user-properties-container .search{
   padding: 10px 30px;

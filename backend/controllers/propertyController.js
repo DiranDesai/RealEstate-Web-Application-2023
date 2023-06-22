@@ -18,7 +18,7 @@ const createProperty = async (req, res) => {
 
 const getCurrentUserProperties = async (req, res) => {
     try {
-        const properties = await PropertyModal.find({userId: req.user._id});
+        const properties = await PropertyModal.find({userId: req.user._id}).limit(3);
         res.status(200).json({properties: properties});
     } catch (error) {
         

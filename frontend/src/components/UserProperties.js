@@ -3,9 +3,8 @@ import { moneyFormat } from "../context/utils";
 import { formatAgoTime } from "../utils/main";
 
 function UserProperties({properties}) {
-    console.log(properties);
   return (
-    <div className="col-sm-12 bottom-profile-page shadow-1 mt-5 py-5">
+    <div className="col-sm-12 col-md-8 bottom-profile-page mt-5 py-5">
       <div>
         <h5 className="heading mb-5">Your properties</h5>
       </div>
@@ -45,6 +44,12 @@ function UserProperties({properties}) {
                   <th>
                     <span>last updated</span>
                   </th>
+                  <th>
+                    <span></span>
+                  </th>
+                  <th>
+                    <span></span>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -72,6 +77,12 @@ function UserProperties({properties}) {
                     </td>
                     <td>
                       <span>{formatAgoTime(property.createdAt)}</span>
+                    </td>
+                    <td>
+                      <button className="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                    </td>
+                    <td>
+                    <button className="btn btn-sm btn-danger"><i class="bi bi-trash3"></i></button>
                     </td>
                   </tr>
                 ))}
