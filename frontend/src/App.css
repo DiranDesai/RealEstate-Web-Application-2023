@@ -1622,6 +1622,10 @@ ul {
 .agents-page{
   margin-top: 9rem;
 }
+.agents-page .heading{
+  font-family: "DM Sans", "Sans Serif";
+  font-weight: 700;
+}
 .agents-page .agents-inner-container{
   display: flex;
   padding: 30px;
@@ -1981,6 +1985,14 @@ ul {
   .modal-dialog{
     max-width: 300px;
     animation: modalScale 0.5s ease-in-out;
+  }
+
+  .agents-page {
+    margin-top: 0;
+  }
+
+  .agents-page .agents-inner-container{
+    padding: 5px;
   }
 
 

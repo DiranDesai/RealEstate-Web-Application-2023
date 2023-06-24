@@ -5,7 +5,7 @@ function Agents() {
     <div className="agents-page">
       <div className="container">
         <div className="agents-header mt-5">
-          <h3>Agents Listings</h3>
+          <h3 className="heading">Agents Listings</h3>
           <div className="d-flex">
             <button className="btn">
               <i class="bi bi-filter"></i> Filters
