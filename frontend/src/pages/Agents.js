@@ -39,7 +39,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">200 connection</p>
+                  <p className="agent-connect mt-2">200 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>
@@ -68,7 +69,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">70 connection</p>
+                  <p className="agent-connect mt-2">70 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>
@@ -77,7 +79,7 @@ function Agents() {
                 <img src="images/default2.jpg" alt="" />
                 <div className="agents-content">
                   <h4 className="agent-name">Choolwe Sosala</h4>
-                  <p>Chilibombwe</p>
+                  <p>Chililabombwe</p>
                   <div className="agent-stars">
                     <div className="stars">
                       <span>
@@ -97,7 +99,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">120 connection</p>
+                  <p className="agent-connect mt-2">120 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>
@@ -126,7 +129,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">150 connection</p>
+                  <p className="agent-connect mt-2">150 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>
@@ -155,7 +159,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">200 connection</p>
+                  <p className="agent-connect mt-2">200 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>
@@ -184,7 +189,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">70 connection</p>
+                  <p className="agent-connect mt-2">70 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>
@@ -213,7 +219,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">120 connection</p>
+                  <p className="agent-connect mt-2">120 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>
@@ -242,7 +249,8 @@ function Agents() {
                       </span>
                     </div>
                   </div>
-                  <p className="agent-connect mt-2">150 connection</p>
+                  <p className="agent-connect mt-2">150 Followers</p>
+                  <button className="btn">Follow<i class="bi bi-person-plus"></i></button>
                 </div>
               </div>
             </div>

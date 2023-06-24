@@ -1629,6 +1629,13 @@ ul {
 .agents-page .agents-inner-container .agents-content{
   margin-left: 20px;
 }
+.agents-page .agents-inner-container .btn{
+  background-color: #5143d9;
+  color: white;
+}
+.agents-page .agents-inner-container .btn i{
+  margin-left: 4px;
+}
 .agents-page img{
   width: 100px;
   height: 100px;
