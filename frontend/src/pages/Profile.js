@@ -23,21 +23,9 @@ function Profile() {
   const { profileData, getCurrentUser, getCurrentUserProperties } = useUser();
 
   const {token} = useAuthState();
-  const navigate = useNavigate();
 
   const windowStatus = useWindow();
 
-  /*
-  useEffect(() => {
-    const loadTimer = setTimeout(() => {
-      if (!token) {
-        navigate("/login");
-      }
-    });
-
-    return () => clearInterval(loadTimer);
-  }, [token]);
-  */
 
   useEffect(() => {
     const loadUserData = async () => {

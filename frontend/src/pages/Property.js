@@ -14,6 +14,7 @@ import useAuthState from "../hooks/useAuthState";
 import useLogout from "../hooks/useLogout";
 import useNotify from "../hooks/useNotify";
 import { formatAgoTime } from "../utils/main";
+import PropertyMap from "../components/PropertyMap";
 
 function Property() {
   const [userDetails, setUserDetails] = useState(null);
@@ -26,8 +27,6 @@ function Property() {
     useUser();
 
   const {error, dispatch: notifyDispatch} = useNotify();
-
-    console.log(pageLoading);
   
   const token = useLogout();
 
@@ -87,17 +86,10 @@ function Property() {
     } else {
       dispatch({type: ADD_FAVOURITES, payload: propertyDetails});
       notifyDispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Added to favourites successfully"}});
-      
     }
   }
 
-  // if (!token) {
-  //   return
-  // }
-
   if (pageLoading) return <Loader />
-
-  console.log(propertyDetails);
   
   return (
     <>
@@ -222,6 +214,7 @@ function Property() {
                 </div>
               </div>
             </div>
+            <PropertyMap />
             <PropertyViews />
           </div>
         </div>

@@ -89,7 +89,6 @@ const UserState = ({children}) => {
             const data = await response.json();
             dispatch({type: USER_PROFILE_UPDATE_SUCCESS});
             return data;
-
         } catch (error) {
             
         }
@@ -100,7 +99,6 @@ const UserState = ({children}) => {
             const response = await axios.post(`${URL}/uploadProfilePic`, fileData, {
                 headers: headers,
             });
-
             const data = await response.json();
             return data;
         } catch (error) {

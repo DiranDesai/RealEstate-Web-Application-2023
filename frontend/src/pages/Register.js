@@ -29,7 +29,6 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const {password1, password2, agreeStatus} = formData;
 
     if (password1 !== password2) {
@@ -41,12 +40,7 @@ function Register() {
       setMessage("Agree to the terms and condition");
       return
     }
-
-
-
     registerUser(formData);
-
-
   };
 
   return (
@@ -59,7 +53,7 @@ function Register() {
           <div className="form-logo">
             <img src="images/logo3.svg" alt="logo" />
           </div>
-          <p>Enter your personal details to create account</p>
+          <p>Enter your personal details to create an account</p>
         </div>
         {message && <MessageComponent2 message={message} />}
         {error && <MessageComponent2 message={error} />}

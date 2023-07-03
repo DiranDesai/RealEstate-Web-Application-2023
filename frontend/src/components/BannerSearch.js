@@ -1,4 +1,5 @@
 import React from "react";
+import LocationSearchInput from "./LocationSearchInput";
 
 function BannerSearch() {
   return (
@@ -11,6 +12,7 @@ function BannerSearch() {
               className="form-control"
               placeholder="Enter keyword..."
             />
+              <LocationSearchInput />
           </div>
         </div>
         <div className="col-md-3">
