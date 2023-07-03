@@ -38,7 +38,7 @@ body {
   color: #364550;
   /* font-family: "Inter"; */
   /* font-family: 'Jost', sans-serif; */
-  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Open Sans", sans-serif;
   /* font-family: "Roboto"; */
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
   overflow: hidden !important;
@@ -340,7 +340,7 @@ ul {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 5.5rem;
+  margin-top: 8rem;
 }
 
 .banner .banner-content {
@@ -1728,6 +1728,10 @@ ul {
 
   }
 
+  .banner {
+    margin-top: 8rem !important;
+  }
+
   .banner-content {
     min-width: 100px !important;
     margin-top: 100px;
@@ -1986,6 +1990,12 @@ ul {
 
   .agents-page .agents-inner-container{
     padding: 5px;
+  }
+
+  .map-container{
+    max-width: 300px;
+    height: 300px;
+    margin: auto;
   }
 
 
