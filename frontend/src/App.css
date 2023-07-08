@@ -427,7 +427,7 @@ ul {
 
 /* AGENT SHOWCASE STYLES */
 .agent-showcase {
-  background-color: #19b1eb;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -447,20 +447,20 @@ ul {
 
 .agent-showcase h2 {
   font-size: 40px;
-  color: #f0f4ff;
+  color: #3a3b3d;
   font-family: 'Nunito Sans';
   font-weight: 800;
   margin-bottom: 2rem;
 }
 
 .agent-showcase p {
-  color: #d8dff1;
+  color: #444649;
 }
 
 
 .agent-showcase .register-btn {
   color: #ffffff;
-  background-color: rgb(55 120 149);
+  background-color: #5143d9;
   padding: 15px 20px;
   border-radius: 50px;
   margin-top: 15px;
