@@ -207,6 +207,32 @@ const UserState = ({children}) => {
         }
     }
 
+    const followUser = async (userId) => {
+        try {
+            const response = await fetch(`${URL}/follow/${userId}`, {
+                method: "POST",
+                headers: headers
+            })
+            const data = await response.json();
+            return data
+        } catch (error) {
+            
+        }
+    }
+
+
+    const checkUserFollowing = async (userId) => {
+        try {
+            const response = await fetch(`${URL}/checkFollowing/${userId}`, {
+                method: "GET",
+                headers: headers
+            })
+            const data = await response.json();
+            return data
+        } catch (error) {
+            
+        }
+    }
 
 
 
@@ -216,6 +242,8 @@ const UserState = ({children}) => {
             dispatch,
             getCurrentUser,
             getUser,
+            followUser,
+            checkUserFollowing,
             updateUserProfile,
             changePassword,
             uploadProfilePic,

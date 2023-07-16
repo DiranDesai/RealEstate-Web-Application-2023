@@ -46,6 +46,14 @@ const userSchema = mongoose.Schema({
     facebook: {
         type: String,
         default: null
+    },
+    followers: {
+        type: Array,
+        default: []
+    },
+    following: {
+        type: Array,
+        default: []
     }
 },{
     timestamps: true

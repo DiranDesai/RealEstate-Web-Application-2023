@@ -62,6 +62,48 @@ const getUser = async (req, res) => {
     }
 }
 
+const followUser = async (req, res) => {
+    const {userId} = req.params;
+    const currentUserId = req.user._id.toString();
+    const currentUser = await User.findById({_id: currentUserId});
+    const userToFollow = await User.findById({_id: userId});
+
+
+    if (!userToFollow) {
+        return res.status(404).json({msg: "user is not found"});
+    }
+
+    const followers = userToFollow.followers;
+
+    if (followers.includes(currentUserId.toString())) {
+        return res.status(501).json({msg: "user already followed"});
+    }
+
+    userToFollow.followers.push(currentUserId.toString());
+    currentUser.following.push(userId);
+
+    await userToFollow.save();
+    await currentUser.save();
+
+    
+}
+
+const checkUserFollowingController = async (req, res) => {
+    const {userId} = req.params;
+
+    const currentUserId = req.user._id.toString();
+    const currentUser = await User.findById({_id: currentUserId});
+    const userToFollow = await User.findById({_id: userId});
+
+    const followers = userToFollow.followers;
+
+    if (followers.includes(currentUserId.toString())) {
+        return res.status(201).json({follow: true});
+    } else {
+        return res.status(201).json({follow: false});
+    }
+}
+
 const updateUserDetails = async (req, res) => {
     try {
         const user = await User.findOneAndUpdate({_id: req.user._id}, req.body);
@@ -114,6 +156,8 @@ module.exports = {
     register,
     getCurrentUser,
     getUser,
+    followUser,
+    checkUserFollowingController,
     updateUserDetails,
     changePassword,
     uploadProfilePic

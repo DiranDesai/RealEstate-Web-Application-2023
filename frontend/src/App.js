@@ -27,6 +27,7 @@ import authContext from "./context/authContext/authContext";
 import useUser from "./hooks/useUser";
 import Loader from "./components/Loader";
 import useNotify from "./hooks/useNotify";
+import OtherProfile from "./pages/OtherProfile";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} exact />
           <Route path="/search" element={token ? <Home /> : <Navigate to="/login" />} />
           <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login"/>} />
+          <Route path="/profile/:userId" element={token ? <OtherProfile /> : <Navigate to="/login"/>} />
           <Route path="/create" element={<CreateEstate />} />
           <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
           <Route path="/account" element={token ? <Navigate to="/" /> : <Register />} />
