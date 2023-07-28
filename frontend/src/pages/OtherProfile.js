@@ -25,7 +25,7 @@ function OtherProfile() {
   //     username: "Diran Sai",
   //   };
 
-  const { getUser, followUser, checkUserFollowing } = useUser();
+  const { getUser, followUser, unFollowUser, checkUserFollowing } = useUser();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -49,7 +49,7 @@ function OtherProfile() {
   }
 
   const unFollowUserBtnClick = async () => {
-    console.log(123);
+    await unFollowUser(userId);
   }
 
   const checkFollow = async () => {

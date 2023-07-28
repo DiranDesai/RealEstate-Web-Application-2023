@@ -85,7 +85,17 @@ const followUser = async (req, res) => {
     await userToFollow.save();
     await currentUser.save();
 
-    
+}
+
+const unFollowUser = async (req, res) => {
+    const {userId} = req.params;
+    const currentUserId = req.user._id.toString();
+
+    const userToFollow = await User.findById({_id: userId});
+
+    userToFollow.followers.filter(userId => userId != currentUserId);
+
+    await userToFollow.save();
 }
 
 const checkUserFollowingController = async (req, res) => {
@@ -157,6 +167,7 @@ module.exports = {
     getCurrentUser,
     getUser,
     followUser,
+    unFollowUser,
     checkUserFollowingController,
     updateUserDetails,
     changePassword,

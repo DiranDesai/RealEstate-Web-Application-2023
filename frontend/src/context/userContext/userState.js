@@ -163,7 +163,7 @@ const UserState = ({children}) => {
             return properties
         } catch (error) {
             
-        }
+        }         
     }
 
     const getProperty = async (id) => {
@@ -220,6 +220,19 @@ const UserState = ({children}) => {
         }
     }
 
+    const unFollowUser = async (userId) => {
+        try {
+            const response = await fetch(`${URL}/unFollow/${userId}`, {
+                method: "POST",
+                headers: headers
+            })
+            const data = await response.json();
+            return data
+        } catch (error) {
+            
+        }
+    }
+
 
     const checkUserFollowing = async (userId) => {
         try {
@@ -243,6 +256,7 @@ const UserState = ({children}) => {
             getCurrentUser,
             getUser,
             followUser,
+            unFollowUser,
             checkUserFollowing,
             updateUserProfile,
             changePassword,

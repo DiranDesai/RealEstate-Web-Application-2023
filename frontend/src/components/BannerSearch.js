@@ -12,7 +12,7 @@ function BannerSearch() {
               className="form-control"
               placeholder="Enter keyword..."
             />
-              <LocationSearchInput />
+              {/* <LocationSearchInput /> */}
           </div>
         </div>
         <div className="col-md-3">
