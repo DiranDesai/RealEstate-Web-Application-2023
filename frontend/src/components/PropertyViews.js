@@ -23,7 +23,7 @@ function PropertyViews() {
   return (
     <div className="views shadow-1 p-5 mt-4">
       <div className="header">
-        <div className="align-items-center justify-content-between">
+        <div className="d-flex align-items-center justify-content-between">
           <div className="view-left">
             <h3 className="heading-1 m-0">Property Views</h3>
           </div>
