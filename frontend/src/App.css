@@ -644,6 +644,24 @@ ul {
   z-index: 1000;
 } */
 
+/* PROPERTY PAGINATION STYLES */
+
+.pagination-container{
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-container .page-link{
+  cursor: pointer;
+}
+
+.pagination-container .page-bg{
+  background: #48e3ac !important; 
+}
+
+
+
+
 
 /* PROPERTY PAGES STYLES */
 .shadow-1 {

@@ -27,8 +27,12 @@ const getCurrentUserProperties = async (req, res) => {
 
 const getAllProperties = async (req, res) => {
     try {
-        const properties = await PropertyModal.find({}).sort({createdAt: -1}).limit(8);
-        res.status(200).json({properties: properties});
+        const numPerPage = 8;
+        const page = req.query.page;
+        const properties = await PropertyModal.find({}).skip((page - 1) * numPerPage).sort({createdAt: -1}).limit(8);
+        const propertiesCount = await PropertyModal.countDocuments();
+        const pagesCount = Math.ceil(propertiesCount / numPerPage);
+        res.status(200).json({properties: properties, pages: pagesCount});
     } catch (error) {
         
     }

@@ -5,7 +5,7 @@ import axios from "axios";
 import UserContext from "./userContext";
 import UserReducer from "./userReducer";
 
-import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROPERTY_SUCCESS, PROPERTY_LIST_REQUEST, PROPERTY_LIST_SUCCESS, LOAD_FAVOURITES} from "../types";
+import {RESET, USER_PROFILE_REQUEST, USER_PROFILE_SUCCESS, USER_PROFILE_UPDATE_REQUEST, USER_PROFILE_UPDATE_SUCCESS, USER_PROPERTY_SUCCESS, PROPERTY_LIST_REQUEST, PROPERTY_LIST_SUCCESS, LOAD_FAVOURITES, PAGES_LIST_SUCCESS} from "../types";
 
 import { URL } from "../constants"
 import { getToken } from "../utils"
@@ -29,6 +29,7 @@ const UserState = ({children}) => {
             { name: "restaraunt", listings: 1, link: "https://img.icons8.com/?size=512&id=sfJwEBemSndz&format=png" },
         ],
         properties: [],
+        pages: null,
         favourites: []
     }
 
@@ -139,15 +140,16 @@ const UserState = ({children}) => {
         }
     }
 
-    const getProperties = async () => {
+    const getProperties = async (page) => {
         try {
             dispatch({type: PROPERTY_LIST_REQUEST});
-            const response = await fetch(`${URL}/getProperties`, {
+            const response = await fetch(`${URL}/getProperties?page=${page}`, {
                 method: "GET",
                 headers: headers
             }); 
-            const {properties} = await response.json();
+            const {properties, pages} = await response.json();
             dispatch({type: PROPERTY_LIST_SUCCESS, payload: properties});
+            dispatch({type: PAGES_LIST_SUCCESS, payload: pages});
         } catch (error) {
             
         }
