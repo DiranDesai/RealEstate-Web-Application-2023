@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
+import Pagination from "../components/Pagination";
 
 function Agents() {
+  let [currentPage, setCurrentPage] = useState(1);
+
   return (
     <div className="agents-page">
       <div className="container">
@@ -256,7 +259,7 @@ function Agents() {
             </div>
           </div>
           <div className="agents-pagination">
-            <nav aria-label="Page navigation example">
+            {/* <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-end">
                 <li class="page-item disabled">
                   <a class="page-link">Previous</a>
@@ -282,7 +285,8 @@ function Agents() {
                   </a>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
+            <Pagination pages={3} currentPage={currentPage} setCurrentPage={setCurrentPage} />
           </div>
         </div>
       </div>

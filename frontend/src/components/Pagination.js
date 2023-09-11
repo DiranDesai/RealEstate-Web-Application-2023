@@ -36,7 +36,7 @@ function Pagination({pages, currentPage, setCurrentPage}) {
       <nav className="navigation">
         <ul className="pagination">
           <li className="page-item">
-            <a className="page-link" onClick={pagePrev}>
+            <a className="page-link prev" onClick={pagePrev}>
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
@@ -50,7 +50,7 @@ function Pagination({pages, currentPage, setCurrentPage}) {
             ))}
 
           <li className="page-item">
-            <a className="page-link" onClick={pageNext}>
+            <a className="page-link next" onClick={pageNext}>
   
               <span aria-hidden="true">&raquo;</span>
             </a>

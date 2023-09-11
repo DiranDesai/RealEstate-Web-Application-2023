@@ -46,7 +46,7 @@ body {
   /* font-family: 'Graphik', sans-serif; */
   color: #1d2021;
   font-weight: 400;
-  font-family: 'DM Sans', sans-serif;
+  /* font-family: 'DM Sans', sans-serif; */
                                                 
 }
 
@@ -464,9 +464,9 @@ ul {
 
 .agent-showcase .register-btn {
   color: #ffffff;
-  background-color: #5143d9;
+  background-color: #4b9cf2;
   padding: 15px 20px;
-  border-radius: 50px;
+  border-radius: 10px;
   margin-top: 15px;
   font-weight: 800;
   font-family: 'Open Sans';
@@ -653,10 +653,28 @@ ul {
 
 .pagination-container .page-link{
   cursor: pointer;
+  border-radius: 50%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 1.8;
 }
 
 .pagination-container .page-bg{
-  background: #48e3ac !important; 
+  background: #4b9cf2 !important; 
+  color: white;
+}
+.pagination-container ul{
+
+}
+.pagination-container li{
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+.pagination-container .prev, .pagination-container .next{
+  border-radius: 50% !important;
 }
 
 
@@ -1055,13 +1073,13 @@ ul {
 }
 
 .category-listing-wrapper .card .btn {
-  color: #000000;
+  color: #fff;
     margin-top: 20px;
     font-family: 'Open Sans';
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 50px;
     padding: 10px 20px;
-    border: 1px solid #5e5e67;
+    background-color: #4b9cf2;
 }
 
 /* LOADER STYLES */
@@ -1663,7 +1681,7 @@ ul {
   margin-left: 20px;
 }
 .agents-page .agents-inner-container .btn{
-  background-color: #6f709b;
+  background-color: #4b9cf2;
   font-family: "DM Sans", "Sans Serif";
   color: white;
 }
