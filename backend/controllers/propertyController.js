@@ -86,6 +86,23 @@ const getPropertyReviews = async (req, res) => {
     } catch (error) {
         
     }
+}
+
+const propertySearching = async (req, res) => {
+    const {title} = req.query;
+   
+    try {
+        const results = await PropertyModal.find({
+            $or: [
+              { title: { $regex: title, $options: 'i' } }, // Case-insensitive search
+              { description: { $regex: title, $options: 'i' } },
+            ],
+          });
+
+        return res.status(200).json({properties: results});
+    } catch (error) {
+        
+    }
 
 }
 
@@ -95,5 +112,6 @@ module.exports = {
     getAllProperties,
     getProperty,
     createPropertyReview,
-    getPropertyReviews
+    getPropertyReviews,
+    propertySearching
 }

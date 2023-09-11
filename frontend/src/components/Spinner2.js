@@ -3,7 +3,7 @@ import React from "react";
 function Spinner2() {
 
   const spinnerStyles = {
-    borderRadius: "50px"
+    borderRadius: "70px !important"
   }
 
   return (

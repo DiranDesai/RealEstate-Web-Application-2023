@@ -249,6 +249,23 @@ const UserState = ({children}) => {
         }
     }
 
+    const searchProperties = async (searchParams) => {
+        let {title} = searchParams;
+        
+        try {
+            dispatch({type: PROPERTY_LIST_REQUEST});
+            const response = await fetch(`${URL}/search?title=${title}`, {
+                method: "GET",
+                headers: headers
+            });
+    
+            const {properties} = await response.json();
+            dispatch({type: PROPERTY_LIST_SUCCESS, payload: properties});
+        } catch (error) {
+            
+        }
+    }
+
 
 
     return (
@@ -268,7 +285,8 @@ const UserState = ({children}) => {
             getCurrentUserProperties,
             getProperty,
             createPropertyReview,
-            getPropertyReviews
+            getPropertyReviews,
+            searchProperties
         }}>
             {children}
         </UserContext.Provider>
