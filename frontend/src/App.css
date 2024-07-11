@@ -38,8 +38,8 @@ body {
   font-size: 90%;
   color: #364550;
   /* font-family: "Inter"; */
-  /* font-family: 'Jost', sans-serif; */
-  font-family: "Open Sans", sans-serif;
+   font-family: 'Jost', sans-serif; 
+  /*font-family: "Open Sans", sans-serif;*/
   /* font-family: "Roboto"; */
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
   overflow: hidden !important;
