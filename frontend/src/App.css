@@ -340,7 +340,7 @@ ul {
 /* Banner Styles */
 .banner {
   height: 400px;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -350,6 +350,7 @@ ul {
 
 .banner .banner-content {
   /* min-width: 1000px; */
+display: none;
 }
 
 .banner .banner-content p {
