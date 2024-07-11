@@ -340,11 +340,12 @@ ul {
 /* Banner Styles */
 .banner {
   height: 400px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin-top: 8rem;
+
 }
 
 .banner .banner-content {
