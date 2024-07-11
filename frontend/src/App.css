@@ -353,21 +353,19 @@ ul {
 }
 
 .banner .banner-content p {
-  font-size: 22px;
-  color: black;
-display: none;
+  font-size: 20px;
+  color: #33
 }
 
 .banner .banner-control-buttons {
   margin: 20px 0;
-display: none;
 }
 
 .banner-content h1 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 700;
   font-size: 40px;
-display: none;
+
 }
 
 .banner-content .btn {
