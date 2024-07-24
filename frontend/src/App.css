@@ -46,8 +46,13 @@ body {
   /* font-family: 'Graphik', sans-serif; */
   color: #1d2021;
   font-weight: 400;
-  /* font-family: 'DM Sans', sans-serif; */
-                                                
+  font-family: 'DM Sans', sans-serif;
+
+  color: rgb(75, 88, 124);
+  line-height: 1.7;
+  font-size: 18px;
+  font-weight: 400;
+                                                  
 }
 
 a {
