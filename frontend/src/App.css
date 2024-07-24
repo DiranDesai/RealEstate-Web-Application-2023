@@ -55,6 +55,15 @@ a {
   text-decoration: none;
 }
 
+.agents-showcase p{
+
+  color: rgb(75, 88, 124);
+  line-height: 1.7;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "DM Sans";
+}
+
 img {
   width: 100%;
   object-fit: contain;
