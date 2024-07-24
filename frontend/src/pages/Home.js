@@ -35,7 +35,7 @@ function Home() {
 
   return (
     <>
-      <section className="main">
+      <section className="main mt-5">
         <div className="container">
           <Banner />
         </div>
