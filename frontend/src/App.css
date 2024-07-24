@@ -1107,6 +1107,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+opacity: 0.7;
 }
 
 .loader-wrapper .loader-2 {
@@ -1822,7 +1823,7 @@ ul {
   }
 
   .navbar {
-    position: relative;
+    position: fixed;
   }
 
   .banner-control-buttons {
