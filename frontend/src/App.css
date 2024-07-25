@@ -1824,7 +1824,7 @@ opacity: 0.7;
   }
 
   .navbar {
-    position: fixed;
+    position: relative;
   }
 
   .banner-control-buttons {
