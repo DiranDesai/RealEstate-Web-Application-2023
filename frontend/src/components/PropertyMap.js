@@ -12,7 +12,7 @@ function PropertyMap() {
   const center = useMemo(() => ({ lat: -15.416667, lng: 28.283333 }), []);
 
   return (
-    <div className="property-map shadow-1 p-5 mt-4">
+    <div className="property-map shadow-1 py-5 mt-4">
       <h1 className="heading-1">Property Location</h1>
       {!isLoaded ? (
         <h1>Loading...</h1>
