@@ -70,12 +70,12 @@ function Navbar() {
                       <span className="count">{favourites.length}</span>
                     </a></Link>
                   </li>
-                  <li>
+                  {/*<li>
                     <a href="#">
                       <i className="bi bi-cart3"></i>
                       <span className="count">5</span>
                     </a>
-                  </li>
+                  </li>*/}
                   <li>
                     <a href="#" data-bs-toggle="dropdown">
                       <i className="bi bi-person"></i>
