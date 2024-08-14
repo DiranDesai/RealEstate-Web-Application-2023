@@ -41,7 +41,7 @@ function SingleProperty({property}) {
           <div className="pricing">
             <h4>{moneyFormat(price)}</h4>
           </div>
-          {/* <img src="images/house1.jpg" className='cover' alt="" /> */}
+          <img src="images/house1.jpg" className='cover' alt="" /> 
         </div>
         <div className="middle">
           <Link to={`property/${_id}`}>
