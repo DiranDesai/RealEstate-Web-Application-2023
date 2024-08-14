@@ -45,7 +45,7 @@ function SingleProperty({property}) {
         </div>
         <div className="middle">
           <Link to={`property/${_id}`}>
-            <h4 className="title">{title}</h4>
+            <h4 className="title fw-70">{title}</h4>
           </Link>
           <p><span className="cap">{address}</span> {/*<span className="time"><i class="bi bi-clock"></i>{formatAgoTime(createdAt)}</span>*/}</p>
           <div className="property-options d-flex justify-content-between align-items-center">
