@@ -41,13 +41,13 @@ function SingleProperty({property}) {
           <div className="pricing">
             <h4>{moneyFormat(price)}</h4>
           </div>
-          <img src="images/house1.jpg" className='cover' alt="" /> 
+          {/*<img src="images/house1.jpg" className='cover' alt="" /> */}
         </div>
         <div className="middle">
           <Link to={`property/${_id}`}>
             <h4 className="title">{title}</h4>
           </Link>
-          <p><span className="cap">{address}</span> <span className="time"><i class="bi bi-clock"></i>{formatAgoTime(createdAt)}</span></p>
+          <p><span className="cap">{address}</span> /*<span className="time"><i class="bi bi-clock"></i>{formatAgoTime(createdAt)}</span>*/</p>
           <div className="property-options d-flex justify-content-between align-items-center">
             <div>
               <span>
