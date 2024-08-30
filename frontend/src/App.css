@@ -99,6 +99,7 @@ select {
   border-radius: 0;
   border: 1px solid #62808d33;
   padding: 15px;
+width: 100%;
 }
 select:focus {
   box-shadow: none !important;
