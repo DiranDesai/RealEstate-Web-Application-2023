@@ -48,6 +48,10 @@ body {
   color: #1d2021;
   line-height: 1.7;
                                                   
+} 
+.banner-content h1, .banner-content p, .banner- content .banner-control-buttons{
+display: none !important,;
+
 }
 
 ul {
