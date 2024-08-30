@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&family=Ubuntu:wght@300;400;500;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
@@ -14,6 +13,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Nunito+Sans:wght@500&family=Ysabeau+Office:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+
+
+
 
 
 :root {
@@ -37,16 +44,9 @@ body {
   font-weight: 400;
   font-size: 90%;
   color: #364550;
-  /* font-family: "Inter"; */
-   font-family: 'Jost', sans-serif; 
-  /*font-family: "Open Sans", sans-serif;*/
-  /* font-family: "Roboto"; */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+  font-family: "Roboto"; 
   overflow: hidden !important;
-  /* font-family: 'Graphik', sans-serif; */
   color: #1d2021;
-  font-weight: 400;
-  /*font-family: 'DM Sans', sans-serif;*/
   line-height: 1.7;
                                                   
 }
@@ -150,7 +150,7 @@ ul {
 }
 /* Navbar styles */
 .navbar {
-  padding: 0 !important;
+  padding: 15px !important;
   border-bottom: 1px solid var(--color-1);
   position: fixed;
   top: 0;
@@ -164,12 +164,24 @@ ul {
   flex: 0.5;
 }
 
+.navbar .logo a{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.navbar h3{
+  font-weight: 700;
+  font-family: "DM Sans";
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .navbar .logo img {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   transform: scale(1.6);
-  margin-left: 13px;
 }
 
 .navbar .menu-2 i {
@@ -1110,32 +1122,34 @@ ul {
   justify-content: center
 }
 
-.loader-wrapper .loader-2 {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 3px solid #0cf0a4;
-  border-radius: 50%;
-  border-bottom-color: #1cabd6;
-  border-top-color: #7424be;
-  border-right-color: #242957;
-  animation: loading 0.9s linear 0s infinite;
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  --c: no-repeat radial-gradient(farthest-side, #514b82 92%, #0000);
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+    var(--c) 0 50%;
+  background-size: 10px 10px;
+  animation: l18 1s infinite;
+  position: relative;
 }
-
-.loader-wrapper .loader-1 {
-  width: 100px;
-  height: 100px;
+.loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: 3px;
+  background: repeating-conic-gradient(#0000 0 35deg, #514b82 0 90deg);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
+  border-radius: 50%;
 }
-
-@keyframes loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
+@keyframes l18 {
   100% {
-    transform: rotate(360deg);
+    transform: rotate(0.5turn);
   }
 }
+
+/*LOADER STYLES END */
+
+
 
 
 
@@ -1388,10 +1402,7 @@ ul {
 .profile-wrapper-right .inner-title {
   font-weight: 500;
   font-size: 17px;
-  color: ;
 }
-
-.profile-link-container {}
 
 .profile-link-container .profile-links-row {
   display: flex;
@@ -1964,11 +1975,10 @@ ul {
   }
 
   .navbar .logo img{
-    width: 40px;
-    height: 70px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     transform: scale(2.7);
-    margin-left: 25px;
     object-fit: contain;
   }
 

@@ -51,7 +51,7 @@ function Register() {
      <div className="form-container">
         <div className="heading">
           <div className="form-logo">
-            <img src="images/logo3.svg" alt="logo" />
+            <img src="images/logo.img" alt="logo" />
           </div>
           <p>Enter your personal details to create an account</p>
         </div>

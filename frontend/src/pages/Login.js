@@ -43,7 +43,7 @@ function Login() {
           <div className="form-container">
             <div className="heading">
               <div className="form-logo">
-                <img src="images/logo3.svg" alt="logo" />
+                <img src="images/logo.png" alt="logo" />
               </div>
               <p>Enter your email & password to login</p>
             </div>

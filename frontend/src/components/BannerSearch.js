@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import useUser from "../hooks/useUser";
 import LocationSearchInput from "./LocationSearchInput";
+import LocationComponent from "./LocationComponent";
 
 function BannerSearch() {
   const [title, setTitle] = useState("");
@@ -43,14 +44,7 @@ function BannerSearch() {
           </div>
         </div>
         <div className="col-md-3">
-          <div className="form-group location">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Location"
-            />
-            <i className="bi bi-geo-alt loc"></i>
-          </div>
+          <LocationComponent />
         </div>
         <div className="col-md-3 search-col">
           <button className="btn search" onClick={handleSubmit}>
