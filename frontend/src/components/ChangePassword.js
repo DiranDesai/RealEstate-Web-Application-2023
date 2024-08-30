@@ -57,11 +57,10 @@ function ChangePassword() {
     <div className="tab-pane fade change-password" id="change-password">
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <div className="col-lg-3 col-md-4">Current Password</div>
+          <div className="col-lg-3 col-md-4"><label htmlFor="Current Password">Current Password</label></div>
           <div className="col-lg-9 col-md-8">
             <input
               type="password"
-              className="form-control"
               name="currentPassword"
               value={formData.currentPassword}
               onChange={handleOnChange}
@@ -69,11 +68,10 @@ function ChangePassword() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4">New Password</div>
+          <div className="col-lg-3 col-md-4"><label htmlFor="New Password">New Password</label></div>
           <div className="col-lg-9 col-md-8">
             <input
               type="password"
-              className="form-control"
               name="newPassword"
               value={formData.newPassword}
               onChange={handleOnChange}
@@ -81,11 +79,10 @@ function ChangePassword() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4">Re-enter New Password</div>
+          <div className="col-lg-3 col-md-4"><label htmlFor="Re-enter New Password">Re-enter New Password</label></div>
           <div className="col-lg-9 col-md-8">
             <input
               type="password"
-              className="form-control"
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleOnChange}

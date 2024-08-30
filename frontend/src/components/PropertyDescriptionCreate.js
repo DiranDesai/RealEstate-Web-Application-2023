@@ -16,12 +16,12 @@ function PropertyDescriptionCreate() {
       <div className="form mt-3">
         <div className="form-group">
           <label htmlFor="title">Title</label>
-          <input type="text" className="form-control" placeholder="Property title" name="title" value={propertyFormData.title || ""} onChange={e => handleFormChange(e.target, dispatch)} />
+          <input type="text" placeholder="Property title" name="title" value={propertyFormData.title || ""} onChange={e => handleFormChange(e.target, dispatch)} />
         </div>
         <div className="form-group mt-4">
           <label htmlFor="description">Description</label>
           <textarea
-            className="form-control description"
+            className="description"
             placeholder="Description" name="description" value={propertyFormData.description || ""} onChange={e => handleFormChange(e.target, dispatch)}
           ></textarea>
         </div>
@@ -29,7 +29,7 @@ function PropertyDescriptionCreate() {
           <div className="col-md-6">
             <div className="form-group">
               <label htmlFor="category">Select category</label>
-              <select className="select form-control" name="category" onChange={e => handleFormChange(e.target, dispatch)}>
+              <select className="select" name="category" onChange={e => handleFormChange(e.target, dispatch)}>
                 <option value="">Choose category</option>
                 <option value="office">Office</option>
                 <option value="houses">Houses</option>
@@ -42,7 +42,7 @@ function PropertyDescriptionCreate() {
           <div className="col-md-6">
             <div className="form-group">
               <label htmlFor="category">Property Status</label>
-              <select className="select form-control" name="status" onChange={e => handleFormChange(e.target, dispatch)}>
+              <select className="select" name="status" onChange={e => handleFormChange(e.target, dispatch)}>
                 <option value="">Choose status</option>
                 <option value="sell">Sell</option>
                 <option value="rent">Rent</option>
@@ -55,19 +55,19 @@ function PropertyDescriptionCreate() {
           <div className="col-md-4">
             <div className="form-group">
               <label htmlFor="price">Price $</label>
-              <input type="number" className="form-control" placeholder="$" name="price" value={propertyFormData.price || ""} onChange={e => handleFormChange(e.target, dispatch)} />
+              <input type="number" placeholder="$" name="price" value={propertyFormData.price || ""} onChange={e => handleFormChange(e.target, dispatch)} />
             </div>
           </div>
           <div className="col-md-4">
             <div className="form-group">
               <label htmlFor="price">Yearly Tax Rate $</label>
-              <input type="number" className="form-control" placeholder="$" name="yearlyTax" value={propertyFormData.yearlyTax || ""} onChange={e => handleFormChange(e.target, dispatch)} />
+              <input type="number" placeholder="$" name="yearlyTax" value={propertyFormData.yearlyTax || ""} onChange={e => handleFormChange(e.target, dispatch)} />
             </div>
           </div>
           <div className="col-md-4">
             <div className="form-group">
               <label htmlFor="price">Monthly Taxt Rate $</label>
-              <input type="number" className="form-control" placeholder="$" name="monthlyTax" value={propertyFormData.monthlyTax || ""} onChange={e => handleFormChange(e.target, dispatch)} />
+              <input type="number" placeholder="$" name="monthlyTax" value={propertyFormData.monthlyTax || ""} onChange={e => handleFormChange(e.target, dispatch)} />
             </div>
           </div>
         </div>

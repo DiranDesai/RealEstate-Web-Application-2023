@@ -51,10 +51,64 @@ body {
                                                   
 }
 
+ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 a {
   color: #333e48;
   text-decoration: none;
 }
+
+input, textarea {
+  border: 2px solid #62808d33;
+  padding: 12px;
+  border-radius: 0;
+  width: 100%;
+  font-size: 17px;
+}
+input:focus {
+  box-shadow: none !important;
+  
+}
+textarea:focus{
+  box-shadow: 0;
+  outline: 2px solid skyblue;
+}
+
+input::placeholder {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+input:focus {
+  box-shadow: 0;
+  outline: 2px solid skyblue;
+  border: none !important;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-family: "Noto Sans";
+  display: block;
+}
+select {
+  border-radius: 0;
+  border: 1px solid #62808d33;
+  padding: 15px;
+}
+select:focus {
+  box-shadow: none !important;
+  outline: 1px solid #62808d33;
+}
+select option span {
+  font-size: 12px !important;
+}
+
 
 .agent-showcase p{
 
@@ -209,6 +263,9 @@ ul {
   flex: 1;
   justify-content: end;
 }
+.navbar .menu-2 .navbar-icon-links{
+  margin-right: 1.7rem !important;
+}
 
 .navbar .menu-2 .navbar-icon-links li>a {
   padding: 18px;
@@ -220,6 +277,10 @@ ul {
   border-radius: 50%;
   margin-left: 20px;
   position: relative;
+}
+.navbar .menu-2 .navbar-icon-links .icon{
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 .navbar .menu-2 a .count {
@@ -271,6 +332,9 @@ ul {
   position: relative;
   padding-left: 20px;
 }
+.navbar-profile .icon{
+  font-size: 2.5rem;
+}
 
 .navbar-profile .dropdown-menu {
   margin-top: 35px;
@@ -309,6 +373,7 @@ ul {
   height: 45px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid #dcdddf;
 }
 
 .active-state {
@@ -444,6 +509,16 @@ ul {
 .banner-search .form-group.location {
   position: relative;
 }
+.banner-search .form-group.location .dropdown-menu{
+  max-height: 400px;
+  overflow: auto;
+}
+
+.banner-search .form-group.location .dropdown-menu a{
+  font-weight: 400;
+  font-family: "Inter";
+}
+
 
 .banner-search .form-group.location i {
   position: absolute;
@@ -796,6 +871,8 @@ ul {
 
 .reviews .stats-num span {
   margin-right: 5px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .reviews .stats-num span i {
@@ -841,15 +918,14 @@ ul {
 }
 
 .reviews .reviews-reply-container .review .content h4 {
-  font-size: 16px;
-  font-family: 'Jost';
-  font-weight: 400;
+  font-size: 18px;
+  font-family: 'Roboto';
   color: #0f1623;
+  font-weight: 500;
 }
 
 .reviews .reviews-reply-container .review .content h4 span {
   font-size: 12px;
-  font-family: 'Jost';
   color: #475058d4;
   margin-left: 10px;
 }
@@ -861,7 +937,9 @@ ul {
 }
 
 .reviews .reviews-reply-container .review .content p {
-  color: #64748b;
+  color: #313e59;
+  font-size: 16px;
+  margin: 0;
 }
 
 .reviews .review-helpfull .btn {
@@ -987,10 +1065,6 @@ ul {
 .property-page .create-review label {
   margin: 10px 0;
   font-weight: 700;
-}
-
-.property-page .create-review label span {
-  font-weight: 400;
 }
 
 .property-page .create-review .create {
@@ -1156,7 +1230,6 @@ ul {
 /* LOGIN & REGISTER PAGE STYLES */
 .form-wrapper label {
   margin-bottom: 5px;
-  font-size: 17px;
 }
 
 .form-wrapper .form-container {
@@ -1193,9 +1266,16 @@ ul {
 .form-wrapper .form-container .form-logo {}
 
 .form-wrapper .form-logo img {
-  width: 100px !important;
-  height: 100px !important;
+  width: 50px !important;
+  height: 50px !important;
   transform: scale(1.9);
+  margin-bottom: 40px;
+}
+
+.form-wrapper .form-logo h3{
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "DM Sans";
 }
 
 
@@ -1382,10 +1462,6 @@ ul {
   margin-top: 20px;
 }
 
-.profile-wrapper-right .row .label {
-  font-weight: 600;
-  color: rgb(1 41 112 / 60%);
-}
 
 .profile-wrapper-right .edit-profile .profile {
   border-radius: 0;
@@ -1561,6 +1637,12 @@ ul {
 
 /* CREATE LISTING PAGE STYLES */
 
+.create-estate-wrapper{
+  box-shadow: 0 1px 6px 0 #20212447;
+  border-radius: 4px;
+  margin-top: 8rem !important;
+}
+
 .create-estate-wrapper .estates-create-tabs ul {
   padding-left: 0;
   display: flex;
@@ -1575,8 +1657,11 @@ ul {
 
 .create-estate-wrapper .estates-create-tabs ul li button{
   display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #38579b !important;
  }
 .create-estate-wrapper .estates-create-tabs ul li i {
   margin-left: 5px;
@@ -1612,9 +1697,13 @@ ul {
 
 .create-estate-control-btn .btn-style-1 {
   padding: 15px 40px;
-  border: 1px solid #1a1b1b;
-  border-radius: 12px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: #4abbf3;
 }
+
 
 .upload-photo-control .btn-style-1 {
   padding: 15px 40px;

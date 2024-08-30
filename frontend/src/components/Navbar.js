@@ -1,35 +1,30 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { RESET } from "../context/types";
 import useAuthState from "../hooks/useAuthState";
 import useUser from "../hooks/useUser";
 
-import { getUrlPathname } from "../utils/main"
+import { getUrlPathname } from "../utils/main";
 
 function Navbar() {
   const [search, setSearch] = useState("");
 
   const { token, logout } = useAuthState();
-  const {profileData, favourites, dispatch} = useUser();
+  const { profileData, favourites, dispatch } = useUser();
 
   const navigate = useNavigate();
 
-
-
   const handleSearch = (e) => {
     navigate(`/search`);
-    setSearch(prev => {
+    setSearch((prev) => {
       return e.target.value;
     });
-  }
+  };
 
   const handleLogout = () => {
-    dispatch({type: RESET});
+    dispatch({ type: RESET });
     logout();
-  }
-
-
-  
+  };
 
   return (
     <div className="navbar">
@@ -51,7 +46,8 @@ function Navbar() {
                 <input
                   type="search"
                   className="form-control"
-                  placeholder="search" onChange={handleSearch}
+                  placeholder="search"
+                  onChange={handleSearch}
                 />
                 <span className="search-icon">
                   <i className="bi bi-search"></i>
@@ -59,56 +55,44 @@ function Navbar() {
               </div>
               <div className="menu-2 d-flex align-items-center">
                 <ul className="d-flex align-items-center navbar-icon-links">
-                  {/* <li>
-                    <a href="#">
-                      <i className="bi bi-arrow-left-right"></i>
-                      <span className="count">2</span>
-                    </a>
-                  </li> */}
                   <li>
-                    <Link to={`/favourites`}><a href="#">
-                      <i className="bi bi-heart"></i>
-                      <span className="count">{favourites.length}</span>
-                    </a></Link>
+                    <Link to={`/favourites`}>
+                        <span class="material-symbols-outlined icon">favorite</span>
+                        <span className="count">{favourites.length}</span>
+                    </Link>
                   </li>
-                  {/*<li>
+                  <li>
                     <a href="#">
-                      <i className="bi bi-cart3"></i>
+                      <span class="material-symbols-outlined icon">
+                        notifications
+                      </span>
                       <span className="count">5</span>
                     </a>
-                  </li>*/}
-                  <li>
-                    <a href="#" data-bs-toggle="dropdown">
-                      <i className="bi bi-person"></i>
-                    </a>
-                    <div className="dropdown">
-                      <div className="dropdown-menu dropdown-menu-end">
-                        <Link className="dropdown-item" onClick={handleLogout} >
-                          Logout
-                        </Link>
-                        <Link to="agents" className="dropdown-item">
-                          Agents
-                        </Link>
-                        <a href="#" className="dropdown-item">
-                          Feedback
-                        </a>
-                        <h6 className="dropdown-divider"></h6>
-                        <a href="#" className="dropdown-item">
-                          Performance
-                        </a>
-                      </div>
-                    </div>
                   </li>
                 </ul>
                 <ul className="d-flex align-items-center navbar-profile">
                   <li>
                     <a href="#" data-bs-toggle="dropdown">
-                    <img src={profileData?.profileUrl ? profileData?.profileUrl : 'images/default2.jpg'} alt={profileData?.username} />
+                      <img
+                        src={
+                          profileData?.profileUrl
+                            ? profileData?.profileUrl
+                            : "images/default2.jpg"
+                        }
+                        alt={profileData?.username}
+                      />
                     </a>
                     <div className="dropdown">
                       <div className="dropdown-menu dropdown-menu-end">
                         <div className="navbar-top-profile">
-                        <img src={profileData?.profileUrl ? profileData?.profileUrl : 'images/default2.jpg'} alt={profileData?.username} />
+                          <img
+                            src={
+                              profileData?.profileUrl
+                                ? profileData?.profileUrl
+                                : "images/default2.jpg"
+                            }
+                            alt={profileData?.username}
+                          />
                           <div className="profile-left">
                             <h5>{profileData?.username}</h5>
                             <h6>{profileData?.email}</h6>
@@ -129,16 +113,19 @@ function Navbar() {
                               </Link>
                             </li>
                             <li>
-                              <a href="#">
+                              <Link
+                                className="dropdown-item"
+                                onClick={handleLogout}
+                              >
                                 <i className="bi bi-star"></i>
-                                <span>Subscription</span>
-                              </a>
+                                <span>Logout</span>
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">
-                                <i className="bi bi-gear"></i>
-                                <span>Settings</span>
-                              </a>
+                              <Link to="agents" className="dropdown-item">
+                                <i className="bi bi-star"></i>
+                                <span>Agents</span>
+                              </Link>
                             </li>
                           </ul>
                         </div>

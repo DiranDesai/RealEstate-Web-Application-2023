@@ -21,8 +21,7 @@ function CreateEstate() {
     <div className="container">
       <div className="row">
         <div className="col-md-8">
-          <div className="create-estate-wrapper mt-5">
-            <h4 className="text-dark fw-bold">Add Estate</h4>
+          <div className="create-estate-wrapper">
             <form onSubmit={handleSubmit}>
             <div className="estate-card card mt-3 p-5">
               <EstateCreateTabs />
@@ -34,10 +33,10 @@ function CreateEstate() {
               </div>
               <div className="create-estate-control-btn mt-5">
                 <button className="btn btn-style-1">
-                  Prev Step<i class="bi bi-arrow-up-left"></i>
+                  Go Back<i class="bi bi-arrow-up-left"></i>
                 </button>
                 <button className="btn btn-style-1">
-                  Next Step<i class="bi bi-arrow-up-right"></i>
+                  Next<i class="bi bi-arrow-up-right"></i>
                 </button>
               </div>
             </div>

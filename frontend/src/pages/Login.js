@@ -44,6 +44,7 @@ function Login() {
             <div className="heading">
               <div className="form-logo">
                 <img src="images/logo.png" alt="logo" />
+                <h3>pabondi</h3>
               </div>
               <p>Enter your email & password to login</p>
             </div>

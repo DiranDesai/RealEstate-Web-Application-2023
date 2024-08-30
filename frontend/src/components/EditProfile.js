@@ -67,67 +67,67 @@ function EditProfile() {
       <div className="tab-pane fade edit-profile" id="edit-profile">
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Profile Image</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Profile Image">Profile Image</label></div>
           <div className="col-lg-9 col-md-8">
             <div>
             <img src={profileUrl ? profileUrl : 'images/default2.jpg'} className="profile" alt={username} />
             </div>
             {!photoStatus && <button className="btn btn-primary" onClick={photoClick}>Change Photo<i class="bi bi-image"></i></button>}
-            {photoStatus && <input type="file" className="form-control" onChange={handleFile}  />}
+            {photoStatus && <input type="file" onChange={handleFile}  />}
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Full Name</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Full Name">Full Name</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={username} name="username" onChange={handleOnChange} />
+            <input type="text" value={username} name="username" onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">About</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="About">About</label></div>
           <div className="col-lg-9 col-md-8">
-            <textarea className="form-control" name="about" value={about} onChange={handleOnChange}></textarea>
+            <textarea name="about" value={about} onChange={handleOnChange}></textarea>
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Job</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Job">Job</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={job} name="job" onChange={handleOnChange} />
+            <input type="text" value={job} name="job" onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Country</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Country">Country</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={country} name="country" onChange={handleOnChange} />
+            <input type="text" value={country} name="country" onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Address</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Address">Address</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={address} name="address" onChange={handleOnChange} />
+            <input type="text" value={address} name="address" onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Phone</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Phone">Phone</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={phone} name="phone" onChange={handleOnChange} />
+            <input type="text" value={phone} name="phone" onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Email</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Email">Email</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={email} name="email" disabled={true} onChange={handleOnChange} />
+            <input type="text" value={email} name="email" disabled={true} onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Twitter</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Twitter">Twitter</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={twitter} name="twitter" onChange={handleOnChange} />
+            <input type="text" value={twitter} name="twitter" onChange={handleOnChange} />
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-4 label">Facebook</div>
+          <div className="col-lg-3 col-md-4 label"><label htmlFor="Facebook">Facebook</label></div>
           <div className="col-lg-9 col-md-8">
-            <input type="text" className="form-control" value={facebook} name="facebook" onChange={handleOnChange} />
+            <input type="text" value={facebook} name="facebook" onChange={handleOnChange} />
           </div>
         </div>
         <div className="mt-4">
