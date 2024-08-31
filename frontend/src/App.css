@@ -65,10 +65,10 @@ a {
   text-decoration: none;
 }
 
-input, textarea {
-  border: 2px solid #62808d33;
+input[type="text"], textarea {
+  border: 1px solid #62808d33;
   padding: 12px;
-  border-radius: 0;
+  border-radius: 4px;
   width: 100%;
   font-size: 17px;
 }
