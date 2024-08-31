@@ -3,7 +3,7 @@ import FilterTabs from "./FilterTabs";
 
 function Filter() {
   return (
-    <div className="display-4 filter">
+    <div className="filter-wrapper">
       <FilterTabs />
       <form>
         <div className="form-group mt-3">
