@@ -5,7 +5,6 @@ function Banner() {
   return (
     <div className="banner">
             <BannerSearch />
-        </div>
     </div>
   )
 }
