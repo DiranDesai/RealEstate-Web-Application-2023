@@ -427,6 +427,50 @@ ul {
 .navbar-top-profile i {
   font-size: 15px;
 }
+.filter {
+}
+.filter form {
+  padding: 10px;
+}
+
+.filter .menu {
+  font-size: 15px;
+  border-bottom: 1px solid #acc2d29b;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+.filter .menu div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex: 1;
+  text-align: center;
+  padding: 12px 15px;
+  background-color: #fffefe;
+  margin: 10px;
+  border-radius: 4px;
+  color: #000000;
+  font-weight: 500;
+  font-size: medium;
+  box-shadow: 0 1px 6px 0 #20212447;
+}
+.filter .menu div.active {
+  background-color: #282828;
+  color: white;
+  transition: all ease-in 0.1s;
+}
+
+.filter h5 {
+  font-weight: 500;
+  font-family: "Roboto";
+}
+.filter h5 span {
+  font-weight: 500;
+}
+
 
 /* Banner Styles */
 .banner {
