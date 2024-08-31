@@ -45,6 +45,7 @@ function Home() {
             <PropertyList />
           </div>
         </div>
+{/*
         <div className="category-listing-container mt-5">
           <div className="container">
             <CategoryHeader />
@@ -52,10 +53,10 @@ function Home() {
           </div>
         </div>
         <AgentShowCase />
-        <SponsorListing />
+        <SponsorListing />}
       </section>
     </>
   );
-}
+*/}
 
 export default Home;
