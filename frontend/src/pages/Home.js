@@ -53,10 +53,10 @@ function Home() {
           </div>
         </div>
         <AgentShowCase />
-        <SponsorListing />}
+        <SponsorListing />*/}
       </section>
     </>
   );
-*/}
+}
 
 export default Home;
