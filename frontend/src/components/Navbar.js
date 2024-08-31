@@ -37,7 +37,7 @@ function Navbar() {
           <div className="logo">
             <Link to="/">
               <img src="images/logo.png" alt="" />
-             
+             <h3>pabondi</h3>
             </Link>
           </div>
           {token ? (
