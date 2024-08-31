@@ -4,7 +4,7 @@ import Filter from './Filter'
 
 function Banner() {
   return (
-    <div className="banner">
+    <div className="mt-4">
             <Filter />
     </div>
   )
