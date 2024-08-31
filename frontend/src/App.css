@@ -470,7 +470,43 @@ ul {
 .filter h5 span {
   font-weight: 500;
 }
+.filter .range-input-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter .range-input-container input {
+  width: 70px;
+  height: 30px;
+  padding: 10px;
+}
 
+.filter .submit-btn {
+  width: 100%;
+  font-weight: 600;
+  background: linear-gradient(45deg, #7fd4fe, #2babd1);
+  color: white;
+  margin: 10px 0;
+}
+
+.filter .submit-wrapper {
+  position: relative;
+}
+
+.filter .submit-wrapper span {
+  position: absolute;
+  top: 34%;
+  left: 60%;
+  color: white;
+}
+
+.filter-wrapper {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px 0 #20212447;
+  width: 98%;
+  margin: 80px auto;
+}
 
 /* Banner Styles */
 .banner {
