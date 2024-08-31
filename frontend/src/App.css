@@ -65,7 +65,7 @@ a {
   text-decoration: none;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="password"],input[type="number"], textarea {
   border: 1px solid #62808d33;
   padding: 12px;
   border-radius: 4px;
@@ -165,8 +165,8 @@ img {
 }
 
 .map-container {
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
 }
 
 .btn:focus {
