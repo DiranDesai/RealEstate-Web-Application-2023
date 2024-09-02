@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import useUser from "../hooks/useUser";
 import { handleFormChange } from "../context/utils";
 
 function PropertyDescriptionCreate() {
-
   const {propertyFormData, dispatch} = useUser();
 
   return (
@@ -15,11 +14,11 @@ function PropertyDescriptionCreate() {
       <h5 className="fw-bold">Property Description</h5>
       <div className="form mt-3">
         <div className="form-group">
-          <label htmlFor="title">Title</label>
-          <input type="text" placeholder="Property title" name="title" value={propertyFormData.title || ""} onChange={e => handleFormChange(e.target, dispatch)} />
+          <label htmlFor="name">Propery Name</label>
+          <input type="text" placeholder="Property Name" name="title" value={propertyFormData.title || ""} onChange={e => handleFormChange(e.target, dispatch)} />
         </div>
         <div className="form-group mt-4">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">Property Description</label>
           <textarea
             className="description"
             placeholder="Description" name="description" value={propertyFormData.description || ""} onChange={e => handleFormChange(e.target, dispatch)}

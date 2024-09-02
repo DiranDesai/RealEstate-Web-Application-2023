@@ -27,9 +27,11 @@ import useUser from "./hooks/useUser";
 import Loader from "./components/Loader";
 import useNotify from "./hooks/useNotify";
 import OtherProfile from "./pages/OtherProfile";
+import useAuthState from "./hooks/useAuthState";
 
 function App() {
   const { token } = useContext(authContext);
+  const {profileData} = useUser();
 
   useEffect(() => {
     console.log("CHANGED...");
@@ -38,7 +40,7 @@ function App() {
   return (
     <>
       <Router>
-        {token && <Navbar />}
+        {token && profileData && <Navbar />}
         <div className="app-wrapper">
           <Routes>
             <Route

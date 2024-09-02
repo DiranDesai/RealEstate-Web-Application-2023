@@ -1,14 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterTabs from "./FilterTabs";
+import useUser from "../hooks/useUser";
+import LocationInputComponent from "./LocationInputComponent";
+import PriceRangeSlider from "./PriceRangeSlider";
 
 function Filter() {
+  const [formData, setFormData] = useState({});
+  const {searchProperties} = useUser()
+
+  // budget range
+  const [budgetRange, setBudgetRange] = useState([10, 100]);
+
+  // Handle changes to the slider
+  const handleSliderChange = (values) => {
+    setBudgetRange(values);
+    setFormData(prev => {
+      return {...prev, budget: budgetRange}
+    });
+  };
+
+
+  function handleFormChange(e){
+    const targetName = e.target.name;
+    const targetValue = e.target.value;
+
+    setFormData(prev => {
+      return {...prev, [targetName]: targetValue}
+    })
+  }
+
+  async function handleSubmit(e){
+    e.preventDefault();
+
+    await searchProperties(formData)
+    setFormData({})
+  }
+
+
+
+
   return (
     <div className="filter filter-wrapper">
       <FilterTabs />
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group mt-3">
           <label>Looking For</label>
-          <select className="form-select">
+          <select onChange={handleFormChange} name="propertyType">
             <option value="house">
               <span>House</span>
             </option>
@@ -20,22 +57,14 @@ function Filter() {
             <option value="land">Warehouse</option>{" "}
           </select>
         </div>
-        <div className="form-group mt-3">
-          <label for="location">Location</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            placeholder="City, Neighborhood, or Zip Code"
-          />
-        </div>
+        <LocationInputComponent />
         <div className="form-group mt-3">
           <label>Amenities</label>
-          <input type="text" placeholder="Swimming Pool, Garage" />
+          <input type="text" name="amenities" placeholder="Swimming Pool, Garage" onChange={handleFormChange} />
         </div>
         <div className="form-group">
           <label>Bedrooms</label>
-          <select class="form-select">
+          <select name="bedrooms" onChange={handleFormChange}>
             <option value="1" selected>
               <span>1</span>
             </option>
@@ -45,18 +74,9 @@ function Filter() {
             <option value="5">5</option>{" "}
           </select>
         </div>
-        <div className="form-group mt-3">
-          <label>Budget</label>
-          <div className="range-input-container">
-            <div>
-              <input type="text" placeholder="R200" />
-              <input type="text" placeholder="R50,000" />
-            </div>
-          </div>
-          <input type="range" class="form-range" id="customRange1" />
-        </div>
+        <PriceRangeSlider handleSliderChange={handleSliderChange} budgetRange={budgetRange} />
         <div className="form-group mt-3 submit-wrapper">
-          <button className="btn submit-btn">Search</button>
+          <button className="btn submit-btn" >Search</button>
           <span class="material-symbols-outlined">search</span>
         </div>
       </form>

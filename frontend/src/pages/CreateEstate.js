@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import EstateCreateTabs from "../components/EstateCreateTabs";
 import PropertyDescriptionCreate from "../components/PropertyDescriptionCreate";
 import PropertyDetailsCreate from "../components/PropertyDetailsCreate";
@@ -10,11 +10,23 @@ import useUser from "../hooks/useUser";
 function CreateEstate() {
 
   const {propertyFormData, createProperty} = useUser();
+  const createForms = [<PropertyDescriptionCreate />, <PropertyMediaCreate />, <PropertyLocationCreate />, <PropertyDetailsCreate />]
+  let formIndex = 0
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     createProperty(propertyFormData);
+  }
+
+  function handleFormNext(){
+    if(formIndex > 3) return
+    formIndex += 1
+  }
+
+  function handleFormPrev(){
+    if(formIndex <= 0) return 
+    formIndex += -1
   }
 
   return (
@@ -26,16 +38,16 @@ function CreateEstate() {
             <div className="estate-card card mt-3 p-5">
               <EstateCreateTabs />
               <div className="tab-content">
-                <PropertyDescriptionCreate />
-                <PropertyMediaCreate />
-                <PropertyLocationCreate />
-                <PropertyDetailsCreate />
+              {(formIndex == 0) && <PropertyDescriptionCreate />}
+              {(formIndex == 1) && <PropertyMediaCreate />}
+              {(formIndex == 2) && <PropertyLocationCreate />}
+              {(formIndex == 3) && <PropertyDetailsCreate />}
               </div>
               <div className="create-estate-control-btn mt-5">
-                <button className="btn btn-style-1">
+                <button className="btn btn-style-1" onClick={handleFormPrev}>
                   Go Back<i class="bi bi-arrow-up-left"></i>
                 </button>
-                <button className="btn btn-style-1">
+                <button className="btn btn-style-1" onClick={handleFormNext}>
                   Next<i class="bi bi-arrow-up-right"></i>
                 </button>
               </div>

@@ -18,7 +18,8 @@ function LocationInputComponent() {
   }
 
   return (
-    <div className="form-group location dropdown">
+    <div className="form-group mt-3 location dropdown">
+      <label htmlFor="City">City</label>
       <input
         type="text"
         className="dropdown-toggle"

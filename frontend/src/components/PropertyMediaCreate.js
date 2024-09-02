@@ -2,7 +2,7 @@ import React from "react";
 
 function PropertyMediaCreate() {
   return (
-    <div className="tab-pane fade property-media" id="media">
+    <div className="property-media" id="media">
       <div className="property-media-container">
         <div className="property-media-inner">
           <h5 className="fw-bold">Upload photos of your Listing</h5>

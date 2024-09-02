@@ -250,13 +250,13 @@ const UserState = ({children}) => {
     }
 
     const searchProperties = async (searchParams) => {
-        let {title} = searchParams;
-        
+        console.log(searchParams)
         try {
             dispatch({type: PROPERTY_LIST_REQUEST});
-            const response = await fetch(`${URL}/search?title=${title}`, {
-                method: "GET",
-                headers: headers
+            const response = await fetch(`${URL}/search`, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(searchParams)
             });
     
             const {properties} = await response.json();
