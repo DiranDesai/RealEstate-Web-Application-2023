@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { cities } from "../context/constants";
 
-function LocationInputComponent() {
+function LocationInputComponent({locationQuery, setLocationQuery, handleFormChange}) {
   const [locationCities, seLocationCities] = useState(cities);
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [query, setQuery] = useState("");
+  let inputLocation = useRef();
+
+  console.log(inputLocation.current)
+
+  useEffect(() => {
+    handleFormChange(inputLocation.current, true)
+  }, [locationQuery])
+
 
   function handleFilter(e){
     const inputVal = e.target.value.toLowerCase();
-    setQuery(inputVal)
+    setLocationQuery(inputVal)
     if (inputVal) {
-        const filteredCities = cities.filter(city => city.toLowerCase().includes(query))
+        const filteredCities = cities.filter(city => city.toLowerCase().includes(locationQuery))
         seLocationCities(filteredCities);
     } else{
         seLocationCities(cities)
@@ -26,7 +32,9 @@ function LocationInputComponent() {
         data-bs-toggle="dropdown"
         placeholder="City..."
         onChange={handleFilter}
-        value={query}
+        name="location"
+        value={locationQuery}
+        ref={inputLocation}
       />
       <i className="bi bi-geo-alt loc"></i>
       <div className="dropdown-menu">
@@ -34,7 +42,7 @@ function LocationInputComponent() {
           {locationCities.map((city) => {
             return (
               <li>
-                <span className="dropdown-item" onClick={() => setQuery(city)}>
+                <span className="dropdown-item" onClick={() => setLocationQuery(city)}>
                   {city}
                 </span>
               </li>

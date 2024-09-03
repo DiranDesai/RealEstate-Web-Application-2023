@@ -3,10 +3,15 @@ import FilterTabs from "./FilterTabs";
 import useUser from "../hooks/useUser";
 import LocationInputComponent from "./LocationInputComponent";
 import PriceRangeSlider from "./PriceRangeSlider";
+import useNotify from "../hooks/useNotify";
+import { SHOW_NOTIFY } from "../context/types";
+import MessageComponent from "./MessageComponent";
 
 function Filter() {
   const [formData, setFormData] = useState({});
+  const [locationQuery, setLocationQuery] = useState("");
   const {searchProperties} = useUser()
+  const {dispatch, error, payloadData} = useNotify();
 
   // budget range
   const [budgetRange, setBudgetRange] = useState([10, 100]);
@@ -20,9 +25,17 @@ function Filter() {
   };
 
 
-  function handleFormChange(e){
-    const targetName = e.target.name;
-    const targetValue = e.target.value;
+  function handleFormChange(e, locationField = false){
+    let targetName, targetValue = null;
+
+    if(locationField){
+      targetName = e.name;
+      targetValue = e.value;
+    } else {
+      targetName = e.target.name;
+      targetValue = e.target.value;
+    }
+
 
     setFormData(prev => {
       return {...prev, [targetName]: targetValue}
@@ -32,14 +45,27 @@ function Filter() {
   async function handleSubmit(e){
     e.preventDefault();
 
+    const {location} = formData;
+
+    if (!location) {
+      dispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Please Specify Location"}});
+      return;
+    }
+
     await searchProperties(formData)
     setFormData({})
+
+    // Search form data submitted
+    setFormData({propertyType: "", })
+    setLocationQuery("")
   }
 
 
 
 
   return (
+    <>
+      {error && <MessageComponent payloadData={payloadData} />}
     <div className="filter filter-wrapper">
       <FilterTabs />
       <form onSubmit={handleSubmit}>
@@ -57,7 +83,7 @@ function Filter() {
             <option value="land">Warehouse</option>{" "}
           </select>
         </div>
-        <LocationInputComponent />
+        <LocationInputComponent locationQuery={locationQuery} setLocationQuery={setLocationQuery} handleFormChange={handleFormChange}/>
         <div className="form-group mt-3">
           <label>Amenities</label>
           <input type="text" name="amenities" placeholder="Swimming Pool, Garage" onChange={handleFormChange} />
@@ -65,7 +91,7 @@ function Filter() {
         <div className="form-group">
           <label>Bedrooms</label>
           <select name="bedrooms" onChange={handleFormChange}>
-            <option value="1" selected>
+            <option value="1">
               <span>1</span>
             </option>
             <option value="2">2</option>
@@ -81,6 +107,8 @@ function Filter() {
         </div>
       </form>
     </div>
+    
+    </>
   );
 }
 

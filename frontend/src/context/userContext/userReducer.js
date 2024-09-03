@@ -28,6 +28,9 @@ const userReducer = (state, action) => {
       console.log(target.name);
       return { ...state, propertyFormData: {...state.propertyFormData, [target.name]: target.value}};
       break;
+    case "uploadPropertyImages":
+      return {...state, propertyFormData: {...state.propertyFormData, images: [...state.propertyFormData.images, action.payload]}}
+      break;
     case USER_PROPERTY_SUCCESS:
       return {...state, properties: [...state.properties, action.payload]};
       break;

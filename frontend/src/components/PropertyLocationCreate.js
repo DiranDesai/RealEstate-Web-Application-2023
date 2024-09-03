@@ -2,10 +2,15 @@ import React from "react";
 
 import useUser from "../hooks/useUser";
 import { handleFormChange } from "../context/utils";
+import { cities } from "../context/constants";
 
 function PropertyLocationCreate() {
 
-  const {propertyFormData, dispatch} = useUser();
+  const {propertyFormData, createProperty, dispatch} = useUser();
+
+  async function submitProperty(){
+    await createProperty(propertyFormData)
+  }
 
 
   return (
@@ -23,7 +28,6 @@ function PropertyLocationCreate() {
               <select name="country" value={propertyFormData.country || ""} onChange={e => handleFormChange(e.target, dispatch)}>
                 <option>Select country</option>
                 <option value="zambia">Zambia</option>
-                <option value="nigeria">Nigeria</option>
               </select>
             </div>
           </div>
@@ -32,12 +36,16 @@ function PropertyLocationCreate() {
               <label htmlFor="city">City</label>
               <select name="city" value={propertyFormData.city || ""} onChange={e => handleFormChange(e.target, dispatch)}>
                 <option>Select city</option>
-                <option value="lusaka">Lusaka</option>
-                <option value="lagos">Lagos</option>
+                {cities.map(city => {
+                  return <option value={city}>{city}</option>
+                })}
               </select>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <button onClick={submitProperty} className="btn btn-primary submit-btn">Create Property</button>
       </div>
     </div>
   );

@@ -86,9 +86,22 @@ const getPropertyReviews = async (req, res) => {
 };
 
 const propertySearching = async (req, res) => {
-  const { location, budget: [minPrice, maxPrice]} = req.body;
+  const searchingData = req.body;
+  const { location} = searchingData;
+  let minPrice, maxPrice = null
 
 
+
+  if (minPrice == null || maxPrice == null){
+    minPrice = 0
+    maxPrice = 20000
+  }
+
+  if (searchingData.hasOwnProperty("budget")) {
+    [minPrice, maxPrice] = searchingData.budget;
+  }
+
+  console.log(minPrice, maxPrice);
 
   try {
     const results = await PropertyModal.find({

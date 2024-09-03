@@ -3,7 +3,7 @@ import React from "react";
 function EstateCreateTabs() {
   return (
     <div className="estates-create-tabs mb-5">
-      <ul className="nav nav-tabs" role="tablist">
+      <ul className="nav-tabs" role="tablist">
         <li className="nav-item">
           <button
             className="nav-link active"
@@ -29,15 +29,6 @@ function EstateCreateTabs() {
             data-bs-target="#location"
           >
             Location<i class="bi bi-geo-alt"></i>
-          </button>
-        </li>
-        <li className="nav-item">
-          <button
-            className="nav-link"
-            data-bs-toggle="tab"
-            data-bs-target="#details"
-          >
-            Details<i class="bi bi-database"></i>
           </button>
         </li>
       </ul>

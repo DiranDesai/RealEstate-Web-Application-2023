@@ -18,7 +18,7 @@ const UserState = ({children}) => {
 
     let initialState = {
         profileData: null,
-        propertyFormData: {},
+        propertyFormData: {images: []},
         loading: false,
         propertyListLoading: false,
         pageLoading: true,
@@ -107,6 +107,7 @@ const UserState = ({children}) => {
         }
     }
 
+
     const changePassword = async (passwordData) => {
         try {
             const response = await fetch(`${URL}/changePassword`, {
@@ -124,6 +125,10 @@ const UserState = ({children}) => {
     }
 
     const createProperty = async (propertyData) => {
+
+        console.log(propertyData);
+
+        return
         try {
             let response = await fetch(`${URL}/createProperty`, {
                 method: "POST",

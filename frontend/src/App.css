@@ -496,7 +496,7 @@ ul {
 .filter .submit-wrapper span {
   position: absolute;
   top: 34%;
-  left: 60%;
+  left: 57%;
   color: white;
 }
 
@@ -607,7 +607,7 @@ ul {
 
 .filter .form-group.location i {
   position: absolute;
-  top: 37%;
+  top: 55%;
   right: 10px;
 }
 
@@ -1724,7 +1724,7 @@ ul {
 .create-estate-wrapper{
   box-shadow: 0 1px 6px 0 #20212447;
   border-radius: 4px;
-  margin-top: 8rem !important;
+  margin-top: 7rem !important;
 }
 
 .create-estate-wrapper .estates-create-tabs ul {
@@ -1746,16 +1746,20 @@ ul {
     font-weight: 700;
     text-transform: uppercase;
     color: #38579b !important;
+    padding: 5px;
  }
 .create-estate-wrapper .estates-create-tabs ul li i {
   margin-left: 5px;
-  font-size: 20px;
-  color: #16192c;
+  font-size: 1.6rem;
+  color: #606270;
 }
 
 .create-estate-wrapper label {
   font-weight: 600;
   margin-bottom: 10px;
+}
+.create-estate-wrapper .form-group{
+  margin-top: 20px;
 }
 
 .create-estate-wrapper textarea {
@@ -1763,7 +1767,7 @@ ul {
 }
 
 .create-estate-wrapper select option {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .create-estate-wrapper .estate-card {
@@ -1794,6 +1798,9 @@ ul {
   color: white;
   border-radius: 12px;
   background-color: #90aae1;
+}
+.upload-photo-control .btn-style-1 input {
+  display: none;
 }
 
 .create-estate-control-btn .btn i {
@@ -1849,6 +1856,13 @@ ul {
 .property-media .upload-icon i {
   font-size: 4rem;
   color: #ddddda;
+}
+.property-location .submit-btn{
+  margin-top: 50px;
+  padding: 15px 50px;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 
@@ -1979,6 +1993,10 @@ ul {
 
   .filter-wrapper{
     margin-top: 20px;
+  }
+
+  .create-estate-wrapper{
+    margin-top: 2rem;
   }
 
 
@@ -2223,7 +2241,7 @@ ul {
   .create-estate-wrapper .form-group{
     margin: 0 !important;
     padding: 0 !important;
-    margin-top: 20px;
+    margin-top: 20px !important;
   }
 
   .create-estate-control-btn .btn-style-1 {
