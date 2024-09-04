@@ -28,6 +28,7 @@ import Loader from "./components/Loader";
 import useNotify from "./hooks/useNotify";
 import OtherProfile from "./pages/OtherProfile";
 import useAuthState from "./hooks/useAuthState";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const { token } = useContext(authContext);
@@ -40,6 +41,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         {token && profileData && <Navbar />}
         <div className="app-wrapper">
           <Routes>
