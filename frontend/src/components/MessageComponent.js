@@ -9,7 +9,7 @@ function MessageComponent() {
   useEffect(() => {
     const interval = setTimeout(() => {
       dispatch({type: HIDE_NOTIFY});
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval)
   }, []);
@@ -27,18 +27,7 @@ function MessageComponent() {
         id="exampleModal"
       >
         <div class="modal-dialog">
-          <div class="modal-content">
-            {/* <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Modal title
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div> */}
+          <div class="modal-content modal-container">
             <div class={`alert ${success ? "alert-success" : "alert-danger"}`} role="alert">
                 {message}
               </div>

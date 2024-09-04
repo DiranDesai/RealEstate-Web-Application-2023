@@ -43,7 +43,7 @@ app.use(errorHandler);
 async function runServer() {
     try {
         await connectDB();
-        console.log("Connected to mongo database...............");
+        console.log("Connected to mongo database...........");
         app.listen(5000, () => {
             console.log("Running server on port 6000");
         });

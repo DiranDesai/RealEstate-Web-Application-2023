@@ -56,7 +56,7 @@ function UserProperties({properties}) {
                 {properties.map((property) => (
                     <tr key={property._id}>
                     <td>
-                      <img src="images/house2.jpg" alt={property.title} />
+                      <img src={property.images[0].imgUrl} alt={property.images[0].imgUrl} />
                     </td>
                     <td>
                       <span className="name">{property.title}</span>

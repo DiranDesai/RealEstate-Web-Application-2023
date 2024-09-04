@@ -143,6 +143,11 @@ img {
 
 .modal-dialog{
   margin: 5rem auto;
+  animation: modalScale 0.8s ease-in-out;
+}
+.modal-dialog .modal-container{
+  border: none !important;
+  box-shadow: 0 1px 6px 0 #20212447;
 }
 
 .modal {
@@ -152,6 +157,8 @@ img {
 
 .modal .alert {
   border-radius: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .modal .error-icon {
@@ -2257,7 +2264,12 @@ ul {
 
   .modal-dialog{
     max-width: 300px;
-    animation: modalScale 0.5s ease-in-out;
+    animation: modalScale 0.8s ease-in-out;
+  }
+
+  .modal-dialog .modal-container{
+    border: none !important;
+    box-shadow: 0 1px 6px 0 #20212447;
   }
 
   .agents-page {

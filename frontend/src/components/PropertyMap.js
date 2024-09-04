@@ -1,30 +1,45 @@
 import React, { useMemo } from "react";
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
+const containerStyle = {
+  width: '800px',
+  height: '600px'
+};
 
 function PropertyMap() {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_API_KEY
-  });
+  const center = { lat: -15.416667, lng: 28.283333 };
 
-  console.log(isLoaded);
+  const onLoad = (map) => {
+    if (window.google && window.google.maps && window.google.maps.marker) {
+      const advancedMarker = new window.google.maps.marker.AdvancedMarkerElement({
+        position: center,
+        map: map,
+        content: '<div style="color: red;">Hello, World!</div>' // Customize content as needed
+      });
+    } else {
+      console.error('AdvancedMarkerElement is not available. Check your API version and script loading.');
+    }
+  };
 
-  const center = useMemo(() => ({ lat: -15.416667, lng: 28.283333 }), []);
+
+  let isLoaded = false
+
 
   return (
     <div className="property-map shadow-1 mt-4">
-      {!isLoaded ? (
-        <h1>Loading...</h1>
-      ) : (
-        <GoogleMap
-          mapContainerClassName="map-container"
-          center={center}
-          zoom={18}
+       
+        <LoadScript
+          googleMapsApiKey={process.env.GOOGLE_API_KEY}
         >
-          <Marker position={{ lat: -15.416667, lng: 28.283333 }} />
+          <GoogleMap mapContainerStyle={containerStyle}
+        center={center}
+        zoom={16}
+        onLoad={onLoad}>
 
-        </GoogleMap>
-      )}
+          </GoogleMap>
+
+        </LoadScript>
+      
     </div>
   );
 }
