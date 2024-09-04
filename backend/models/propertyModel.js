@@ -33,10 +33,10 @@ const propertySchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    // images: {
-    //     type: Array,
-    //     required: true,
-    // },
+    images: {
+        type: Array,
+        required: true,
+    },
     category: {
         type: String,
         required: true,

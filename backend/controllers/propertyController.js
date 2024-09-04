@@ -1,17 +1,64 @@
 const PropertyModal = require("../models/propertyModel");
 
+
+const mvFile = (file, path) => {
+  return new Promise((resolve, reject) => {
+    file.mv(path, (error) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve();
+      }
+    });
+  });
+};
+
+
 const createProperty = async (req, res) => {
+  delete req.body.images;
+  let files = req.files;
+
+
+
+
+
+
   try {
+
+    const imagesPaths = [];
+
+    for(let i = 0; i < 2;i++){
+      const imageFile = files[`file${i}`]
+
+      if (!imageFile) {
+        continue
+      }
+
+      mvFile(imageFile, `./frontend/public/uploads/${imageFile.name}`)
+      imagesPaths.push({imgUrl: `/uploads/${imageFile.name}`});
+    }
+
+    console.log(imagesPaths);
+
     const createdProperty = await PropertyModal.create({
       userId: req.user._id,
       ...req.body,
+      images: imagesPaths
     });
+
+    console.log(createdProperty)
 
     res.status(201).json({
       property: createdProperty,
     });
-  } catch (error) {}
+
+  } catch (error) {
+    console.log(error)
+  }
+
+ 
 };
+
 
 const getCurrentUserProperties = async (req, res) => {
   try {
@@ -87,14 +134,13 @@ const getPropertyReviews = async (req, res) => {
 
 const propertySearching = async (req, res) => {
   const searchingData = req.body;
-  const { location} = searchingData;
-  let minPrice, maxPrice = null
+  const { location } = searchingData;
+  let minPrice,
+    maxPrice = null;
 
-
-
-  if (minPrice == null || maxPrice == null){
-    minPrice = 0
-    maxPrice = 20000
+  if (minPrice == null || maxPrice == null) {
+    minPrice = 0;
+    maxPrice = 20000;
   }
 
   if (searchingData.hasOwnProperty("budget")) {

@@ -6,6 +6,7 @@ function PropertyMediaCreate() {
   const inputFile = useRef();
   const [propertyImages, setPropertyImages] = useState([
   ]);
+  const [imagesFormData, setImagesFormData] = new FormData();
 
   function handleClick() {
     inputFile.current.click();
@@ -17,8 +18,9 @@ function PropertyMediaCreate() {
       const imageUrl = URL.createObjectURL(file);
       const image = {id: Math.random() * 10000, imageUrl}
       setPropertyImages(prev => ([...prev, image]))
+      dispatch({type: "uploadPropertyImages", payload: file})
     }
-    dispatch({type: "uploadPropertyImages", payload: file})
+    
   }
 
   function deletePropertyImage(imageId){

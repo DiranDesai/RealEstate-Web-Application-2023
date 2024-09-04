@@ -1049,7 +1049,11 @@ ul {
   padding-top: 5rem;
 }
 
-.property-page .property-card {}
+.property-page .property-images-list img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .property-page .property-middle {
   border-bottom: 1px solid #cfd4e185;
@@ -1357,7 +1361,7 @@ ul {
 }
 
 .form-wrapper .form-logo h3{
-  font-weight: 500;
+  font-weight: 800;
   text-transform: uppercase;
   font-family: "DM Sans";
 }

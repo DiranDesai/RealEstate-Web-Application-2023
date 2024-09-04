@@ -10,9 +10,8 @@ import useUser from "../hooks/useUser";
 function CreateEstate() {
   const {propertyFormData, createProperty} = useUser();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(123);
   }
 
   return (

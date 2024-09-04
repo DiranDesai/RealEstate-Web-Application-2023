@@ -33,6 +33,9 @@ function EditProfile() {
     const fileData = new FormData();
     fileData.append('file', file);
 
+    console.log(fileData)
+  
+
     if (photoStatus) {
       if (file === null) {
         dispatch({type: SHOW_NOTIFY, payload: {success: false, message: "Please choose a file"}});

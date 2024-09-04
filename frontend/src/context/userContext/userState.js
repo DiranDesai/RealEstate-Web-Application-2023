@@ -125,21 +125,34 @@ const UserState = ({children}) => {
     }
 
     const createProperty = async (propertyData) => {
+        let files = propertyData.images;
+        const propertyFormData = new FormData();
 
-        console.log(propertyData);
+        files.forEach((file, index) => {
+            propertyFormData.append(`file${index}`, file)
 
-        return
+        })
+
+        for (const [key, value] of Object.entries(propertyData)) {
+            propertyFormData.append(key, value);
+            console.log(key, value)
+        }
+
+        console.log(propertyFormData)
+        
         try {
-            let response = await fetch(`${URL}/createProperty`, {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify({
-                    ...propertyData
-                })
+    
+            let response = await axios.post(`${URL}/createProperty`, propertyFormData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    ...headers
+                }
             });
+
+
             const {property} = await response.json();
             dispatch({type: USER_PROPERTY_SUCCESS, payload: property});
-            d({type: true, payload: {success: true, message: "Property created successfully..."}});
+            dispatch({type: true, payload: {success: true, message: "Property created successfully..."}});
         } catch (error) {
             
         }

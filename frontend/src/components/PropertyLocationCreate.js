@@ -8,8 +8,10 @@ function PropertyLocationCreate() {
 
   const {propertyFormData, createProperty, dispatch} = useUser();
 
-  async function submitProperty(){
-    await createProperty(propertyFormData)
+  function submitProperty(e){
+    e.preventDefault()
+    console.log(123)
+    createProperty(propertyFormData)
   }
 
 

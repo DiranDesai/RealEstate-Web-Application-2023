@@ -60,7 +60,7 @@ function App() {
               path="/profile/:userId"
               element={token ? <OtherProfile /> : <Navigate to="/login" />}
             />
-            <Route path="/create" element={<CreateEstate />} />
+            <Route path="/create" element={token ? <CreateEstate /> : <Navigate to="/login" />} />
             <Route
               path="/login"
               element={token ? <Navigate to="/" /> : <Login />}
