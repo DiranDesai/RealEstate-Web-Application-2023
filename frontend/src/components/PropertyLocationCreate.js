@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useRef} from "react";
 
 import useUser from "../hooks/useUser";
 import { handleFormChange } from "../context/utils";
 import { cities } from "../context/constants";
 
-function PropertyLocationCreate() {
+function PropertyLocationCreate({setSubmitClicked}) {
 
   const {propertyFormData, createProperty, dispatch} = useUser();
 
@@ -35,8 +35,8 @@ function PropertyLocationCreate() {
           </div>
           <div className="col-md-6">
             <div className="form-group">
-              <label htmlFor="city">City</label>
-              <select name="city" value={propertyFormData.city || ""} onChange={e => handleFormChange(e.target, dispatch)}>
+              <label htmlFor="Location">Location</label>
+              <select name="location" value={propertyFormData.location || ""} onChange={e => handleFormChange(e.target, dispatch)}>
                 <option>Select city</option>
                 {cities.map(city => {
                   return <option value={city}>{city}</option>
@@ -47,7 +47,8 @@ function PropertyLocationCreate() {
         </div>
       </div>
       <div>
-        <button onClick={submitProperty} className="btn btn-primary submit-btn">Create Property</button>
+        <button type="submit" onClick={() => setSubmitClicked(true)
+        } className="btn btn-primary submit-btn">Create Property</button>
       </div>
     </div>
   );

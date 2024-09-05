@@ -109,15 +109,15 @@ function Profile() {
                         <div className="bottom-profile-header d-flex align-items-center justify-content-between">
                           <div className="left">
                             <div>
-                              <h5>$45,0000</h5>
+                              <h5>k0</h5>
                               <p>Earnings</p>
                             </div>
                             <div>
-                              <h5>76</h5>
+                              <h5>{currentUserProperties?.length||0}</h5>
                               <p>Estates</p>
                             </div>
                             <div>
-                              <h5>60%</h5>
+                              <h5>0%</h5>
                               <p>Success</p>
                             </div>
                           </div>

@@ -151,8 +151,8 @@ const UserState = ({children}) => {
 
 
             const {property} = await response.json();
-            dispatch({type: USER_PROPERTY_SUCCESS, payload: property});
             dispatch({type: true, payload: {success: true, message: "Property created successfully..."}});
+            dispatch({type: USER_PROPERTY_SUCCESS, payload: property});
         } catch (error) {
             
         }

@@ -1,46 +1,34 @@
-import React, { useMemo } from "react";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import React, { useMemo, useState } from "react";
+import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 
 const containerStyle = {
-  width: '800px',
-  height: '600px'
+  width: '100%',
+  height: '500px'
+};
+
+const center = {
+  lat: -15.41667,
+  lng: 28.28333
 };
 
 function PropertyMap() {
-  const center = { lat: -15.416667, lng: 28.283333 };
-
-  const onLoad = (map) => {
-    if (window.google && window.google.maps && window.google.maps.marker) {
-      const advancedMarker = new window.google.maps.marker.AdvancedMarkerElement({
-        position: center,
-        map: map,
-        content: '<div style="color: red;">Hello, World!</div>' // Customize content as needed
-      });
-    } else {
-      console.error('AdvancedMarkerElement is not available. Check your API version and script loading.');
-    }
-  };
-
-
-  let isLoaded = false
-
+  const [mapType, setMapType] = useState("terrain");
+  const apiKey = 'AIzaSyAP98tjNJGnz6DKGESy1uGfHGIx9GnZmL0';
 
   return (
-    <div className="property-map shadow-1 mt-4">
-       
-        <LoadScript
-          googleMapsApiKey={process.env.GOOGLE_API_KEY}
-        >
-          <GoogleMap mapContainerStyle={containerStyle}
+    <>
+    <div className="container mt-5 mb-3"><h5 className="heading">Property Location</h5></div>
+    <LoadScript googleMapsApiKey={apiKey}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
         center={center}
         zoom={16}
-        onLoad={onLoad}>
-
-          </GoogleMap>
-
-        </LoadScript>
-      
-    </div>
+        mapTypeId={mapType}
+      >
+        <Marker position={center} />
+      </GoogleMap>
+    </LoadScript>
+    </>
   );
 }
 

@@ -16,11 +16,9 @@ function Home() {
     const {token} = useAuthState();
     const {getCurrentUser, profileData} = useUser();
 
-    console.log(token);
 
     useEffect(() => {
       if (token) {
-        console.log("Data Changed");
         getCurrentUser();
       }
     }, [token]);

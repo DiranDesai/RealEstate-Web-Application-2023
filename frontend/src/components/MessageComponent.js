@@ -9,6 +9,7 @@ function MessageComponent() {
   useEffect(() => {
     const interval = setTimeout(() => {
       dispatch({type: HIDE_NOTIFY});
+      
     }, 3000);
 
     return () => clearInterval(interval)

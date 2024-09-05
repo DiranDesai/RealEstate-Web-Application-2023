@@ -25,12 +25,12 @@ function LocationInputComponent({locationQuery, setLocationQuery, handleFormChan
 
   return (
     <div className="form-group mt-3 location dropdown">
-      <label htmlFor="City">City</label>
+      <label htmlFor="Location">Location</label>
       <input
         type="text"
         className="dropdown-toggle"
         data-bs-toggle="dropdown"
-        placeholder="City..."
+        placeholder="Location..."
         onChange={handleFilter}
         name="location"
         value={locationQuery}
