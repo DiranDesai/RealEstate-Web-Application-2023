@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from "react";
-import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
+import React from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
@@ -12,23 +12,21 @@ const center = {
 };
 
 function PropertyMap() {
-  const [mapType, setMapType] = useState("terrain");
-  const apiKey = 'AIzaSyAP98tjNJGnz6DKGESy1uGfHGIx9GnZmL0';
-
   return (
-    <>
-    <div className="container mt-5 mb-3"><h5 className="heading">Property Location</h5></div>
-    <LoadScript googleMapsApiKey={apiKey}>
+    <LoadScript
+      googleMapsApiKey="AIzaSyDfy4ChgcVlAXpC7NNnabrQ_Yx812f2sZY" // Make sure his key is set in your .env file
+      libraries={['places']} // Add any additional libraries you need
+    >
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
         zoom={16}
-        mapTypeId={mapType}
       >
-        <Marker position={center} />
+        <Marker
+            position={center}
+          />
       </GoogleMap>
     </LoadScript>
-    </>
   );
 }
 

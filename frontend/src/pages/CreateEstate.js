@@ -15,6 +15,8 @@ function CreateEstate() {
   let [submitClicked, setSubmitClicked] = useState(false);
   const { dispatch, error, payloadData } = useNotify();
 
+  const GOOGLE_API_KEY = "AIzaSyDfy4ChgcVlAXpC7NNnabrQ_Yx812f2sZY"
+
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -37,10 +39,27 @@ function CreateEstate() {
         });
         setSubmitClicked(false);
         return;
-      } else{
-        console.log(123)
-
       }
+
+
+      async function getLocationCoords(){
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(propertyFormData.address)}&key=${GOOGLE_API_KEY}`);
+        const data = await response.json();
+        if (data.results && data.results.length > 0) {
+          const { lat, lng } = data.results[0].geometry.location;
+          dispatch({type: "updateFormLocation", payload: {lat, lng}})
+          console.log(propertyFormData)
+        }
+
+        
+      }
+
+      getLocationCoords();
+
+      setSubmitClicked(false);
+
+
+      return
 
       
       await createProperty(propertyFormData)
