@@ -11,7 +11,7 @@ const center = {
   lng: 28.28333
 };
 
-function PropertyMap() {
+function PropertyMap({position}) {
   return (
     <LoadScript
       googleMapsApiKey="AIzaSyDfy4ChgcVlAXpC7NNnabrQ_Yx812f2sZY" // Make sure his key is set in your .env file
@@ -19,11 +19,11 @@ function PropertyMap() {
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
-        zoom={16}
+        center={position[0]}
+        zoom={12}
       >
         <Marker
-            position={center}
+            position={position[0]}
           />
       </GoogleMap>
     </LoadScript>

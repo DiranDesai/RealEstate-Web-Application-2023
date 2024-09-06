@@ -39,43 +39,43 @@ function CreateEstate() {
         });
         setSubmitClicked(false);
         return;
-      }
-
-
-      async function getLocationCoords(){
-        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(propertyFormData.address)}&key=${GOOGLE_API_KEY}`);
-        const data = await response.json();
-        if (data.results && data.results.length > 0) {
-          const { lat, lng } = data.results[0].geometry.location;
-          dispatch({type: "updateFormLocation", payload: {lat, lng}})
-          console.log(propertyFormData)
+      } else {
+        async function getLocationCoords(){
+          const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(propertyFormData.address)}&key=${GOOGLE_API_KEY}`);
+          const data = await response.json();
+          if (data.results && data.results.length > 0) {
+            const { lat, lng } = data.results[0].geometry.location;
+            dispatch({type: "updateFormLocation", payload: {lat, lng}})
+            await createProperty(propertyFormData, {lat, lng})
+            setSubmitClicked(false)
+          }
         }
 
+        await getLocationCoords();
+          
+        }
+  
+    
         
       }
 
-      getLocationCoords();
 
-      setSubmitClicked(false);
+  
 
-
-      return
-
-      
-      await createProperty(propertyFormData)
-      setSubmitClicked(false);
+      //setSubmitClicked(false);
 
 
-
+  
      
       
     }
-  }
+
+
+  
 
   return (
     <>
       {error && <MessageComponent payloadData={payloadData} />}
-      {!error && payloadData?.success == true && <MessageComponent payloadData={payloadData} />}
       <div className="container">
         <div className="row">
           <div className="col-md-8">

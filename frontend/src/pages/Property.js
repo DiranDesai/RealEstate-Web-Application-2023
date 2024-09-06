@@ -237,7 +237,7 @@ function Property() {
                   </div>
                 </div>
               </div>
-              <PropertyMap />
+              <PropertyMap position={propertyDetails.position}/>
               <PropertyViews />
             </div>
           </div>

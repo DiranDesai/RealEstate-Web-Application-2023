@@ -69,6 +69,10 @@ const propertySchema = mongoose.Schema({
         type: Number,
         required: true,
     },
+    position: {
+        type: Array,
+        required: true,
+    },
     reviews: [reviewSchema]
 }, {
     timestamps: true

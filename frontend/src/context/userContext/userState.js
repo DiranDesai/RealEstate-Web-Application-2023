@@ -124,7 +124,8 @@ const UserState = ({children}) => {
         }
     }
 
-    const createProperty = async (propertyData) => {
+    const createProperty = async (propertyData, position) => {
+        console.log(123)
         let files = propertyData.images;
         const propertyFormData = new FormData();
 
@@ -138,14 +139,17 @@ const UserState = ({children}) => {
             console.log(key, value)
         }
 
-        console.log(propertyFormData)
+        console.log(position)
+
+    
         
         try {
     
             let response = await axios.post(`${URL}/createProperty`, propertyFormData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    ...headers
+                    ...headers,
+                    "position" :JSON.stringify(position)
                 }
             });
 
@@ -153,6 +157,7 @@ const UserState = ({children}) => {
             const {property} = await response.json();
             dispatch({type: true, payload: {success: true, message: "Property created successfully..."}});
             dispatch({type: USER_PROPERTY_SUCCESS, payload: property});
+            window.location = "/"
         } catch (error) {
             
         }

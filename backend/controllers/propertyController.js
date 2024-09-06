@@ -18,8 +18,12 @@ const createProperty = async (req, res) => {
   delete req.body.images;
   let files = req.files;
 
+  let position = JSON.parse(req.headers.position)
 
 
+  
+
+  
 
 
 
@@ -43,6 +47,7 @@ const createProperty = async (req, res) => {
     const createdProperty = await PropertyModal.create({
       userId: req.user._id,
       ...req.body,
+      position: position,
       images: imagesPaths
     });
 
