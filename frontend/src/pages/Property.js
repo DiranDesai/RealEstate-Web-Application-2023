@@ -183,7 +183,7 @@ function Property() {
                   <div className="row property-images-list">
                     {propertyDetails?.images.map((image) => {
                       return (
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                           
                             <img src={`${image.imgUrl}`} alt="" />
                           
@@ -237,7 +237,7 @@ function Property() {
                   </div>
                 </div>
               </div>
-              <PropertyMap position={propertyDetails.position}/>
+              <PropertyMap position={propertyDetails?.position}/>
               <PropertyViews />
             </div>
           </div>

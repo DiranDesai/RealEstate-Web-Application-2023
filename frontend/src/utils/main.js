@@ -7,6 +7,11 @@ export function truncate(str) {
     return str.length > 10 ? `${str.substr(0, 10)}..` : str
 }
 
+export function titleStrip(str) {
+    if (!str) return
+    return str.length > 30 ? `${str.substr(0, 30)}..` : str
+}
+
 export function formatAgoTime(dateParam) {
     const currentDate = new Date();
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useUser from "../hooks/useUser";
 import Pagination from "./Pagination";
 
+
 import SingleProperty from "./SingleProperty";
 import Spinner2 from "./Spinner2";
 

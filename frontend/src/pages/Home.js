@@ -10,7 +10,7 @@ import CategoryHeader from "../components/CategoryHeader";
 import Loader from "../components/Loader";
 import useUser from "../hooks/useUser";
 import useAuthState from "../hooks/useAuthState";
-import Footer from "../components/Footer;
+//import Footer from "../components/Footer;
 
 function Home() {
 
@@ -44,7 +44,6 @@ function Home() {
             <PropertyList />
           </div>
         </div>
-    <Footer />
 {/*
         <div className="category-listing-container mt-5">
           <div className="container">
