@@ -102,7 +102,7 @@ function Property() {
       notifyDispatch({
         type: SHOW_NOTIFY,
         payload: {
-          success: false,
+          success: true,
           message: "Added to favourites successfully",
         },
       });

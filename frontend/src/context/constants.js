@@ -11,6 +11,13 @@ if (urlPathname.toString().includes("localhost")) {
 
 
 export const cities = [
+    "Nampundwe",
+    "Matero",
+    "Kamwala South",
+    "New Kasama",
+    "Ibex Hill",
+    "Chelston",
+    "Kabulonga",
     "Accra",
     "Barlaston Park",
     "Chalala",
