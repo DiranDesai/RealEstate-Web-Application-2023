@@ -542,6 +542,7 @@ ul {
   max-width: 700px;
   margin: 100px auto;
   overflow-y: auto;
+  margin-bottom: 20px;
 }
 .filter-wrapper .filter-buy{
   transition: all ease-in-out 0.2s;
@@ -2037,6 +2038,17 @@ ul {
   .banner-content h1 {
     font-size: 30px !important;
   }
+
+  label{
+    font-size: 16px;
+  }
+
+  .footer ul li{
+    font-size: small;
+  }
+  .footer h4{
+    margin-top: 10px;
+  }
 }
 
 
@@ -2056,6 +2068,27 @@ ul {
 
 /* max width*/
 @media(max-width: 1000px) {
+  .navbar .notification-container.dropdown{
+    position: static;
+  }
+
+  .navbar .notification-container .dropdown-menu{
+    position: absolute;
+  }
+
+
+  .footer .row > div{
+    margin-top: 25px;
+  }
+  .footer .row > div:first-child{
+    margin: 0;
+  }
+
+  .footer .copyright{
+    margin-top: 40px;
+  }
+  
+
   .property-listing-container .row>* {
     width: 100% !important;
     flex-shrink: 1;

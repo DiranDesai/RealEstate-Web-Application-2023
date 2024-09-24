@@ -31,7 +31,6 @@ function Home() {
       return <Loader />
     }
 
-  
 
   return (
     <>

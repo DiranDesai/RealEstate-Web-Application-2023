@@ -12,7 +12,7 @@ function Footer() {
                 </h4>
                 <ul>
                   <li>
-                  Kamwala, Lusaka Zambia
+                  Lusaka Zambia
                   </li>
                   <li>KRS: 737482398332</li>
                   <li>NIP: 235253647373</li>
