@@ -11,7 +11,7 @@ function AgentShowCase() {
                 <div className="col-md-8">
                 <div className="content">
                         <h2>Become a Real Estate Agent today</h2>
-                        <p>We only work with the best companies around the globe Start, switch, or advance your career with more than 5,000 courses, Professional Certificates, and degrees from world-class universities and companies.</p>
+                        <p>Become a Real Estate Agent Today! Join our platform to access top resources and training that will help you succeed in your real estate career. Subscribe now to connect with leading companies, enhance your skills, and unlock new opportunities. Your journey to success starts here!</p>
                         <button className="btn register-btn">Register Now <i className="bi bi-box-arrow-in-right"></i></button>
                     </div>
                     

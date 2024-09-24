@@ -61,13 +61,51 @@ function Navbar() {
                         <span className="count">{favourites.length}</span>
                     </Link>
                   </li>
-                  <li>
-                    <a href="#">
+                  <li className="dropdown notification-container">
+                    <a href="#" data-bs-toggle="dropdown" class="notication">
                       <span className="material-symbols-outlined icon">
                         notifications
                       </span>
                       <span className="count">5</span>
                     </a>
+                    <div className="dropdown-menu dropdown-menu-end shadow-2">
+                                <div className="dropdown-top d-flex align-items-center justify-content-between p-2 mb-3">
+                                    <p className="m-0 fw-50">Nofications</p>
+                                    <a href="#" className="text-primary">Mark all as read</a>
+                                </div>
+                                <h5 className="dropdown-header">NEW</h5>
+                                <div className="users">
+                                    <div className="user bg-light">
+                                        <img src="images/user2.jpg" alt="" />
+                                        <div className="user-info">
+                                            <p><span className="name">Diran Sai</span> replied to your comment :"Hello World"  😍</p>
+                                            <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
+                                        </div>
+                                    </div>
+                                    <div className="user">
+                                        <img src="images/user2.jpg" alt="" />
+                                        <div className="user-info">
+                                            <p><span className="name">John Doe</span> replied to your comment :"Are you coding"</p>
+                                            <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
+                                        </div>
+                                    </div>
+                                    <div className="user bg-light">
+                                        <img src="images/user2.jpg" alt="" />
+                                        <div className="user-info">
+                                            <p><span className="name">Emma Watson</span> replied to your comment :"Missing you too" </p>
+                                            <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
+                                        </div>
+                                    </div>
+                                    <h5 className="dropdown-header">EARLIER</h5>
+                                    <div className="user">
+                                        <img src="images/user2.jpg" alt="" />
+                                        <div className="user-info">
+                                            <p><span className="name">Linda Nchaba</span> commented on your post :"Happy Birthday"</p>
+                                            <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
                   </li>
                 </ul>
                 <ul className="d-flex align-items-center navbar-profile">
@@ -83,7 +121,7 @@ function Navbar() {
                       />
                     </a>
                     <div className="dropdown">
-                      <div className="dropdown-menu dropdown-menu-end">
+                      <div className="dropdown-menu dropdown-menu-end shadow-2">
                         <div className="navbar-top-profile">
                           <img
                             src={

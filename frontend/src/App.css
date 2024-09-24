@@ -57,6 +57,7 @@ a {
   text-decoration: none;
 }
 
+
 input[type="text"], input[type="password"],input[type="number"], textarea {
   border: 1px solid #62808d33;
   padding: 12px;
@@ -85,8 +86,8 @@ input:focus {
 }
 
 label {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 10px;
   font-family: "Noto Sans";
   display: block;
@@ -107,12 +108,10 @@ select option span {
 
 
 .agent-showcase p{
-
   color: rgb(75, 88, 124);
   line-height: 1.7;
   font-size: 18px;
-  font-weight: 400;
-  font-family: "DM Sans";
+  font-weight: 500;
 }
 
 img {
@@ -187,7 +186,7 @@ ul {
   box-shadow: var(--shallow-shadow3);
 }
 .form-control{
-  border: 1px solid #d0dbf0 !important; 
+  
 }
 
 .container {
@@ -426,6 +425,43 @@ ul {
 .navbar-top-profile i {
   font-size: 15px;
 }
+
+
+.navbar .notification-container .dropdown-menu{
+  min-width: 350px;
+  height: 400px;
+  overflow-y: scroll;
+}
+.navbar .notification-container .user{
+  display: flex;
+  padding: 10px;
+}
+.navbar .notification-container .user-info{
+  margin-left: 15px;
+}
+.navbar .notification-container .user-info p{
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.navbar .notification-container .user-info p span{
+  font-weight: bold;
+}
+.navbar .notification-container .comment{
+  display: flex;
+  align-items: center;
+}
+.navbar .notification-container .comment span{
+  margin-right: 10px;
+}
+.navbar .notification-container img{
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
 .filter {
 }
 .filter form {
@@ -455,6 +491,7 @@ ul {
   font-weight: 500;
   font-size: medium;
   box-shadow: 0 1px 6px 0 #20212447;
+  cursor: pointer;
 }
 .filter .menu div.active {
   background-color: #282828;
@@ -505,6 +542,7 @@ ul {
   box-shadow: 0 1px 6px 0 #20212447;
   max-width: 700px;
   margin: 100px auto;
+  overflow-y: auto;
 }
 
 /* Banner Styles */
@@ -613,12 +651,12 @@ ul {
 
 /* AGENT SHOWCASE STYLES */
 .agent-showcase {
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  padding: 3rem 0;
+  background-color: #54a5f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6rem 0;
 }
 .agent-showcase .showcase-img-container{
   display: flex;
@@ -633,25 +671,25 @@ ul {
 
 .agent-showcase h2 {
   font-size: 40px;
-  color: #3a3b3d;
+  color: #ffffff;
   font-family: 'Nunito Sans';
   font-weight: 800;
   margin-bottom: 2rem;
 }
 
 .agent-showcase p {
-  color: #444649;
+  color: #e2e9f3;
 }
 
 
 .agent-showcase .register-btn {
   color: #ffffff;
-  background-color: #4b9cf2;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin-top: 15px;
-  font-weight: 800;
-  font-family: 'Open Sans';
+    background-color: #1e81eb;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: 800;
+    font-family: "Nunito Sans";
 }
 
 /* Property styles */
@@ -690,7 +728,9 @@ ul {
 }
 
 .property .middle p {
-  color: #6694c9;
+  font-size: 13px;
+    color: #62666b;
+    font-weight: 600;
 }
 .property .middle p .time{
   margin-left: 20px;
@@ -706,10 +746,10 @@ ul {
   position: relative;
 } */
 .property h4 {
-  font-size: 17px;
-  color: #1d2021;
-  font-weight: 500;
-  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 .property .property-tags {
@@ -870,6 +910,9 @@ ul {
   border-radius: 0.625rem;
   box-shadow: 0 7px 14px 0 rgba(65,69,88,0.1), 0 px 6px 0 rgba(0,0,0,0.07) !important;
   border: none;
+}
+.shadow-2{
+  box-shadow: 0 1px 6px 0 #20212447;
 }
 
 .t-1 {
@@ -1214,6 +1257,19 @@ ul {
   border: 1px solid var(--border-color1);
   background-color: transparent !important;
   border: none;
+}
+.category-listing-wrapper .icon {
+  width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.category-listing-container .icon span{
+  font-size: 3rem;
 }
 
 .category-header h3{
