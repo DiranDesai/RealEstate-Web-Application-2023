@@ -60,7 +60,7 @@ function FilterBuy() {
     setLocationQuery("");
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="filter-buy">
       <div className="form-group mt-3">
         <label>Looking For Something to Buy?</label>
         <select onChange={handleFormChange} name="propertyType">

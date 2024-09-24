@@ -38,8 +38,7 @@ body {
   font-family: "Roboto"; 
   overflow: hidden !important;
   color: #1d2021;
-  line-height: 1.7;
-                                                  
+  line-height: 1.7;                                            
 } 
 .banner-content h1, .banner-content p, .banner- content .banner-control-buttons{
 display: none !important;
@@ -544,6 +543,9 @@ ul {
   margin: 100px auto;
   overflow-y: auto;
 }
+.filter-wrapper .filter-buy{
+  transition: all ease-in-out 0.2s;
+}
 
 /* Banner Styles */
 .banner {
@@ -690,6 +692,7 @@ ul {
     margin-top: 15px;
     font-weight: 800;
     font-family: "Nunito Sans";
+    border: 2px solid #057af0;
 }
 
 /* Property styles */
@@ -1267,6 +1270,10 @@ ul {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+.category-listing-wrapper .icon:hover{
+  transform: scale(1.2);
 }
 .category-listing-container .icon span{
   font-size: 3rem;
@@ -2394,3 +2401,59 @@ ul {
   justify-content: space-between;
   margin-top: 30px;
 }
+
+
+
+/* FOOTER STYLES START */
+
+.footer{
+  padding-top: 2rem;
+}
+.footer .meta-data img{
+  width: 50px;
+  height: 50px;
+}
+
+.footer h4{
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.footer ul li{
+  margin-top: 10px;
+  font-weight: 400;
+  font-family: 'Roboto';
+  color: #7e898a;
+}
+
+.footer .connect-icons{
+  display: flex;
+  grid-gap: 15px;
+  align-items: center;
+}
+.footer .connect-icons > div{
+  background-color: white;
+    box-shadow: 0 1px 6px 0 #20212447;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.footer .connect-icons img{
+  width: 25px;
+  height: 25px;
+}
+.footer .copyright{
+  text-align: center;
+}
+.footer .copyright p{
+  margin: 0;
+  font-weight: 500;
+  font-family: "Roboto";
+}
+
+
+
+/* FOOTER STYLES ENDS */

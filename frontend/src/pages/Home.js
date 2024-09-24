@@ -10,6 +10,7 @@ import CategoryHeader from "../components/CategoryHeader";
 import Loader from "../components/Loader";
 import useUser from "../hooks/useUser";
 import useAuthState from "../hooks/useAuthState";
+import Footer from "../components/Footer";
 //import Footer from "../components/Footer;
 
 function Home() {
@@ -52,7 +53,7 @@ function Home() {
           </div>
         </div>
         <AgentShowCase />
-        <SponsorListing />
+        <Footer />
       </section>
     </>
   );
