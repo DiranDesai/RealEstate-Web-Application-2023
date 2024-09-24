@@ -431,6 +431,9 @@ ul {
   height: 400px;
   overflow-y: scroll;
 }
+.navbar .notification-container .dropdown-top p{
+  font-weight: 600;
+}
 .navbar .notification-container .user{
   display: flex;
   padding: 10px;
@@ -454,7 +457,7 @@ ul {
 }
 .navbar .notification-container img{
   width: 50px;
-  height: 40px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -2074,6 +2077,7 @@ ul {
 
   .navbar .notification-container .dropdown-menu{
     position: absolute;
+    border: none;
   }
 
 
