@@ -6,7 +6,6 @@ function Pagination({pages, currentPage, setCurrentPage}) {
 
   for (let i = 1; i <= pages; i++) {
     pagesArray.push(i);
-    console.log(i);
   }
 
   const handleClick = (page) => {
@@ -42,7 +41,7 @@ function Pagination({pages, currentPage, setCurrentPage}) {
           </li>
           {pagesArray.length > 0 &&
             pagesArray.map((page) => (
-              <li className="page-item">
+              <li className="page-item" key={page}>
                 <a onClick={() => handleClick(page)} className={`page-link ${currentPage == page && 'page-bg'}`}>
                   {page}
                 </a>

@@ -52,6 +52,9 @@ const userReducer = (state, action) => {
     case LOAD_FAVOURITES:
       return {...state, favourites: action.payload};
       break;
+
+    case "UPDATE_FILTER":
+      return {...state, filterStatus: action.payload}
     case RESET:
       return { ...state, profileData: null };
       break;

@@ -6,24 +6,25 @@ const containerStyle = {
   height: '500px'
 };
 
-const center = {
-  lat: -15.41667,
-  lng: 28.28333
-};
-
 function PropertyMap({position}) {
+  if (!position || position.length === 0) {
+    return <div>No location data available.</div>;
+  }
+
+  if (!window.google || window.google == undefined) return
+  
   return (
     <LoadScript
       googleMapsApiKey="AIzaSyDfy4ChgcVlAXpC7NNnabrQ_Yx812f2sZY" // Make sure his key is set in your .env file
-      libraries={['places']} // Add any additional libraries you need
+      libraries={['places']} // Add any additional libraries you need  
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={position[0]}
+        center={position}
         zoom={12}
       >
         <Marker
-            position={position[0]}
+            position={position}
           />
       </GoogleMap>
     </LoadScript>

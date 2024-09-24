@@ -164,7 +164,7 @@ function Profile() {
                                   Edit Profile
                                   <i className="bi bi-pencil-square"></i>
                                 </span>
-                              )}
+                             )}
                             </button>
                           </li>
                           <li className="nav-item">

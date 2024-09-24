@@ -57,13 +57,13 @@ function Navbar() {
                 <ul className="d-flex align-items-center navbar-icon-links">
                   <li>
                     <Link to={`/favourites`}>
-                        <span class="material-symbols-outlined icon">favorite</span>
+                        <span className="material-symbols-outlined icon">favorite</span>
                         <span className="count">{favourites.length}</span>
                     </Link>
                   </li>
                   <li>
                     <a href="#">
-                      <span class="material-symbols-outlined icon">
+                      <span className="material-symbols-outlined icon">
                         notifications
                       </span>
                       <span className="count">5</span>

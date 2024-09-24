@@ -30,7 +30,8 @@ const UserState = ({children}) => {
         ],
         properties: [],
         pages: null,
-        favourites: []
+        favourites: [],
+        filterStatus: "buy"
     }
 
     let [state, dispatch] = useReducer(UserReducer, initialState);
@@ -289,6 +290,10 @@ const UserState = ({children}) => {
         }
     }
 
+    const setFilterStatus = (filterStatus) => {
+        dispatch({type: "UPDATE_FILTER", payload: filterStatus})
+    }
+
 
 
     return (
@@ -309,7 +314,8 @@ const UserState = ({children}) => {
             getProperty,
             createPropertyReview,
             getPropertyReviews,
-            searchProperties
+            searchProperties,
+            setFilterStatus
         }}>
             {children}
         </UserContext.Provider>

@@ -5,8 +5,6 @@ function LocationInputComponent({locationQuery, setLocationQuery, handleFormChan
   const [locationCities, seLocationCities] = useState(cities);
   let inputLocation = useRef();
 
-  console.log(inputLocation.current)
-
   useEffect(() => {
     handleFormChange(inputLocation.current, true)
   }, [locationQuery])

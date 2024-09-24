@@ -108,7 +108,10 @@ function Property() {
       });
     }
   };
-  console.log(propertyDetails);
+  
+  const position = propertyDetails?.position[0];
+
+  console.log(position)
 
   if (pageLoading) return <Loader />;
 
@@ -237,7 +240,8 @@ function Property() {
                   </div>
                 </div>
               </div>
-              <PropertyMap position={propertyDetails?.position}/>
+    
+              {position && <PropertyMap position={position}/>}
               <PropertyViews />
             </div>
           </div>

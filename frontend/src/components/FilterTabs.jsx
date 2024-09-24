@@ -1,26 +1,31 @@
 import React, { useState } from "react";
+import useUser from "../hooks/useUser";
 
 function FilterTabs() {
-  //const data = useAppContext();
-  const [filterStatus, setFilterStatus] = useState("buy");
+  const {filterStatus, setFilterStatus} = useUser();
 
   const checkStatus = (filterType) => {
-    return filterType == filterStatus && "active";
+    let isClicked = filterType == filterStatus
+    if (isClicked) {
+      return "active"
+    } else{
+      return "bd";
+    }
   }
 
   return (
     <div className="menu">
       <div className={checkStatus("buy")} onClick={() => setFilterStatus("buy")}>
-        Buy<span class="material-symbols-outlined">shopping_bag</span>
+        Buy<span className="material-symbols-outlined">shopping_bag</span>
       </div>
       <div className={checkStatus("rent-in")} onClick={() => setFilterStatus("rent-in")}>
-        Rent In (Tenants)<span class="material-symbols-outlined">bedroom_parent</span>
+        Rent In (Tenants)<span className="material-symbols-outlined">bedroom_parent</span>
       </div>
       <div className={checkStatus("sell")} onClick={() => setFilterStatus("sell")}>
-        Sell<span class="material-symbols-outlined">storefront</span>
+        Sell<span className="material-symbols-outlined">storefront</span>
       </div>
       <div className={checkStatus("rent-out")} onClick={() => setFilterStatus("rent-out")}>
-        Rent Out (Landlords)<span class="material-symbols-outlined">bedroom_parent</span>
+        Rent Out (Landlords)<span className="material-symbols-outlined">bedroom_parent</span>
       </div>
     </div>
   );

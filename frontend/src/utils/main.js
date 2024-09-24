@@ -25,7 +25,6 @@ export function formatAgoTime(dateParam) {
     let hoursAgo = minutesAgo / 60;
     let secondsAgo = Math.floor(dateAgoDifference / seconds);
 
-
     
     if (secondsAgo <= 60) {
         const secondsData = secondsAgo <= 1 ? `${secondsAgo + 1} Second ago` : `${secondsAgo} Seconds ago`;
@@ -33,7 +32,7 @@ export function formatAgoTime(dateParam) {
     }
 
     if (minutesAgo <= 60) {
-        //minutesAgo = Math.floor(minutesAgo / 60);
+        //minutesAgo = Math.floor(minutesAgo / 60); 
 
         //console.log(minutesAgo);
 
