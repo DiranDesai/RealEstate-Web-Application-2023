@@ -1388,7 +1388,7 @@ ul {
 }
 
 .loader {
-  width: 50px;
+  width: 100px;
   aspect-ratio: 1;
   --c: no-repeat radial-gradient(farthest-side, #514b82 92%, #0000);
   background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
@@ -2524,6 +2524,7 @@ ul {
 .projects .card table tbody tr td{
   padding: 17px 30px 17px;
   color: #525f7f;
+  margin-top: 30px;
 }
 .projects table tbody td:first-child span{
   margin-left: 10px;

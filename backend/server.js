@@ -24,7 +24,6 @@ let corsOptions = {
     origin: origin
 }
 
-
 console.log(process.env.NODE_ENV);
 
 app.use(cors(corsOptions));
@@ -51,5 +50,3 @@ async function runServer() {
         console.log(error);
     }
 }
-
-
