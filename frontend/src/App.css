@@ -947,9 +947,9 @@ ul {
 }
 
 .heading-1 {
-  font-family: Inter, "sans-serif";
+  /* font-family: Inter, "sans-serif"; */
   font-weight: 600;
-  color: #1e293b;
+  /* color: #1e293b; */
   font-size: 20px;
   margin-bottom: 1.5rem;
 }
@@ -1271,6 +1271,14 @@ ul {
     background-color: white;
     font-weight: 600;
     border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.3s;
+}
+
+.agents button:hover{
+  opacity: .6;
 }
 
 /* category styles */
@@ -1479,7 +1487,6 @@ ul {
 }
 
 .profile-page-container .btn {
-  
   text-wrap: nowrap;
   color: white;
 }
@@ -1981,10 +1988,6 @@ ul {
 
 
 
-
-
-
-
 /* KEY FRAMES */
 
 @keyframes modalScale {
@@ -2038,10 +2041,10 @@ ul {
     margin-left: 30px;
   }
 
-  .agents .row > div{
+  /* .agents .row > div{
     flex: 0 0 auto !important;
     width: 18% !important;
-  }
+  } */
 }
 
 /* min width */ 
@@ -2491,3 +2494,60 @@ ul {
 
 
 /* FOOTER STYLES ENDS */
+
+
+.projects img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: -20px;
+}
+.projects .card .card-header{
+  padding: 20px;
+}
+.projects .card .card-header h5{
+   font-size: 17px;
+   margin: 0;
+}
+.projects .card .card-body{
+  padding: 0;
+}
+.projects .card table thead{
+  background-color: #f5f9fc;
+}
+.projects .card table thead th{
+  font-size: 12px !important;
+  color: #525f7f;
+  background-color: rgb(246, 248, 250);
+  padding: 15px;
+}
+.projects .card table tbody tr td{
+  padding: 17px 30px 17px;
+  color: #525f7f;
+}
+.projects table tbody td:first-child span{
+  margin-left: 10px;
+  color: #232323;
+}
+
+.projects table .dot{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 10px;
+}
+.projects tbody .progress{
+  height: 3px;
+}
+.projects tbody .btn{
+  border: 1px solid #ccc;
+  color: rgb(12, 21, 26);
+}
+.projects .property-img-container img{
+  width: 70px;
+  height: 70px;
+  border-radius: 5px !important;
+  object-fit: cover;
+}

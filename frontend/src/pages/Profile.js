@@ -15,6 +15,7 @@ import useAuthState from "../hooks/useAuthState";
 import useWindow from "../hooks/useWindow";
 import usePropertiesUser from "../hooks/usePropertiesUser";
 import UserProperties from "../components/UserProperties";
+import UserListing from "../components/UserListing";
 
 
 
@@ -241,7 +242,8 @@ function Profile() {
                   <EarningStatsChart />
                 </div>
               </div>
-              {currentUserProperties && <UserProperties properties={currentUserProperties} />}
+              {/* {currentUserProperties && <UserProperties properties={currentUserProperties} />} */}
+              {currentUserProperties && <UserListing properties={currentUserProperties} />}
             </div>
           </div>
         </div>
