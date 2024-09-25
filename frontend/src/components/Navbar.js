@@ -10,7 +10,17 @@ function Navbar() {
   const [search, setSearch] = useState("");
 
   const { token, logout } = useAuthState();
-  const { profileData, favourites, dispatch } = useUser();
+  const { profileData, favourites, notifications, getUser, dispatch } =
+    useUser();
+
+
+    useEffect(() => {
+      generateNotifyUI()
+    }, [])
+
+  
+
+
 
   const navigate = useNavigate();
 
@@ -26,6 +36,19 @@ function Navbar() {
     logout();
   };
 
+  const generateNotifyUI = async => {
+    for(const notification of notifications) {
+     try {
+      const user = getUser(notification.userId)
+      user.then(data => console.log(data))
+     } catch (error) {
+
+     }
+    }
+  }
+
+
+
   return (
     <div className="navbar">
       <div className="container">
@@ -37,7 +60,7 @@ function Navbar() {
           <div className="logo">
             <Link to="/">
               <img src="images/logo.png" alt="" />
-             <h3>pabondi</h3>
+              <h3>pabondi</h3>
             </Link>
           </div>
           {token ? (
@@ -57,8 +80,10 @@ function Navbar() {
                 <ul className="d-flex align-items-center navbar-icon-links">
                   <li>
                     <Link to={`/favourites`}>
-                        <span className="material-symbols-outlined icon">favorite</span>
-                        <span className="count">{favourites.length}</span>
+                      <span className="material-symbols-outlined icon">
+                        favorite
+                      </span>
+                      <span className="count">{favourites.length}</span>
                     </Link>
                   </li>
                   <li className="dropdown notification-container">
@@ -66,45 +91,48 @@ function Navbar() {
                       <span className="material-symbols-outlined icon">
                         notifications
                       </span>
-                      <span className="count">5</span>
+                      <span className="count">{notifications.length}</span>
                     </a>
                     <div className="dropdown-menu dropdown-menu-end shadow-2">
-                                <div className="dropdown-top d-flex align-items-center justify-content-between p-2 mb-3">
-                                    <p className="m-0 fw-50">Nofications</p>
-                                    <a href="#" className="text-primary">Mark all as read</a>
+                      <div className="dropdown-top d-flex align-items-center justify-content-between p-2 mb-3">
+                        <p className="m-0 fw-50">Nofications</p>
+                        <a href="#" className="text-primary">
+                          Mark all as read
+                        </a>
+                      </div>
+                      <h5 className="dropdown-header">NEW</h5>
+                      <div className="users">
+                        {notifications.length > 0 &&
+                          notifications.map((notification) => {
+                            return (
+                              <div className="user bg-light">
+                                <img src="images/user2.jpg" alt="" />
+                                <div className="user-info">
+                                  <p>
+                                    <span className="name">{}</span>
+                                    {notification.message}
+                                  </p>
+                                  <p className="comment">
+                                    <span>
+                                      <i className="material-icons">
+                                        chat_bubble_outline
+                                      </i>
+                                    </span>{" "}
+                                    Just Now
+                                  </p>
                                 </div>
-                                <h5 className="dropdown-header">NEW</h5>
-                                <div className="users">
-                                    <div className="user bg-light">
-                                        <img src="images/user2.jpg" alt="" />
-                                        <div className="user-info">
-                                            <p><span className="name">Diran Sai</span> replied to your comment :"Hello World"  😍</p>
-                                            <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div className="user">
-                                        <img src="images/user2.jpg" alt="" />
-                                        <div className="user-info">
-                                            <p><span className="name">John Doe</span> replied to your comment :"Are you coding"</p>
-                                            <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div className="user bg-light">
-                                        <img src="images/user2.jpg" alt="" />
-                                        <div className="user-info">
-                                            <p><span className="name">Emma Watson</span> replied to your comment :"Missing you too" </p>
-                                            <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
-                                        </div>
-                                    </div>
-                                    <h5 className="dropdown-header">EARLIER</h5>
+                              </div>
+                            );
+                          })}
+                        {/* <h5 className="dropdown-header">EARLIER</h5>
                                     <div className="user">
                                         <img src="images/user2.jpg" alt="" />
                                         <div className="user-info">
                                             <p><span className="name">Linda Nchaba</span> commented on your post :"Happy Birthday"</p>
                                             <p className="comment"><span><i className="material-icons">chat_bubble_outline</i></span> Just Now</p>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div> */}
+                      </div>
                     </div>
                   </li>
                 </ul>

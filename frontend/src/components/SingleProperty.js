@@ -11,7 +11,7 @@ function SingleProperty({property}) {
 
   const {getUser, getCurrentUser, profileData} = useUser();
   const {_id: loggedUserId} = profileData;
-  const {_id, price, title, status, address, city, userId, createdAt} = property;
+  const {_id, price, title, status, address, images, city, userId, createdAt} = property;
  
   useEffect(() => {
 
@@ -41,7 +41,7 @@ function SingleProperty({property}) {
           <div className="pricing">
             <h4>{moneyFormat(price)}</h4>
           </div>
-          {/*<img src="images/house1.jpg" className='cover' alt="" /> */}
+          {/* <img src={images[0].imgUrl} className='cover' alt="" /> */}
         </div>
         <div className="middle">
           <Link to={`property/${_id}`}>

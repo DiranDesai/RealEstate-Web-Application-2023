@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require("../models/userModel");
+const NotificationModal = require("../models/notificationModel")
 
 const authUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body;
@@ -160,6 +161,15 @@ async function checkPassword(user, password) {
     return await bcrypt.compare(password, user.password); 
 }
 
+const getUserNotifications = async (req, res) => {
+    try {
+      const notifications = await NotificationModal.find({userId: req.user._id})
+      return res.status(200).json({notifications: notifications});
+    } catch (error) {
+      
+    }
+  }
+  
 
 module.exports = {
     authUser,
@@ -171,5 +181,6 @@ module.exports = {
     checkUserFollowingController,
     updateUserDetails,
     changePassword,
-    uploadProfilePic
+    uploadProfilePic,
+    getUserNotifications
 }

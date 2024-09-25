@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 
-const { authUser, register, getCurrentUser, getUser, updateUserDetails, changePassword, uploadProfilePic, followUser, unFollowUser, checkUserFollowingController } = require("../controllers/userController");
+const { authUser, register, getCurrentUser, getUser, updateUserDetails, changePassword, uploadProfilePic, followUser, unFollowUser, checkUserFollowingController, getUserNotifications } = require("../controllers/userController");
 const protect = require("../middlewares/protect");
 
 router.route("/login").post(authUser);
@@ -16,5 +16,6 @@ router.route("/checkFollowing/:userId").get(protect, checkUserFollowingControlle
 router.route("/changePassword").post(protect, changePassword);
 router.route("/updateMe").put(protect, updateUserDetails);
 router.route("/uploadProfilePic").post(protect, uploadProfilePic);
+router.route("/notifications").get(protect, getUserNotifications)
 
 module.exports = router;

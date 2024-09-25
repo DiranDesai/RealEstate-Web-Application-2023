@@ -18,6 +18,7 @@ const UserState = ({children}) => {
 
     let initialState = {
         profileData: null,
+        notifications: [],
         propertyFormData: {images: []},
         loading: false,
         propertyListLoading: false,
@@ -75,6 +76,21 @@ const UserState = ({children}) => {
             });
             const {user} = await response.json();
             return user;
+        } catch (error) {
+            
+        }
+    }
+
+    const getUserNotifications = async () => {
+        try {
+            const response = await fetch(`${URL}/notifications`, {
+                method: "GET",
+                headers: headers
+            });
+            const data = await response.json();
+            console.log(data)
+            dispatch({type: "LOAD_NOTIFICATIONS", payload: data})
+            return data;
         } catch (error) {
             
         }
@@ -315,7 +331,8 @@ const UserState = ({children}) => {
             createPropertyReview,
             getPropertyReviews,
             searchProperties,
-            setFilterStatus
+            setFilterStatus,
+            getUserNotifications,
         }}>
             {children}
         </UserContext.Provider>

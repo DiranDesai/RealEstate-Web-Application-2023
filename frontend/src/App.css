@@ -31,14 +31,12 @@ html, body{
 
 
 body {
-  line-height: 1.5;
   background: #fff;
-  font-weight: 400;
-  color: #364550;
+  font-weight: 500;
   font-family: "Roboto"; 
   overflow: hidden !important;
-  color: #1d2021;
-  line-height: 1.7;                                            
+  line-height: 1.7; 
+  color: #18396a;                                           
 } 
 .banner-content h1, .banner-content p, .banner- content .banner-control-buttons{
 display: none !important;
@@ -348,9 +346,9 @@ ul {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  font-family: "Jost";
   border-bottom: 1px solid var(--color-1);
 }
+
 
 .navbar-top-profile .profile-left {
   margin-left: 10px;
@@ -425,7 +423,6 @@ ul {
   font-size: 15px;
 }
 
-
 .navbar .notification-container .dropdown-menu{
   min-width: 350px;
   height: 400px;
@@ -460,6 +457,9 @@ ul {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+}
+.navbar .notification-container .user-info .name{
+  margin-right: 10px;
 }
 
 
@@ -728,6 +728,10 @@ ul {
   height: 320px;
 }
 
+.property .card .cover{
+  
+}
+
 .property .top,
 .property .middle,
 .property .bottom {
@@ -958,8 +962,7 @@ ul {
 }
 
 .property-showcase .meta {
-  font-size: 15px;
-  color: #757573;
+  
 }
 
 .property-showcase .meta span {
@@ -1140,6 +1143,7 @@ ul {
   margin-top: 10px;
   display: flex;
   align-items: center;
+  text-transform: capitalize;
 }
 
 .property-page .property-bottom .list-group li span:first-child {

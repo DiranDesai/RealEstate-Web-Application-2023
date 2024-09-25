@@ -11,17 +11,18 @@ import Loader from "../components/Loader";
 import useUser from "../hooks/useUser";
 import useAuthState from "../hooks/useAuthState";
 import Footer from "../components/Footer";
+
 //import Footer from "../components/Footer;
 
 function Home() {
-
     const {token} = useAuthState();
-    const {getCurrentUser, profileData} = useUser();
+    const {getCurrentUser, profileData, getUserNotifications} = useUser();
 
 
     useEffect(() => {
       if (token) {
         getCurrentUser();
+        getUserNotifications()
       }
     }, [token]);
 
@@ -30,7 +31,6 @@ function Home() {
       console.log(profileData);
       return <Loader />
     }
-
 
   return (
     <>

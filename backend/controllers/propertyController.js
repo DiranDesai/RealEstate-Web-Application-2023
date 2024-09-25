@@ -1,4 +1,6 @@
+const NotificationModal = require("../models/notificationModel");
 const PropertyModal = require("../models/propertyModel");
+const User = require("../models/userModel");
 
 
 const mvFile = (file, path) => {
@@ -20,13 +22,6 @@ const createProperty = async (req, res) => {
 
   let position = JSON.parse(req.headers.position)
 
-
-  
-
-  
-
-
-
   try {
 
     const imagesPaths = [];
@@ -44,14 +39,29 @@ const createProperty = async (req, res) => {
 
     console.log(imagesPaths);
 
+
+    
+
     const createdProperty = await PropertyModal.create({
       userId: req.user._id,
       ...req.body,
       position: position,
       images: imagesPaths
     });
+    // Notify users when a listing is created
+    const users = await User.find({});
+    for(const user of users){
+      const createdNotification = await NotificationModal.create({
+        userId: user._id,
+        propertyId: createdProperty._id,
+        type: "new_listing",
+        message: "New Listing Uploaded"
+      })
 
-    console.log(createdProperty)
+      await createdNotification.save();
+    }
+    // End of Notifying
+
 
     res.status(201).json({
       property: createdProperty,
