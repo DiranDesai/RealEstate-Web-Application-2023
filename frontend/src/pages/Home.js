@@ -52,7 +52,6 @@ function Home() {
           </div>
         </div>
         <AgentShowCase />
-        <Footer />
       </section>
     </>
   );

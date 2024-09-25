@@ -21,6 +21,7 @@ function PropertyList() {
   return (
     <div className="row g-5 property-listing-wrapper">
       {propertyListLoading && <Spinner2 />}
+      {properties.length == 0 && <h5 className="property-notfound">Listings not found try searching something</h5>}
       {properties.length > 0 && (
         properties.map((property) => {
           return <SingleProperty key={property._id} property={property}/>

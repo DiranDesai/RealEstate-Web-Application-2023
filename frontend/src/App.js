@@ -29,6 +29,7 @@ import useNotify from "./hooks/useNotify";
 import OtherProfile from "./pages/OtherProfile";
 import useAuthState from "./hooks/useAuthState";
 import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 
 function App() {
   const { token } = useContext(authContext);
@@ -77,6 +78,7 @@ function App() {
             <Route path="/favourites" element={<Favourites />} />
           </Routes>
         </div>
+        <Footer />
       </Router>
     </>
   );

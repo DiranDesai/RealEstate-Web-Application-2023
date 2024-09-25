@@ -711,11 +711,11 @@ ul {
 }
 
 .property-header .btn {
-  box-shadow: var(--shallow-shadow);
-  border: 1px solid #ccc;
   margin-left: 10px;
-  font-size: 13px;
   color: #1e3f62;
+  font-weight: 500;
+  box-shadow: 0 1px 6px 0 #20212447;
+  padding: 10px;
 }
 
 .property-listing-container {
@@ -729,7 +729,12 @@ ul {
 }
 
 .property .card .cover{
-  
+
+}
+
+.property-notfound{
+  text-align: center;
+  margin: 3rem 0;
 }
 
 .property .top,
@@ -1129,7 +1134,6 @@ ul {
   color: #272323;
   font-weight: 500;
   border-radius: 7px;
-  font-family: 'Nunito Sans';
   font-size: 17px;
   border: 1px solid #333;
   padding: 10px 20px;
@@ -1222,36 +1226,52 @@ ul {
   font-family: 'Nunito Sans';
 }
 
-
-.property-page .agents img {
-  border-radius: 5px;
-  width: 200px;
-  margin: auto;
-  display: block;
+.agents{
+  border-bottom: 1px solid #c2c9cf7d;
+  padding-bottom: 30px !important;
 }
 
-.property-page .agents .agent-details .location {
+.agents img {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.agents .agent-content{
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+.agents .agent-details .listing {
   margin: 0;
 }
 
-.property-page .agents .agent-details .heading-1 {
-  margin: 10px 0;
+.agents .agent-details .heading-1 {
   font-size: 16px;
+  margin-bottom: 2px;
+  margin-top: 15px;
+  font-weight: 700;
 }
 
-.property-page .agents .agent-details .meta .stars {
-  margin-left: 10px;
-}
 
-.property-page .agents .agent-details .meta p {
-  color: black;
-  font-weight: 600;
+.agents .agent-details .star{
+  font-size: 18px;
 }
-
-.property-page .agents .agent-details .meta .stars i {
+.agents .agent-details .star i {
   color: orange;
+  margin-left: 5px;
 }
 
+.agents button{
+  width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    margin-top: 20px;
+    background-color: white;
+    font-weight: 600;
+    border: 1px solid #ccc;
+}
 
 /* category styles */
 .category-listing-container {
@@ -1958,53 +1978,6 @@ ul {
 .agents-page{
   margin-top: 9rem;
 }
-.agents-page .heading{
-  font-family: "DM Sans", "Sans Serif";
-  font-weight: 700;
-}
-.agents-page .agents-inner-container{
-  display: flex;
-  padding: 30px;
-}
-.agents-page .agents-inner-container .agents-content{
-  margin-left: 20px;
-}
-.agents-page .agents-inner-container .btn{
-  background-color: #4b9cf2;
-  font-family: "DM Sans", "Sans Serif";
-  color: white;
-}
-.agents-page .agents-inner-container .btn i{
-  margin-left: 4px;
-}
-.agents-page img{
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.agents-page .stars span{
-  margin-right: 5px;
-}
-.agents-page .stars i{
-  font-size: 15px;
-}
-.agents-page .agent-name{
-  font-size: 15px;
-  font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
-}
-.agents-page .agent-connect{
-  font-size: 14px;
-  font-family: 'Ysabeau Office', sans-serif;
-  color: #5143d9;
-}
-.agents-page .agents-pagination{
-  margin-top: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 
 
@@ -2063,6 +2036,11 @@ ul {
   .navbar .menu-1 input {
     width: 300px;
     margin-left: 30px;
+  }
+
+  .agents .row > div{
+    flex: 0 0 auto !important;
+    width: 18% !important;
   }
 }
 

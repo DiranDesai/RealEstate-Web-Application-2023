@@ -1,0 +1,22 @@
+.agent-content{
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.connect-btn{
+    width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    margin-top: 20px;
+    background-color: white;
+    font-weight: 600;
+    border: 1px solid #ccc;
+}
+
+.heading-1{
+    font-size: 16px;
+    margin-bottom: 2px;
+    margin-top: 15px;
+    font-weight: 700;
+}

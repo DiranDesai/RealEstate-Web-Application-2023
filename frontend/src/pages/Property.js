@@ -20,6 +20,7 @@ import useLogout from "../hooks/useLogout";
 import useNotify from "../hooks/useNotify";
 import { formatAgoTime } from "../utils/main";
 import PropertyMap from "../components/PropertyMap";
+import RelatedAgents from "../components/RelatedAgents";
 
 function Property() {
   const [userDetails, setUserDetails] = useState(null);
@@ -316,127 +317,7 @@ function Property() {
             </div>
           </div>
         </div>
-        <div className="agents p-2 mt-4">
-          <h3 className="heading-1">Related agents</h3>
-          <div className="row">
-            <div className="col-md-3">
-              <div className="agent-content">
-                <img src="../images/04.jpg" alt="" />
-                <div className="agent-details text-center mt-3">
-                  <h3 className="heading-1">Dennis Barret</h3>
-                  <p className="location">Nampundwe</p>
-                  <div className="d-flex justify-content-center meta mt-2">
-                    <p>4.5/5.0</p>
-                    <div className="stars">
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="agent-content">
-                <img src="../images/08.jpg" alt="" />
-                <div className="agent-details text-center mt-3">
-                  <h3 className="heading-1">Diran Sai</h3>
-                  <p className="location">Lusaka</p>
-                  <div className="d-flex justify-content-center meta mt-2">
-                    <p>4.5/5.0</p>
-                    <div className="stars">
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="agent-content">
-                <img src="../images/06.jpg" alt="" />
-                <div className="agent-details text-center mt-3">
-                  <h3 className="heading-1">Paul Smith</h3>
-                  <p className="location">Copperbelt</p>
-                  <div className="d-flex justify-content-center meta mt-2">
-                    <p>4.5/5.0</p>
-                    <div className="stars">
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="agent-content">
-                <img src="../images/review1.jpg" alt="" />
-                <div className="agent-details text-center mt-3">
-                  <h3 className="heading-1">Kunje Sai</h3>
-                  <p className="location">Livingstone</p>
-                  <div className="d-flex justify-content-center meta mt-2">
-                    <p>4.5/5.0</p>
-                    <div className="stars">
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star-fill"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star"></i>
-                      </span>
-                      <span>
-                        <i class="bi bi-star"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <RelatedAgents />
       </div>
     </>
   );
