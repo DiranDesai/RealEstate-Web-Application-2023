@@ -7,9 +7,9 @@ export function truncate(str) {
   return str.length > 10 ? `${str.substr(0, 10)}..` : str;
 }
 
-export function titleStrip(str) {
+export function titleStrip(str, len=30) {
   if (!str) return;
-  return str.length > 30 ? `${str.substr(0, 30)}..` : str;
+  return str.length > len ? `${str.substr(0, len)}..` : str;
 }
 
 export function formatAgoTime(dateParam) {

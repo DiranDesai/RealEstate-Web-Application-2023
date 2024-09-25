@@ -2495,12 +2495,22 @@ ul {
 
 /* FOOTER STYLES ENDS */
 
+.projects table{
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.projects table td.td-1{
+  padding-top: 32px !important;
+}
 
 .projects img{
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-left: -20px;
+  object-fit: cover;
 }
 .projects .card .card-header{
   padding: 20px;
@@ -2525,6 +2535,7 @@ ul {
   padding: 17px 30px 17px;
   color: #525f7f;
   margin-top: 30px;
+  text-wrap: nowrap;
 }
 .projects table tbody td:first-child span{
   margin-left: 10px;

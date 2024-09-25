@@ -1,6 +1,6 @@
 import React from "react";
 
-import { dateFormat } from "../utils/main";
+import { dateFormat, titleStrip, truncate } from "../utils/main";
 
 function UserListing({ properties }) {
   return (
@@ -42,23 +42,23 @@ function UserListing({ properties }) {
                   <tr key={_id}>
                     <td className="property-img-container">
                       <img src={images[0].imgUrl} alt="" />
-                      <span>{title}</span>
+                      <span>{titleStrip(title, 20)}</span>
                     </td>
-                    <td>
+                    <td className="td-1">
                       <span>{dateFormat(createdAt)}</span>
                     </td>
-                    <td>
+                    <td className="td-1">
                       <span class={`dot ${completion.status.class}`}></span>
                       <span>{completion.status}</span>
                     </td>
-                    <td>
+                    <td className="td-1">
                       <div>
                         {images.map((img, idx) => (
                           <img key={idx} src={img.imgUrl} alt="" />
                         ))}
                       </div>
                     </td>
-                    <td>
+                    <td className="td-1">
                       <span>{completion.percent}%</span>
                       <div class="progress">
                         <div
@@ -67,7 +67,7 @@ function UserListing({ properties }) {
                         ></div>
                       </div>
                     </td>
-                    <td>
+                    <td className="td-1">
                       <button class="btn">View</button>
                       <button class="btn">
                         <i class="bi bi-trash"></i>
