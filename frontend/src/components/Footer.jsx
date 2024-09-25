@@ -8,7 +8,7 @@ function Footer() {
           <div className="col-md-3 meta-data">
             <div>
             <h4>
-                  <img src="images/logo.png" alt="" /> PABONDI
+                  <img src="images/logo.png" alt="" /> PABONDI ESTATES
                 </h4>
                 <ul>
                   <li>
@@ -17,7 +17,6 @@ function Footer() {
                   <li>KRS: 737482398332</li>
                   <li>NIP: 235253647373</li>
                 </ul>
-              
             </div>
           </div>
           <div className="col-md-3">

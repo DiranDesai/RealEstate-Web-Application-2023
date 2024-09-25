@@ -109,7 +109,7 @@ function Navbar() {
                                 <img src="images/user2.jpg" alt="" />
                                 <div className="user-info">
                                   <p>
-                                    <span className="name">{}</span>
+                                    <span className="name">Admin</span>
                                     {notification.message}
                                   </p>
                                   <p className="comment">
