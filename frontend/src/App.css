@@ -2053,6 +2053,9 @@ ul {
 
 /* max width*/
 @media(max-width: 1000px) {
+  .app-wrapper{
+    margin-top: 5rem;
+  }
   .navbar .notification-container.dropdown{
     position: static;
   }
@@ -2060,8 +2063,9 @@ ul {
   .navbar .notification-container .dropdown-menu{
     position: absolute;
     border: none;
-    padding: 17px;
+    padding: 30px 20px;
     box-shadow: none;
+    width: 100%;
   }
 
 
@@ -2092,7 +2096,7 @@ ul {
   }
 
   .filter-wrapper{
-    margin-top: 20px;
+    
   }
 
   .create-estate-wrapper{
@@ -2121,7 +2125,7 @@ ul {
   }
 
   .navbar {
-    position: relative;
+    
   }
 
   .banner-control-buttons {
