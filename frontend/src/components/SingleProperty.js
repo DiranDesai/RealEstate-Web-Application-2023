@@ -27,7 +27,7 @@ function SingleProperty({property}) {
 
   return (
     <div className="col-md-3 property" key={_id}>
-      <div className="">
+      <div className="card shadow-2">
         <div className="top">
           <div className="property-tags d-flex justify-content-between align-items-center">
             <div>
