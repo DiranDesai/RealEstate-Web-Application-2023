@@ -13,11 +13,6 @@ function Navbar() {
   const { profileData, favourites, notifications, getUser, dispatch } =
     useUser();
 
-
-    useEffect(() => {
-      generateNotifyUI()
-    }, [])
-
   
 
 
@@ -35,17 +30,6 @@ function Navbar() {
     dispatch({ type: RESET });
     logout();
   };
-
-  const generateNotifyUI = async => {
-    for(const notification of notifications) {
-     try {
-      const user = getUser(notification.userId)
-      user.then(data => console.log(data))
-     } catch (error) {
-
-     }
-    }
-  }
 
 
 
@@ -104,12 +88,13 @@ function Navbar() {
                       <div className="users">
                         {notifications.length > 0 &&
                           notifications.map((notification) => {
+                            const {username, profileUrl} = notification.userId
                             return (
                               <div className="user bg-light">
-                                <img src="images/user2.jpg" alt="" />
+                                <img src={!profileUrl ? 'images/default2.jpg' : profileUrl} alt="" />
                                 <div className="user-info">
                                   <p>
-                                    <span className="name">Admin</span>
+                                    <span className="name">{username}</span>
                                     {notification.message}
                                   </p>
                                   <p className="comment">

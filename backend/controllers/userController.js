@@ -163,7 +163,7 @@ async function checkPassword(user, password) {
 
 const getUserNotifications = async (req, res) => {
     try {
-      const notifications = await NotificationModal.find({userId: req.user._id})
+      const notifications = await NotificationModal.find({userId: req.user._id}).populate("userId", "username profileUrl")
       return res.status(200).json({notifications: notifications});
     } catch (error) {
       

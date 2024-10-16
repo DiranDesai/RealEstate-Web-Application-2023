@@ -1,6 +1,12 @@
 const NotificationModal = require("../models/notificationModel");
 const PropertyModal = require("../models/propertyModel");
 const User = require("../models/userModel");
+const {getIo} = require("../socket.js");
+
+
+
+
+
 
 
 const mvFile = (file, path) => {
@@ -48,8 +54,11 @@ const createProperty = async (req, res) => {
       position: position,
       images: imagesPaths
     });
+
+
     // Notify users when a listing is created
     const users = await User.find({});
+
     for(const user of users){
       const createdNotification = await NotificationModal.create({
         userId: user._id,
@@ -62,6 +71,9 @@ const createProperty = async (req, res) => {
     }
     // End of Notifying
 
+    let io = getIo()
+    io.emit("ListingCreated", createdNotification)
+   
 
     res.status(201).json({
       property: createdProperty,
@@ -125,6 +137,11 @@ const createPropertyReview = async (req, res) => {
     property.reviews.push(review);
 
     const savedReview = await property.save();
+
+    let io = getIo()
+    io.emit("ReviewCreated", "Hello World")
+
+
 
     if (savedReview) {
       return res
