@@ -38,6 +38,15 @@ body {
   line-height: 1.7; 
   color: #18396a;                                           
 } 
+
+audio{
+  display: none;
+}
+
+.favourite-container{
+  margin-top: 7rem;
+}
+
 .banner-content h1, .banner-content p, .banner- content .banner-control-buttons{
 display: none !important;
 
@@ -1489,6 +1498,8 @@ ul {
 .profile-page-container .btn {
   text-wrap: nowrap;
   color: white;
+  padding: 10px 20px;
+  font-weight: 500;
 }
 
 .profile-page-container .heading div:first-child {
@@ -2556,6 +2567,7 @@ ul {
 .projects tbody .btn{
   border: 1px solid #ccc;
   color: rgb(12, 21, 26);
+  margin-left: 10px;
 }
 .projects .property-img-container img{
   width: 70px;

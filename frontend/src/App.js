@@ -78,7 +78,7 @@ function App() {
             <Route path="/favourites" element={<Favourites />} />
           </Routes>
         </div>
-        <Footer />
+        {token && profileData && <Footer />}
       </Router>
     </>
   );

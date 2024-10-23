@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { dateFormat, titleStrip, truncate } from "../utils/main";
+import { Navigate } from "react-router-dom";
 
-function UserListing({ properties }) {
+function UserListing({ properties, title }) {
+  const [redirectLocation, setRedirectLocation] = useState(null)
+
+  const viewProperty = (location) => {
+    setRedirectLocation(location)
+  }
+
+  if (redirectLocation) {
+    return <Navigate to={redirectLocation} />
+  }
+  
+
   return (
     <div class="projects mt-5">
       <div class="card">
         <div class="card-header">
-          <h5>Your Listings</h5>
+          <h5>{title}</h5>
         </div>
         <div class="card-body table-responsive">
           <table class="table table-hover table-light">
@@ -68,7 +80,7 @@ function UserListing({ properties }) {
                       </div>
                     </td>
                     <td className="td-1">
-                      <button class="btn">View</button>
+                      <button class="btn" onClick={() => viewProperty(`/property/${_id}`)}>View</button>
                       <button class="btn">
                         <i class="bi bi-trash"></i>
                       </button>
@@ -83,5 +95,6 @@ function UserListing({ properties }) {
     </div>
   );
 }
+
 
 export default UserListing;

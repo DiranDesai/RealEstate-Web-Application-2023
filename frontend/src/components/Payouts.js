@@ -8,19 +8,19 @@ function Payouts() {
           <div className="col-sm-12 col-lg-4">
             <div className="earning-card">
               <h6>Sales this Month</h6>
-              <h4>$400, 000</h4>
+              <h4>K20, 000</h4>
             </div>
           </div>
           <div className="col-sm-12 col-lg-4">
             <div className="earning-card">
               <h6>To be paid</h6>
-              <h4>$25, 000</h4>
+              <h4>K3, 500</h4>
             </div>
           </div>
           <div className="col-sm-12 col-lg-4">
             <div className="earning-card">
               <h6>Lifetime earnings</h6>
-              <h4>$453, 000</h4>
+              <h4>K90, 000</h4>
             </div>
           </div>
         </div>

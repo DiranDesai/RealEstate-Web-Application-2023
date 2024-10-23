@@ -243,7 +243,7 @@ function Profile() {
                 </div>
               </div>
               {/* {currentUserProperties && <UserProperties properties={currentUserProperties} />} */}
-              {currentUserProperties && <UserListing properties={currentUserProperties} />}
+              {currentUserProperties && <UserListing properties={currentUserProperties} title="Your Listings" />}
             </div>
           </div>
         </div>
