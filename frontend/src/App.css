@@ -213,13 +213,14 @@ ul {
 /* Navbar styles */
 .navbar {
   padding: 15px !important;
-  border-bottom: 1px solid var(--color-1);
+  /* border-bottom: 1px solid var(--color-1); */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   background-color: white;
+  box-shadow: 0 1px 6px 0 #20212447;
 }
 
 .navbar .logo {
@@ -259,6 +260,9 @@ ul {
 .navbar .menu-1 input {
   width: 400px;
   border-radius: 30px;
+  box-shadow: 0 1px 6px 0 #20212447;
+  border: none;
+  padding: 10px 20px;
 }
 
 .navbar .menu-1 .search-icon {
@@ -2543,10 +2547,13 @@ ul {
   padding: 15px;
 }
 .projects .card table tbody tr td{
-  padding: 17px 30px 17px;
+  padding: 17px 15px 17px;
   color: #525f7f;
   margin-top: 30px;
   text-wrap: nowrap;
+}
+.projects table tbody tr td:first-child{
+  padding: 17px 30px 17px;
 }
 .projects table tbody td:first-child span{
   margin-left: 10px;
