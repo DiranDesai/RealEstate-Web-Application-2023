@@ -39,7 +39,8 @@ body {
   color: #18396a;        
          transform: scale(0.9);
   transform-origin: top left;
-  width: 111.11%;                           
+  width: 111.11%;  
+height: 100%;                         
 } 
 
 audio{
