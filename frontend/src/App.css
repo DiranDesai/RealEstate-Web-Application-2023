@@ -36,7 +36,10 @@ body {
   font-family: "Roboto"; 
   overflow: hidden !important;
   line-height: 1.7; 
-  color: #18396a;                                           
+  color: #18396a;        
+         transform: scale(0.9);
+  transform-origin: top left;
+  width: 111.11%;                           
 } 
 
 audio{
