@@ -30,10 +30,11 @@ const {initializeSocket, getIo} = require("./socket.js");
 
 initializeSocket(server, origin)
 
-let io = getIo();
+let io = getIo(); 
 
 
 io.emit("done", "YES")
+
 
  
 

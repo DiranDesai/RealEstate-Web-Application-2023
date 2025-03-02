@@ -674,7 +674,7 @@ ul {
 
 /* AGENT SHOWCASE STYLES */
 .agent-showcase {
-  background-color: #54a5f6;
+    background-color: #18396a;;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -780,7 +780,7 @@ ul {
 } */
 .property h4 {
   font-size: 16px;
-  color: #333;
+  color: #5a5a71;;
   font-weight: 700;
   text-transform: capitalize;
 }
