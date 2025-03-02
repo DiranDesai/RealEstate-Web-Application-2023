@@ -13,7 +13,6 @@ import useUser from "../hooks/useUser";
 import useAuthState from "../hooks/useAuthState";
 import Footer from "../components/Footer";
 
-const newSocket = io("http://localhost:5000");
 
 
 
@@ -29,10 +28,13 @@ function Home() {
 
 
   useEffect(() => {
-    console.log(newSocket);
+    const newSocket = io("http://localhost:5000", {
+      auth: {token}
+    });
     
-    newSocket.on("connect", () => {
+    newSocket.on("userConnected", () => {
       console.log("Connected to Socket.IO server");
+      playSound()
     });
 
     newSocket.on("message", data => {

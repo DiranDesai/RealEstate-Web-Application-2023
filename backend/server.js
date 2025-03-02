@@ -10,6 +10,9 @@ runServer();
 const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
 const express = require("express");
+const jwt = require("jsonwebtoken");
+const { getCurrentUser } = require("./controllers/userController");
+const User = require("./models/userModel");
 
 let origin;
 
@@ -26,17 +29,19 @@ let corsOptions = {
 
 const app = express();
 const server = http.createServer(app);
-const {initializeSocket, getIo} = require("./socket.js");
 
-initializeSocket(server, origin)
+const io = socketIo(server, {
+    cors: {
+        origin: origin,
+        methods: ["GET", "POST"],
+        credentials: true,
+    },
+});
 
-let io = getIo(); 
+const onlineUsers = {}
 
 
-io.emit("done", "YES")
 
-
- 
 
 
 console.log(process.env.NODE_ENV);
@@ -46,9 +51,33 @@ app.use(fileUpload());
 app.use(express.json());
 
 
-io.on("connection", (socket) => {
+io.on("connection", async (socket) => {
     console.log("New user connected: ", socket.id)
+
+    const token = socket.handshake.auth?.token;
+    const loggedUser = await getUserId(token)
+
+    onlineUsers[loggedUser._id] = socket.id
+
+    console.log(onlineUsers)
+
+    io.emit("userConnected", "Yoh")
+
+    socket.on("disconnect", () => {
+        console.log(`Hello World`)
+    
+    })
 })
+
+async function getUserId(token) {
+    try {
+        const {userId} = await jwt.verify(token, process.env.JWT_SECRET)
+        const user = await User.findById({_id: userId}).select("isAdmin username")
+        return user
+    } catch (error) {
+        return new Error("Something went wrong")
+    }
+}
 
 
 
