@@ -1,20 +1,67 @@
-# RealEstate-Web-Application-2023
+# Pabondi - Real Estate Application
 
-This is a real estate project developed using HTML, CSS, React, and Node.js. The project aims to provide a user-friendly web application for browsing and searching real estate properties.
+<h4><a href="https://real-estate-frontend-z0wx.onrender.com/">Live Demo</a></h4>
+
+## 📌 Overview
+Pabondi is a full-featured real estate application that allows users to **buy, rent, sell, and list properties** effortlessly. Designed with a modern, user-friendly interface, it provides seamless property browsing, searching, and management features.
+
+![Screenshot (154)](https://github.com/user-attachments/assets/9fbe5ed5-a120-4b17-85cc-4e5b76b38578)
+![Screenshot (155)](https://github.com/user-attachments/assets/3a44fad6-f7e3-43c1-b55a-88e127194dbc)
+![Screenshot (156)](https://github.com/user-attachments/assets/6c0ec1d6-5156-4cdb-b69e-82da4cf05678)
+![Screenshot (157)](https://github.com/user-attachments/assets/140adea6-2e65-4cc2-9a7c-c7177e9e11c8)
+
+## 🚀 Features
+- 🔍 **Advanced Property Search** - Filter by location, price, type, and more.
+- 🏡 **Buy, Sell, and Rent Properties** - Connect property seekers with owners.
+- 🛎️ **User Authentication** - Secure login, registration, and account management.
+- 📩 **Real-time Notifications** - Stay updated with property listings and offers.
+- 📌 **Map Integration** - View properties on an interactive map.
+- 📊 **Dashboard for Agents & Users** - Manage property listings and track activity.
+- 💬 **Messaging System** - Direct chat between buyers, sellers, and agents.
+
+## 🏗️ Tech Stack
+### **Frontend:**
+- React.js 
+
+### **Backend:**
+- Node.js with Express
+- MongoDB 
+
+### **APIs & Services:**
+- Google Maps API (for location-based searches)
+
+- Stripe / PayPal (for payments, if needed)
+
+## 📦 Installation & Setup
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/pabondi.git](https://github.com/DiranDesai/RealEstate-Web-Application-2023.git
+   cd RealEstate-Web-Application-2023
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add:
+   ```sh
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secret_key
+   ```
+
+4. **Run the application:**
+   ```sh
+   npm run dev  # Start backend (Node.js & Express)
+   ```
 
 
-<h3><a href="https://real-estate-frontend-z0wx.onrender.com/#/">Live Demo</a></h3>
+## 🤝 Contributing
+Contributions are welcome! Fork the repo, create a branch, and submit a pull request.
 
-![Screenshot (105)](https://github.com/DiranDesai/RealEstate-Web-Application-2023/assets/65699558/ad15c05f-24b9-4d09-b351-7fcfb89dfd79)
-
-
-![Screenshot (88)](https://github.com/DiranDesai/RealEstate-Web-Application-2023/assets/65699558/ffa50412-2848-4bb7-970f-6d795c3ecdf0)
-
-
-![Screenshot (106)](https://github.com/DiranDesai/RealEstate-Web-Application-2023/assets/65699558/254447d1-56ba-4863-a5cb-02542cdb03ce)
-
-![Screenshot (107)](https://github.com/DiranDesai/RealEstate-Web-Application-2023/assets/65699558/1937515e-c702-453b-b255-20c5a7885d4a)
-
+## 📝 License
+This project is licensed under the **MIT License**.
 
 
 
