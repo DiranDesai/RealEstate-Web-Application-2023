@@ -8,6 +8,8 @@ import { SHOW_NOTIFY } from "../context/types";
 import MessageComponent from "./MessageComponent";
 import FilterBuy from "./FilterBuy";
 import FilterRent from "./FilterRent";
+import FilterSell from "./FilterSell";
+import FilterRentOut from "./FilterRentOut";
 
 function Filter() {
   const {dispatch, error, payloadData} = useNotify();
@@ -20,6 +22,8 @@ function Filter() {
       <FilterTabs />
       {filterStatus == "buy" && <FilterBuy />}
       {filterStatus == "rent-in" && <FilterRent />}
+      {filterStatus == "sell" && <FilterSell />}
+      {filterStatus == "rent-out" && <FilterRentOut />}
     </div>
     
     </>
