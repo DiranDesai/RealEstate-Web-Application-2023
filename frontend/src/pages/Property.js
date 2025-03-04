@@ -254,7 +254,7 @@ function Property() {
                   <div>
                     <img
                       src={`../${
-                        userDetails?.profileUrl || `images/default2.jpg`
+                        userDetails?.profileUrl || `images/user3.png`
                       }`}
                       alt=""
                     />

@@ -358,6 +358,17 @@ ul {
   border: none;
   padding: 10px 0;
 }
+.navbar-profile .dropdown-menu::before{
+  content: " ";
+    position: absolute;
+    bottom: 100%;
+    right: 0%;
+    margin-left: -5px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: transparent transparent #e7e4e4 transparent;
+}
+
 
 .navbar-top-profile {
   font-size: 14px !important;
@@ -410,7 +421,7 @@ ul {
   padding: 0;
 }
 .navbar-bottom-profile ul li{
-  padding: 2px 13px;
+  padding: 2px 10px;
 }
 
 .navbar-bottom-profile ul li a {
@@ -1152,6 +1163,7 @@ ul {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #838993;
 }
 
 .property-page .property-middle .btn {
@@ -1262,6 +1274,7 @@ ul {
   display: inline-block;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #838993;
 }
 .agents .agent-content{
   padding: 2rem;
