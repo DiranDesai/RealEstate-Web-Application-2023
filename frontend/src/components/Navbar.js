@@ -91,7 +91,7 @@ function Navbar() {
                             const {username, profileUrl} = notification.userId
                             return (
                               <div className="user bg-light">
-                                <img src={!profileUrl ? 'images/default2.jpg' : profileUrl} alt="" />
+                                <img src={!profileUrl ? 'images/user3.png' : profileUrl} alt="" />
                                 <div className="user-info">
                                   <p>
                                     <span className="name">{username}</span>
@@ -128,7 +128,7 @@ function Navbar() {
                         src={
                           profileData?.profileUrl
                             ? profileData?.profileUrl
-                            : "images/default2.jpg"
+                            : "images/user3.png"
                         }
                         alt={profileData?.username}
                       />
@@ -140,7 +140,7 @@ function Navbar() {
                             src={
                               profileData?.profileUrl
                                 ? profileData?.profileUrl
-                                : "images/default2.jpg"
+                                : "images/user3.png"
                             }
                             alt={profileData?.username}
                           />

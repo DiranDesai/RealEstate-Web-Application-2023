@@ -69,7 +69,7 @@ function Profile() {
                   <div className="profile-container">
                     <div className="profile-header d-flex">
                       <div className="user-profile-wrapper">
-                        <img src={profileData.profileUrl ? profileData.profileUrl : 'images/default2.jpg'} alt={profileData.username} />
+                        <img src={profileData.profileUrl ? profileData.profileUrl : 'images/user3.png'} alt={profileData.username} />
                         <span className="active-state"></span>
                       </div>
                       <div>
