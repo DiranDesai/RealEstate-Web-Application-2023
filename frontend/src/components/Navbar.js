@@ -13,10 +13,6 @@ function Navbar() {
   const { profileData, favourites, notifications, getUser, dispatch } =
     useUser();
 
-  
-
-
-
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -30,8 +26,6 @@ function Navbar() {
     dispatch({ type: RESET });
     logout();
   };
-
-
 
   return (
     <div className="navbar">
@@ -88,10 +82,18 @@ function Navbar() {
                       <div className="users">
                         {notifications.length > 0 &&
                           notifications.map((notification) => {
-                            const {username, profileUrl} = notification.userId
+                            const { username, profileUrl } =
+                              notification.userId;
                             return (
                               <div className="user bg-light">
-                                <img src={!profileUrl ? 'images/user3.png' : profileUrl} alt="" />
+                                <img
+                                  src={
+                                    !profileUrl
+                                      ? "images/user3.png"
+                                      : profileUrl
+                                  }
+                                  alt=""
+                                />
                                 <div className="user-info">
                                   <p>
                                     <span className="name">{username}</span>
@@ -152,14 +154,10 @@ function Navbar() {
                         <div className="navbar-bottom-profile">
                           <ul>
                             <li>
-                              <a href="#">
-                                <i className="bi bi-app"></i>
-                                <span>Status</span>
-                              </a>
-                            </li>
-                            <li>
                               <Link to="profile">
-                                <i className="bi bi-person-circle"></i>
+                              <span class="material-symbols-outlined">
+account_circle
+</span>
                                 <span>Profile</span>
                               </Link>
                             </li>
@@ -168,15 +166,27 @@ function Navbar() {
                                 className="dropdown-item"
                                 onClick={handleLogout}
                               >
-                                <i className="bi bi-star"></i>
+                                <span class="material-symbols-outlined">
+                                  logout
+                                </span>
                                 <span>Logout</span>
                               </Link>
                             </li>
                             <li>
                               <Link to="agents" className="dropdown-item">
-                                <i className="bi bi-star"></i>
+                              <span class="material-symbols-outlined">
+group
+</span>
                                 <span>Agents</span>
                               </Link>
+                            </li>
+                            <li>
+                              <a href="#">
+                              <span class="material-symbols-outlined">
+settings
+</span>
+                                <span>Settings</span>
+                              </a>
                             </li>
                           </ul>
                         </div>

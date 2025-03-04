@@ -353,7 +353,10 @@ ul {
 }
 
 .navbar-profile .dropdown-menu {
-  margin-top: 35px;
+  margin-top: 30px;
+  box-shadow: 0 1px 6px 0 #20212447;
+  border: none;
+  padding: 10px 0;
 }
 
 .navbar-top-profile {
@@ -372,10 +375,10 @@ ul {
 }
 
 .navbar-top-profile .profile-left h5 {
-  color: #000000;
-  font-weight: 400;
   margin: 0;
   font-size: 18px;
+  font-weight: 500;
+  color: #1b1e36;
 }
 
 .navbar-top-profile .profile-left h6 {
@@ -406,17 +409,20 @@ ul {
 .navbar-bottom-profile ul {
   padding: 0;
 }
-
-.navbar-bottom-profile ul li a {
-  display: flex;
-  align-items: center;
-  padding: 7px 5px;
+.navbar-bottom-profile ul li{
+  padding: 2px 13px;
 }
 
 .navbar-bottom-profile ul li a {
   display: flex;
   align-items: center;
   padding: 7px 5px;
+  font-weight: 500;
+  color: #1b1e36;
+}
+
+.navbar-bottom-profile ul li a span{
+  margin-left: 6px;
 }
 
 .navbar-bottom-profile ul li a:hover {
@@ -2235,8 +2241,7 @@ ul {
   }
 
   .profile-page-container .container{
-    box-shadow: 0 1px 6px 0 #20212447;
-    padding-top: 20px;
+    
   }
   .profile-header .top-profile-header .right button:last-child{
     margin-top: 10px;

@@ -70,7 +70,7 @@ function SingleProperty({property}) {
           <div className="owner d-flex align-items-center">
             <img src={user?.profileUrl || `images/user3.png`} />
             <div>
-              By <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{truncate(user?.username) || <Spinner />}</a></Link>
+              by <Link to={loggedUserId === userId ? '/profile' : `/profile/${userId}`}><a>{truncate(user?.username) || <Spinner />}</a></Link>
             </div>
           </div>
           <div>
