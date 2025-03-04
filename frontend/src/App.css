@@ -863,7 +863,9 @@ ul {
   margin-left: 10px;
 }
 .property .owner a{
-  color: #0b8cd3;
+  color: #697981;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .property .owner p a {
