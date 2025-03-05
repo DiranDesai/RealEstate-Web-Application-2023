@@ -25,7 +25,7 @@ function Review({ review }) {
             <div className="review-left">
               <div className="profile">
                 <img
-                  src={userDetails?.profileUrl || `../images/default2.jpg`}
+                  src={userDetails?.profileUrl || `../images/user3.png`}
                   alt=""
                 />
               </div>
