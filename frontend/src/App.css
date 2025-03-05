@@ -725,7 +725,8 @@ ul {
 }
 
 .agent-showcase p {
-  color: #e2e9f3;
+  color: #ffffff;
+  font-weight: 400;
 }
 
 
@@ -901,6 +902,12 @@ ul {
   background-color: #e7eaed;
   font-weight: 500;
   padding: 6px 20px;
+  display: flex;
+  gap: 3px;
+  transition: 0.3s all ease-in;
+}
+.property .btn:hover{
+  background-color: #d9e1e9;
 }
 
 .property .bottom {

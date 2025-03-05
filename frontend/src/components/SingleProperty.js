@@ -75,7 +75,7 @@ function SingleProperty({property}) {
           </div>
           <div>
             <Link to={`property/${_id}`}>
-              <button className="btn">Details <span className="material-icons">info</span></button>
+              <button className="btn">Details <span className="material-icons">near_me</span></button>
             </Link>
           </div>
         </div>
