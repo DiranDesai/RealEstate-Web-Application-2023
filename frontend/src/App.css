@@ -18,6 +18,7 @@
 :root {
   --color-1: #e7eaed;
   --color2: #0b8cd3;
+  --color3: rgb(249 101 101);
   --border-color1: #e1e3ea;
   --shallow-shadow2: 0 1px .625rem 0 hsla(210, 7%, 22%, .06), 0 .125rem .25rem 0 hsla(210, 7%, 22%, .08);
   --shallow-shadow: 0px 0 30px rgb(1 41 112 / 10%);
@@ -31,15 +32,15 @@ html, body{
 
 
 body {
-  background: #fff;
+  background: #fafafa;
   font-weight: 500;
   font-family: "Roboto"; 
   overflow: hidden !important;
   line-height: 1.7; 
   color: #18396a;        
-         transform: scale(0.9);
+  /* transform: scale(0.9);
   transform-origin: top left;
-  width: 111.11%;  
+  width: 111.11%;   */
 height: 100%;                         
 } 
 
@@ -136,6 +137,8 @@ img {
 .property-spinner {
   width: 20px;
   height: 20px;
+  border-color: #cbd0da;
+  border-right-color: transparent;
 }
 
 .app-wrapper {
@@ -458,9 +461,12 @@ ul {
 }
 
 .navbar .notification-container .dropdown-menu{
-  min-width: 390px;
+  min-width: 380px;
   height: 400px;
+  box-shadow: 0 1px 6px 0 #20212447;
+  border: none;
   overflow-y: scroll;
+  padding: 20px 10px;
 }
 .navbar .notification-container .dropdown-top p{
   font-weight: 600;
@@ -487,10 +493,11 @@ ul {
   margin-right: 10px;
 }
 .navbar .notification-container img{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #c1c8d5;
 }
 .navbar .notification-container .user-info .name{
   margin-right: 10px;
@@ -691,7 +698,7 @@ ul {
 
 /* AGENT SHOWCASE STYLES */
 .agent-showcase {
-    background-color: #18396a;;
+    background-color: var(--color3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -724,13 +731,12 @@ ul {
 
 .agent-showcase .register-btn {
   color: #ffffff;
-    background-color: #1e81eb;
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-top: 15px;
-    font-weight: 800;
-    font-family: "Nunito Sans";
-    border: 2px solid #057af0;
+  background-color: #47586b;
+  padding: 15px 20px;
+  border-radius: 30px;
+  margin-top: 15px;
+  font-weight: 500;
+  border: 2px solid #69829b;
 }
 
 /* Property styles */
@@ -779,8 +785,8 @@ ul {
 
 .property .middle p {
   font-size: 13px;
-    color: #62666b;
-    font-weight: 600;
+  color: #62666b;
+  font-weight: 400;
 }
 .property .middle p .time{
   margin-left: 20px;
@@ -859,7 +865,7 @@ ul {
 }
 
 .property .tag-3 {
-  background-color: #f9a11e;
+  background-color: var(--color3);
 }
 
 .property .tag-4 {
@@ -868,9 +874,10 @@ ul {
 
 .property .owner img {
   width: 40px;
-  height: 50px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #9fa2b0;
 }
 .property .owner div{
   margin-left: 8px;
@@ -1322,6 +1329,7 @@ ul {
 /* category styles */
 .category-listing-container {
   background-color: #fff;
+  padding: 20px 0px;
 }
 .category-listing-wrapper .card {
   display: flex;

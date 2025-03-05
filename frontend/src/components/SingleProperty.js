@@ -27,7 +27,7 @@ function SingleProperty({property}) {
 
   return (
     <div className="col-md-3 property" key={_id}>
-      <div className="card shadow-1">
+      <div className="">
         <div className="top">
           <div className="property-tags d-flex justify-content-between align-items-center">
             <div>
@@ -75,7 +75,7 @@ function SingleProperty({property}) {
           </div>
           <div>
             <Link to={`property/${_id}`}>
-              <button className="btn">Details</button>
+              <button className="btn">Details <span className="material-icons">info</span></button>
             </Link>
           </div>
         </div>
