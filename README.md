@@ -38,7 +38,7 @@ Pabondi is a full-featured real estate application that allows users to **buy, r
 ## 📦 Installation & Setup
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-username/pabondi.git](https://github.com/DiranDesai/RealEstate-Web-Application-2023.git
+   git clone https://github.com/DiranDesai/RealEstate-Web-Application-2023.git
    cd RealEstate-Web-Application-2023
    ```
 
