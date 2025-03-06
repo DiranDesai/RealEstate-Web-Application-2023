@@ -155,9 +155,9 @@ function Navbar() {
                           <ul>
                             <li>
                               <Link to="profile">
-                              <span class="material-symbols-outlined">
-account_circle
-</span>
+                                <span class="material-symbols-outlined">
+                                  account_circle
+                                </span>
                                 <span>Profile</span>
                               </Link>
                             </li>
@@ -174,20 +174,30 @@ account_circle
                             </li>
                             <li>
                               <Link to="agents" className="dropdown-item">
-                              <span class="material-symbols-outlined">
-group
-</span>
+                                <span class="material-symbols-outlined">
+                                  group
+                                </span>
                                 <span>Agents</span>
                               </Link>
                             </li>
                             <li>
                               <a href="#">
-                              <span class="material-symbols-outlined">
-settings
-</span>
+                                <span class="material-symbols-outlined">
+                                  settings
+                                </span>
                                 <span>Settings</span>
                               </a>
                             </li>
+                            {profileData.isAdmin && (
+                              <li>
+                                <a href="#">
+                                  <span class="material-symbols-outlined">
+                                    dashboard
+                                  </span>
+                                  <span>Dashboard</span>
+                                </a>
+                              </li>
+                            )}
                           </ul>
                         </div>
                       </div>

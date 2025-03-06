@@ -14,6 +14,11 @@ const authUser = asyncHandler(async (req, res) => {
     } 
 
     if (user && await (checkPassword(user, password))) {
+
+        if (user.isAdmin) {
+            console.log("Welcome Admin")
+        }
+
         return res.status(200).json({
             ...user,
             token: generateToken(user._id)

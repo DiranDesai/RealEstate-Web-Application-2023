@@ -12,7 +12,8 @@ function ProfileOverview() {
     phone,
     facebook,
     twitter,
-    about
+    about, 
+    isAdmin
   } = profileData;
   return (
     <div
@@ -78,6 +79,14 @@ function ProfileOverview() {
               <div className="col-lg-7 col-md-8">{email}</div>
             </div>
           </>
+        )}
+        {isAdmin && (
+          <>
+          <div className="row">
+            <div className="col-lg-3 col-md-4 label"><label htmlFor="Permission">Permission</label></div>
+            <div className="col-lg-7 col-md-8">Admin</div>
+          </div>
+        </>
         )}
       </div>
     </div>

@@ -5,10 +5,6 @@ const {getIo} = require("../socket.js");
 
 
 
-
-
-
-
 const mvFile = (file, path) => {
   return new Promise((resolve, reject) => {
     file.mv(path, (error) => {
