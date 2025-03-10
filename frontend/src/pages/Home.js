@@ -23,11 +23,15 @@ function Home() {
   const soundNotifyElement = useRef()
 
   function playSound(){
-    soundNotifyElement.current.play()
+    if (soundNotifyElement.current) {
+      soundNotifyElement.current.play()
+    }
   }
 
 
   useEffect(() => {
+    if (!token) return;
+
     const newSocket = io("http://localhost:5000", {
       auth: {token}
     });
@@ -52,14 +56,14 @@ function Home() {
     return () => {
       newSocket.disconnect();
     };
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     if (token) {
       getCurrentUser();
       getUserNotifications();
     }
-  }, [token]);
+  }, [token, getCurrentUser, getUserNotifications]);
 
   if (!token || !profileData) {
     console.log(profileData);

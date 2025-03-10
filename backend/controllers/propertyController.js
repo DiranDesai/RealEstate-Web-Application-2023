@@ -139,8 +139,6 @@ const createPropertyReview = async (req, res) => {
     let io = getIo()
     io.emit("ReviewCreated", "Hello World")
 
-
-
     if (savedReview) {
       return res
         .status(201)

@@ -195,6 +195,11 @@ ul {
   margin-bottom: 0;
 }
 
+.property .single-card{
+  border: 1px solid #d1d9db9c;
+    border-radius: 7px;
+}
+
 .card {
   border: 1px solid var(--color-1);
   box-shadow: var(--shallow-shadow3);

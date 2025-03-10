@@ -35,7 +35,7 @@ const register = async (req, res) => {
     const checkUserExist = await User.findOne({email});
 
     if (checkUserExist) {
-        res.json({msg: "user with that email already exits"});
+        res.json({msg: "user with that email already exist"});
         console.log(checkUserExist);
         return
     }

@@ -52,16 +52,14 @@ io.on("connection", async (socket) => {
 
     const token = socket.handshake.auth?.token;
     const loggedUser = await getUserId(token)
-
     onlineUsers[loggedUser._id] = socket.id
 
     console.log(onlineUsers)
 
     io.emit("userConnected", "Yoh")
-
+ 
     socket.on("disconnect", () => {
-        console.log(`Hello World`)
-    
+        console.log(`User disconnected...`)
     })
 })
 
